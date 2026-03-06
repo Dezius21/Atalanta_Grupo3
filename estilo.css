@@ -1,0 +1,105 @@
+:root {
+    --color-blanco:#ffffff;
+    --color-negro:#000;
+    --color-rojo-oscuro:#af0707; 
+    --color-rojo-claro:#cf0707;
+
+    --borde-redondo: 10px;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: var(--color-negro);
+    color: var(--color-blanco);
+}
+
+/* ============================
+   NAVBAR
+============================ */
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.6);   /* negro con 60% de opacidad*/
+
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.navbar ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    display: flex;
+    align-items: center;
+}
+
+.navbar li {
+    display: inline-block;
+    padding: 8px 0;
+    margin: 0 12px;
+}
+
+.navbar a {
+    color: var(--color-blanco);
+    text-decoration: none;
+    padding: 8px 14px;
+    font-weight: bold;
+}
+
+.navbar img{
+    width: 325px;
+    padding-right: 50px;
+}
+
+.navbar a:hover {
+    color: var(--color-rojo-oscuro);
+    text-decoration: underline;
+
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.navbar .activo {
+    text-decoration: underline;
+    border: solid 0 var(--color-rojo-claro);
+    border-width: 0 0 2px 0;
+    color: var(--color-rojo-claro);
+}
+
+
+
+/*
+  botones
+*/
+.estilo-boton1{
+    padding: 4px 16px;
+    background-color: var(--color-rojo-oscuro);
+    color: var(--color-blanco);
+    border: 1px solid var(--color-rojo-oscuro);
+    border-radius: var(--borde-redondo);
+    text-decoration: none;
+    cursor: pointer;
+
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.estilo-boton1:hover{
+    background-color: var(--color-rojo-claro);
+    box-shadow: 0 0 15px var(--color-azul);
+}
+
+
+
+
+
+.div-prueba{
+    background-color: var(--color-blanco);
+    color: var(--color-negro);
+}
+

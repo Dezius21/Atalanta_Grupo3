@@ -6,6 +6,59 @@
     <title>Contacto</title>
 </head>
 <body>
+    <header class="header">
+        <nav class="navbar">
+            <a href="./index.html" class="navbar__logo-conatiner">
+                <img src="" alt="" class="navbar__logo">
+            </a>
+            <!-- Faltan las anclas del nav -->
+            <ul class="navbar__list">
+                <li class="navbar__item">Quiénes somos</li>
+                <li class="navbar__item">
+                    Servicios
+                    <ul class="dropdown-items">
+                        <li class="dropdown-items__item">Ciberseguridad</li>
+                        <li class="dropdown-items__item">Digital</li>
+                        <li class="dropdown-items__item">Formación</li>
+                    </ul>
+                </li>
+                <li class="navbar__item">Empleo</li>
+                <li class="navbar__item">Noticias</li>
+                <li class="navbar__item">Contacto</li>
+            </ul>
+        </nav>
+
+    <div class="header__info">
+        <h1 class="header__heading">Contacta con nuestros Expertos en Ciberseguridad e Innovación</h1>
+        <h2 class="header__title">HABLEMOS DE CÓMO IMPULSAR TU SEGURIDAD Y TU NEGOCIO</h2>
+        <p class="header__paragraph">Estamos aquí para ayudarte a proteger tu organización, transformar tu organización y formar a tu equipo. Completa el formulario y uno de nuestros expertos se pondrá en contacto contigo.</p>
+        <div class="header-tags">
+            <div class="header-tags__tag">
+                <img src="./images/form_images/form_image2.png" alt="#" class="header-tags__icon">
+                <p class="header-tags__text">
+                    Asesoramiento en ciberseguridad.
+                </p>
+            </div>
+            <div class="header-tags__tag">
+                <img src="./images/header_images/tag_four.png" alt="#" class="header-tags__icon">
+                <p class="header-tags__text">
+                    Transformación digital segura.
+                </p>
+            </div>
+            <div class="header-tags__tag">
+                <img src="./images/form_images/form_image1.png" alt="#" class="header-tags__icon">
+                <p class="header-tags__text">
+                    Formación especializada.
+                </p>
+            </div>
+        </div>
+    </div>
+    <a href="#" class="header__button-form">
+        <span class="header__button-form-span">Agendar una reunion</span>
+    </a>
+</header>
+
+
     <div class="form__container">
 
         <h2 class=form__container-title>Inicia tu Diagnóstico de Seguridad con Atalanta</h2>
@@ -14,27 +67,41 @@
         adaptada.</p>
 
         <div>
-            <p class="form__container-text"></p>
-            <img src="" alt="" class="form__img">
+            <img src="images/form_images/form_image1.png" alt="" class="form__img">
+            <p class="form__container-text"> Soluciones avanzadas para blindar tu negocio frente a ciberamenazas.</p>
         </div>
         <div>
-            <img src="" alt="" class="form__img">
-            <p class="form__container-text"></p>
+            <img src="./images/form_images/form_image2.png" alt="" class="form__img">
+            <p class="form__container-text">Diseño y ejecución de estrategias digitales sin comprometer la seguridad.</p>
         </div>
         <div>
-            <img src="" alt="">
-            <p class="form__container-text"></p>
+            <img src="./images/form_images/form_image3.png" alt="">
+            <p class="form__container-text">Certificaciones reconocidas</p>
         </div>
         <div>
-            <img src="" alt="" class="form__img">
-            <p class="form__container-text"></p>
+            <img src="./images/form_images/form_image4.png" alt="" class="form__img">
+            <p class="form__container-text">Expertos en ciberseguridad, IA y transformación digital con experiencia internacional.</p>
         </div>
+        <main class="section">
+    
+            <h2>¿En qué podemos ayudarte?</h2>
+            <div class="main__div">
+                <img src="./images/main_images/tag_one.png" alt="#" class="main_img">
+                <h3 class="main__subtitle">Consultoría Técnica</h3>
+                <p class="main__text">Auditorías, Red Team y SOC para empresas que no pueden permitirse fallos.</p>
+                <img src="./images/form_images/form_image4.png" alt="#" class="main_img">
+                <h3 class="main__subtitle">Evolución Digital</h3>
+                <p class="main__text">Estrategia e IA bajo control para directivos que buscan crecimiento seguro.</p>
+                <img src="./images/main_images/tag_two.png" alt="#" class="main_img">
+                <h3 class="main__subtitle">Formación de Alto Nivel</h3>
+                <p class="main__text">Programas oficiales OffSec para profesionales y equipos corporativos.</p>
+            </div>
+        </main>
 
 
 
 
-
-        <form action="Contactar-usaurio" method="post" class="form-contact">
+        <form action="contact-user" method="post" class="form-contact">
             <legend>Iniciar Diagnostico de Seguridad</legend>
             <label for="first-name" class="form__label">Nombre</label>
             <input type="text" id="first-name" required placeholder="Introduzca su nombre" class="form__input">

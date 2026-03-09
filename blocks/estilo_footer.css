@@ -1,0 +1,156 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.footer {
+    background-color: #000000;
+    font-family: 'DM Sans', sans-serif;
+    color: #e8eaf0;
+    border-top: 1px solid #1e2330;
+}
+
+/* ── Fila superior (Menú + Contacto) ── */
+.footer__top {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    gap: 2rem;
+    padding: 3rem 4rem;
+    border-bottom: 1px solid #ad0000;
+}
+
+.footer__top-img-container{
+    align-self: center;
+}
+
+.footer__top-img{
+    width: 100px; 
+    height: 100px;
+}
+
+/* Cada columna dentro de la fila superior */
+.footer__column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    flex: 1;
+}
+
+/* Título de cada columna (h4) */
+.footer__column-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    letter-spacing: 0.09rem;
+    text-transform: uppercase;
+    color: #ad0000;
+    margin-bottom: 3rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #ad0000;
+    width: 100%;
+    text-align: center;
+}
+
+/* Lista de items de cada columna */
+.footer__list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.footer__list-columns{
+    display: flex;
+    gap: 100px;
+}
+
+/* Enlaces dentro de la lista */
+.footer__link {
+    font-size: 0.9rem;
+    font-weight: 300;
+    color: #a0aec0;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.footer__link:hover {
+    color: #ad0000;
+}
+
+/* Texto plano (sin enlace), ej: dirección */
+.footer__plain-text {
+    color: #a0aec0;
+    font-size: 0.85rem;
+    max-width: 220px;
+    line-height: 1.5;
+    text-align: center;
+}
+
+/* ── Fila inferior (copyright + legal) ── */
+.footer__bottom {
+    background: linear-gradient(to bottom, #410000, #000000);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.2rem 4rem;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+/* Texto de copyright */
+.footer__copyright {
+    font-size: 0.78rem;
+    color: #6b7280;
+    font-weight: 300;
+}
+
+/* Lista de links legales (fila inferior) */
+.footer__legal-list {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    gap: 1.6rem;
+}
+
+/* Links legales */
+.footer__legal-link {
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    color: #6b7280;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.footer__legal-link:hover {
+    color: #ad0000;
+}
+
+/*
+   Para pantallas pequeñas
+*/
+@media (max-width: 640px) {
+    .footer__top {
+        flex-direction: column;
+        align-items: center;
+        padding: 2.5rem 1.5rem;
+        gap: 2.5rem;
+    }
+
+    .footer__bottom {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 1.2rem 1.5rem;
+    }
+
+    .footer__legal-list {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
+    }
+}

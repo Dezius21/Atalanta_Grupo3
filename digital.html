@@ -14,7 +14,11 @@
       href="https://atalantago.com/wp-content/uploads/cropped-Favicon-Atalanta-32x32.png"
       type="image/x-icon"
     />
-
+    <link rel="stylesheet" href="./pages/index.css">
+    <link rel="stylesheet" href="./blocks/navbar.css">
+    <link rel="stylesheet" href="./blocks/header.css">
+    <link rel="stylesheet" href="./vendor/normalize.css">
+    <link rel="stylesheet" href="./blocks/ditigal.css">
     <title>Equipo de expertos en ciberseguridad | Atalanta</title>
   </head>
 
@@ -22,7 +26,7 @@
     <header class="header">
       <nav class="navbar">
         <a href="./index.html" class="navbar__logo-container">
-          <img src="" alt="" class="navbar__logo" />
+          <img src="./images/main_images/Atalanta_Logo_1.png" alt="" class="navbar__logo" />
         </a>
 
         <ul class="navbar__list">
@@ -61,6 +65,56 @@
           </li>
         </ul>
       </nav>
+      <section class="hero">
+        <div class="hero__content">
+          <p class="hero__heading">Quiénes somos</p>
+
+          <h1 class="hero__title">
+            Mejoramos el valor de tu compañía y experiencia cliente a través de la tecnología          
+          </h1>
+
+          <p class="hero__paragraph">
+            Ayudamos a nuestros clientes a establecer la estrategia digital y cómo llevarla a cabo, a modernizar la tecnología core y adaptarla de forma segura.
+          </p>
+
+          <div class="hero__tags">
+            <div class="hero__tag">
+              <img
+                src="images/digital_images/Header_1.png"
+                alt="#"
+                class="hero__icon"
+              />
+              <p class="hero__text">Diseño y ejecución de estrategia digital.</p>
+            </div>
+
+            <div class="hero__tag">
+              <img
+                src="images/digital_images/Header_2.png"
+                alt="#"
+                class="hero__icon"
+              />
+              <p class="hero__text">
+                Modernización de la tecnología core de tu empresa.
+              </p>
+            </div>
+
+            <div class="hero__tag">
+              <img
+                src="images/digital_images/Header_3.png"
+                alt="#"
+                class="hero__icon"
+              />
+              <p class="hero__text">Aprovecha el 100% del poder de los datos.</p>
+            </div>
+          </div>
+
+          <a href="#" class="hero__button">
+            <span class="hero__button-text"
+              >Agendar una sesión estratégica</span
+            >
+          </a>
+        </div>
+      </section>
     </header>
     <section class="digital">
       <div class="digital__container">
@@ -68,7 +122,7 @@
           <!-- Card 1 -->
 
           <article class="digital-card card">
-            <img src="" alt="#" class="digital-card__icon" />
+            <img src="./images/digital_images/Icon_1.png" alt="#" class="digital-card__icon" />
 
             <h3 class="digital-card__title">Digital</h3>
 
@@ -83,7 +137,7 @@
           <!-- Card 2 -->
 
           <article class="digital-card card">
-            <img src="" alt="#" class="digital-card__icon" />
+            <img src="./images/digital_images/Icon_2.png" alt="#" class="digital-card__icon" />
 
             <h3 class="digital-card__title">Inteligencia Artificial</h3>
 
@@ -98,7 +152,7 @@
           <!-- Card 3 -->
 
           <article class="digital-card card">
-            <img src="" alt="#" class="digital-card__icon" />
+            <img src="./images/digital_images/Icon_3.png" alt="#" class="digital-card__icon" />
 
             <h3 class="digital-card__title">Transformación</h3>
 
@@ -112,7 +166,7 @@
           <!-- Card 4 -->
 
           <article class="digital-card card">
-            <img src="" alt="#" class="digital-card__icon" />
+            <img src="./images/digital_images/Icon_4.png" alt="#" class="digital-card__icon" />
 
             <h3 class="digital-card__title">Soluciones</h3>
 
@@ -125,7 +179,7 @@
           <!-- Card 5 -->
 
           <article class="digital-card card">
-            <img src="" alt="#" class="digital-card__icon" />
+            <img src="./images/digital_images/Icon_5.png" alt="#" class="digital-card__icon" />
 
             <h3 class="digital-card__title">Innovación</h3>
 
@@ -140,7 +194,7 @@
           <!-- Card 6 -->
 
           <article class="digital-card card">
-            <img src="" alt="#" class="digital-card__icon" />
+            <img src="./images/digital_images/Icon_6.png" alt="#" class="digital-card__icon" />
 
             <h3 class="digital-card__title">Data</h3>
 
@@ -150,9 +204,105 @@
               evidencias sólidas.
             </p>
           </article>
+          <article class="digital-card card">
+            <img src="./images/main_images/Atalanta_Logo_1.png" alt="#" class="digital-card__icon" />
+          </article>
         </div>
       </div>
     </section>
-    <footer class="footer"></footer>
+    <footer class="footer">
+
+      <div class="footer__top">
+          <div class="footer__top-img-container">
+              <img class="footer__top-img" src="images/main_images/Favicon_270x270.png">
+          </div>
+
+          <div class="footer__column"> <!-- pestañas de arriba -->
+              <h4 class="footer__column-title">Menú</h4>
+              <div class="footer__list-columns">
+                  <ul class="footer__list">
+                      <li style="padding-bottom: 0.7rem;">
+                          <a class="footer__link" href="#"> <!-- METER LINKS A LAS PAGINAS ================================================================================== -->
+                              <span>Quiénes somos</span>
+                          </a>
+                      </li>
+                      <li style="padding-bottom: 0.7rem;">
+                          <a class="footer__link" href="#">
+                              <span>Ciberseguridad</span>
+                          </a>
+                      </li>
+                      <li>
+                          <a class="footer__link" href="#">
+                              <span>Digital</span>
+                          </a>
+                      </li>
+                  </ul>
+
+                  <ul class="footer__list">
+                      <li style="padding-bottom: 0.7rem;">
+                          <a class="footer__link" href="#">
+                              <span>Formación</span>
+                          </a>
+                      </li>
+                      <li style="padding-bottom: 0.7rem;">
+                          <a class="footer__link" href="#">
+                              <span>Empleo</span>
+                          </a>
+                      </li>
+                      <li>
+                          <a class="footer__link" href="#">
+                              <span>Contacto</span>
+                          </a>
+                      </li>
+                  </ul>
+              </div>
+          </div>
+
+          <div class="footer__column"> <!-- contacto -->
+              <h4 class="footer__column-title">Contacta con nosotros</h4>
+              <ul class="footer__list">
+                  <li class="footer__list-item"> <!-- correo -->
+                      <a class="footer__link" href="mailto:info@atalantago.com" target="_blank">
+                          <span>info@atalantago.com</span>
+                      </a> 
+                  </li> 
+                  <li class="footer__list-item"> <!-- linkedin -->
+                      <a class="footer__link" href="https://www.linkedin.com/company/atalanta-ciberseguridad?trk=ppro_cprof" target="_blank">
+                          <span>Linkedin</span>
+                      </a> 
+                  </li> 
+                  <li class="footer__list-item"> 
+                      <a class="footer__link" href="https://www.instagram.com/atalanta.academy/" target="_blank">
+                          <span>Instagram</span>
+                      </a> 
+                  </li> <!-- instagram -->
+                  <li class="footer__list-item"> <!-- direccion -->
+                      <span class="footer__plain-text">C. de Carranza, 25, 3º – 3, Centro, 28004 Madrid</span>
+                  </li> 
+              </ul>
+          </div>
+      </div>
+
+      <div class="footer__bottom">
+          <p class="footer__copyright">Copyright © 2026. Todos los derechos reservados por Atalanta Evolution</p>
+          <ul class="footer__legal-list">
+              <li class="footer__list-item">
+                  <a class="footer__legal-link" href="#">
+                      <span>AVISO LEGAL</span>
+                  </a>
+              </li>
+              <li class="footer__list-item">
+                  <a class="footer__legal-link" href="#">
+                      <span>POLÍTICA DE PRIVACIDAD</span>
+                  </a>
+              </li>
+              <li class="footer__list-item">
+                  <a class="footer__legal-link" href="#">
+                      <span>POLITICA DE COOKIES</span>
+                  </a>
+              </li>
+          </ul>
+      </div>
+  </footer>
   </body>
 </html>

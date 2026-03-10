@@ -1,0 +1,119 @@
+/* --- HERO SECTION --- */
+.hero {
+    /* Fondo oscuro con degradado para asegurar legibilidad */
+    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 1)), 
+                url('../images/background_images/Background_11.jpeg'); /* Asegúrate de tener una imagen de circuitos aquí */
+    background-size: cover;
+    background-position: center;
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 100px 20px;
+    font-family: 'Montserrat', sans-serif; /* Recomendada para este estilo */
+}
+
+.hero__content {
+    max-width: 1000px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* El pequeño texto de arriba: "QUIÉNES SOMOS" */
+.hero__heading {
+    color: #e61d2b; /* Rojo corporativo */
+    text-transform: uppercase;
+    font-weight: 800;
+    font-size: 16px;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+}
+
+/* Título principal: Grande y Blanco */
+.hero__title {
+    color: white;
+    font-size: 48px;
+    font-weight: 800;
+    text-transform: uppercase;
+    line-height: 1.1;
+    margin-bottom: 30px;
+}
+
+/* Párrafo descriptivo: Rojo y centrado */
+.hero__paragraph {
+    color: #e61d2b;
+    font-size: 18px;
+    font-weight: 600;
+    max-width: 850px;
+    line-height: 1.4;
+    margin-bottom: 40px;
+}
+
+/* Contenedor de las etiquetas (El recuadro con borde) */
+.hero__tags {
+    display: flex;
+    gap: 40px;
+    background-color: rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 25px 40px;
+    margin-bottom: 40px;
+    backdrop-filter: blur(5px); /* Efecto cristal */
+}
+
+.hero__tag {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-align: left;
+}
+
+.hero__icon {
+    width: 55px;
+    height: 55px;
+    object-fit: contain;
+}
+
+.hero__text {
+    color: white;
+    font-size: 14px;
+    font-weight: 500;
+    margin: 0;
+    line-height: 1.2;
+}
+
+/* Botón de acción */
+.hero__button {
+    background-color: #e61d2b;
+    color: white;
+    text-decoration: none;
+    padding: 18px 40px;
+    border-radius: 12px;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    box-shadow: 0 4px 20px rgba(230, 29, 43, 0.4);
+}
+
+.hero__button:hover {
+    background-color: #ff1a29;
+    transform: scale(1.05);
+}
+
+.hero__button-text {
+    font-size: 18px;
+    font-weight: 700;
+    text-transform: none;
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 768px) {
+    .hero__title {
+        font-size: 32px;
+    }
+    .hero__tags {
+        flex-direction: column;
+        gap: 20px;
+        padding: 20px;
+    }
+}

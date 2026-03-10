@@ -1,0 +1,125 @@
+/* --- Estructura Principal del Navbar --- */
+.navbar {
+    display: flex;
+    background-color: transparent;
+    justify-content: space-evenly;
+    align-items: center; /* Alineación vertical central */
+    padding: 20px 133px;
+    background-color: transparent;
+    font-family: 'Montserrat', sans-serif;
+    position: absolute;
+    gap: 23px;
+    width: 90%;
+}
+
+.navbar__logo {
+    width: 170px;
+    display: block;
+}
+
+.navbar__list {
+    list-style-type: none;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 30px;
+    width: 800px;
+    margin: 0;
+    padding: 0;
+}
+
+/* --- Estilos de los Enlaces Principales --- */
+.navbar__link {
+    text-decoration: none;
+    color: white;
+    font-size: 22px;
+    font-weight: 600;
+    position: relative; /* Base para la línea y la flecha */
+    display: inline-block;
+    padding: 8px 0; /* Espacio para que el hover no esté pegado al texto */
+    transition: color 0.3s ease;
+}
+
+/* --- LA MAGIA: Línea Roja Redondeada (Hover Smooth) --- */
+.navbar__link::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;               /* Empieza invisible */
+    height: 4px;            /* Grosor de la línea */
+    background-color: #ff0000; 
+    border-radius: 10px;    /* Bordes redondeados */
+    transition: width 0.35s ease; /* Transición suave */
+}
+
+/* Activación de la línea al hacer hover */
+.navbar__item:hover .navbar__link::before {
+    width: 100%;
+}
+
+/* --- Lógica del Dropdown (Flecha y Menú) --- */
+.navbar__item--dropdown {
+    position: relative;
+    padding-top: 11px;
+    padding-bottom: 10px; /* Evita que el menú se cierre al mover el ratón */
+}
+
+/* La Flecha (usando ::after para no chocar con la línea ::before) */
+.navbar__item--dropdown .navbar__link::after {
+    content: "";
+    display: inline-block;
+    margin-left: 8px;
+    vertical-align: middle;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid white; 
+    transition: transform 0.3s ease;
+}
+
+/* Rotación de flecha y mantenimiento de línea roja al abrir dropdown */
+.navbar__item--dropdown:hover .navbar__link::after {
+    transform: rotate(180deg);
+}
+
+/* El Menú Desplegable */
+.navbar__dropdown {
+    list-style-type: none;
+    padding: 10px 0;
+    margin: 0;
+    display: none;        
+    position: absolute;   
+    top: 100%;           
+    left: 0;
+    background-color: #333; 
+    min-width: 180px;
+    border-radius: 4px;
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.3);
+    z-index: 10; /* Asegura que esté por encima de otros elementos */
+}
+
+.navbar__item--dropdown:hover .navbar__dropdown {
+    display: block;
+}
+
+/* --- Estilos de los Enlaces del Submenú --- */
+.navbar__dropdown-item {
+    padding: 8px 20px;
+    transition: background-color 0.3s ease;
+}
+
+.navbar__dropdown-item:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.navbar__dropdown-link {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+/* Quitamos el efecto de la línea roja en los links internos del dropdown */
+.navbar__dropdown-link::before {
+    display: none;
+}

@@ -54,7 +54,7 @@
             </div>
         </div>
     </div>
-    <a href="#" class="header__button-form">
+    <a href="#" id="btn-apertura-formulario" class="header__button-form">
         <span class="header__button-form-span">Agendar una reunion</span>
     </a>
 </header>
@@ -75,10 +75,11 @@
             <p class="main__text">Programas oficiales OffSec para profesionales y equipos corporativos.</p>
             </div>
         </main>
-
+<div id=form class="modal-overlay" style="display: none;">
+<div class="modal-wrapper">
+    <span id="btnCerrar" class="modal-cerrar">&times;</span>
     <div class="form__container">
     <div class="form__centrar"> <!-- ================================================================= -->
-        <div class="form__container">
 
             <div class="todojunto"> <!-- ================================================================= -->
 
@@ -90,19 +91,19 @@
                         adaptada.</p>
                     
                         <div class="form__item">
-                            <img src="images/form_images/form_image1.png" alt="" class="form__img">
+                            <img src="./images/contacto_images/Header_3.png" alt="" class="form__img">
                             <p class="form__container-text"> Soluciones avanzadas para blindar tu negocio frente a ciberamenazas.</p>
                         </div>
                         <div class="form__item">
-                            <img src="./images/form_images/form_image2.png" alt="" class="form__img">
+                            <img src="./images/contacto_images/Header_1.png" alt="" class="form__img">
                             <p class="form__container-text">Diseño y ejecución de estrategias digitales sin comprometer la seguridad.</p>
                         </div>
                         <div class="form__item">
-                            <img src="./images/form_images/form_image3.png" alt="" class="form__img">
+                            <img src="./images/main_images/Form_1.png" alt="" class="form__img">
                             <p class="form__container-text">Certificaciones reconocidas</p>
                         </div>
                         <div class="form__item">
-                            <img src="./images/form_images/form_image4.png" alt="" class="form__img">
+                            <img src="./images/contacto_images/Icon_2.png" alt="" class="form__img">
                             <p class="form__container-text">Expertos en ciberseguridad, IA y transformación digital con experiencia internacional.</p>
                         </div>
                     </div>
@@ -140,6 +141,8 @@
             </div>
         </div>
     </div>
+</div>
+</div>
 
     <footer class="footer">
 
@@ -235,5 +238,6 @@
             </ul>
         </div>
     </footer>
+    <script src="./scripts/forms.js"></script>
 </body>
 </html>

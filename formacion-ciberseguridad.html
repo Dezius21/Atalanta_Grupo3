@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Formación Ciberseguridad</title>
     <link rel="stylesheet" href="./pages/index.css">
 </head>
 <body>
@@ -52,7 +52,7 @@
                 </div>
             </div>
         </div>
-        <a href="#" class="header__button-form">
+        <a href="#" id="btn-apertura-formulario" class="header__button-form">
             <span class="header__button-form-span">Solicitar Informacion</span>
         </a>
 </header>
@@ -159,80 +159,84 @@
             </div>
         </section>
 </main>
+<div id=form class="modal-overlay" style="display: none;">
+    <div class="modal-wrapper">
+        <span id="btnCerrar" class="modal-cerrar">&times;</span>
 
-<div class="form__container">
-    <div class="form__centrar"> <!-- ================================================================= -->
         <div class="form__container">
-
-            <div class="todojunto"> <!-- ================================================================= -->
-
-                <div class="form__left">
-                    <h2 class=form__container-title>Impulsa tu Carrera y la de tu Equipo con la Élite de OffSec</h2>
-
-                    <div class="form__subcontainer">
-                        <p class="form__container-text">Nuestro campus es 100% digital, pero nuestro equipo es real. Diseñamos programas para empresas que quieren fortalecer la ciberseguridad de sus equipos y para profesionales que desean dar el salto en su carrera.</p>
-                        <p class="form__container-text">Estamos conectados desde España para todo el mundo hispanohablante. Si quieres formar a tu organización o crecer como experto, estamos aquí para ayudarte.</p>
-                        <div class="form__item">
-                            <img src="images/form_images/form_image3.png" alt="" class="form__img">
-                            <p class="form__container-text">Prioridad en la bolsa de empleo de Atalanta.</p>
+            <div class="form__centrar"> <!-- ================================================================= -->
+        
+                    <div class="todojunto"> <!-- ================================================================= -->
+        
+                        <div class="form__left">
+                            <h2 class=form__container-title>Impulsa tu Carrera y la de tu Equipo con la Élite de OffSec</h2>
+        
+                            <div class="form__subcontainer">
+                                <p class="form__container-text">Nuestro campus es 100% digital, pero nuestro equipo es real. Diseñamos programas para empresas que quieren fortalecer la ciberseguridad de sus equipos y para profesionales que desean dar el salto en su carrera.</p>
+                                <p class="form__container-text">Estamos conectados desde España para todo el mundo hispanohablante. Si quieres formar a tu organización o crecer como experto, estamos aquí para ayudarte.</p>
+                                <div class="form__item">
+                                    <img src="./images/contacto_images/Header_3.png" alt="" class="form__img">
+                                    <p class="form__container-text">Prioridad en la bolsa de empleo de Atalanta.</p>
+                                </div>
+                                <div class="form__item">
+                                    <img src="./images/contacto_images/Header_1.png" alt="" class="form__img">
+                                    <p class="form__container-text">Modalidad 100% Online</p>
+                                </div>
+                                <div class="form__item">
+                                    <img src="./images/main_images/Form_1.png" alt="" class="form__img">
+                                    <p class="form__container-text">Acceso permanente a la comunidad</p>
+                                </div>
+                                <div class="form__item">
+                                    <img src="./images/contacto_images/Icon_2.png" alt="" class="form__img">
+                                    <p class="form__container-text">Certificaciones reconocidas</p>
+                                </div>
+                            </div>
                         </div>
-                        <div class="form__item">
-                            <img src="./images/form_images/form_image2.png" alt="" class="form__img">
-                            <p class="form__container-text">Modalidad 100% Online</p>
-                        </div>
-                        <div class="form__item">
-                            <img src="./images/form_images/form_image4.png" alt="" class="form__img">
-                            <p class="form__container-text">Acceso permanente a la comunidad</p>
-                        </div>
-                        <div class="form__item">
-                            <img src="./images/form_images/form_image1.png" alt="" class="form__img">
-                            <p class="form__container-text">Prioridad en la bolsa de empleo de Atalanta</p>
-                        </div>
+        
+                        <form action="contact-user" method="post" class="form-contact">
+                            <legend>Iniciar Diagnostico de Seguridad</legend>
+                            <label for="first-name" class="form__label">Nombre</label>
+                            <input type="text" id="first-name" required placeholder="Introduzca su nombre" class="form__input">
+                            <label for="last-name"  class="form__label">Apellidos</label>
+                            <input type="text" id="last-name" required placeholder="Introduzca su apellido" class="form__input">
+                            <label for="email" class="form__label">Email</label>
+                            <input type="email" id="email"  required placeholder="Email" class="form__input">
+                            <label for="company" class="form__label">Empresa</label>
+                            <input type="text" id="company" required placeholder="Empresa" class="form__input">
+                            <label for="select" class="form__label">Cargo</label>
+                            <select name="Cargo" id="select" class="form__select" required>
+                                <option value="" selected disabled hidden>Cargo</option>
+                                <option value="ciso">CISO</option>
+                                <option value="cto">CTO</option>
+                                <option value="responsable RHH">Responsable RRHH</option>
+                                <option value="Pentester">Pentester Senior</option>
+                                <option value="otro">Otro</option>
+                            </select>
+                            <label for="selectCert" class="form__label">Nivel de Certificación de Interés</label>
+                            <select name="Certificaciones" id="selectCert" class="form__select">
+                                <option value="" selected disabled hidden>¿Cual es el desafio que mas te urge resolver?</option>
+                                <option value="certificación">Certificaciones OffSec (OSCP, OSEP, OSWE...).</option>
+                                <option value="itinerarios">Itinerarios Personalizados para Equipos (SOC/Red Team).</option>
+                                <option value="bootcamps">Bootcamps y Formación Presencial/In-Company.</option>
+                                <option value="gap">Gap Analysis: Evaluación de habilidades del equipo.</option>
+                            </select>
+                            <label for="selectAlum" class="form__label">Número de Alumnos</label>
+                            <select name="cantidadAlumnos" id="selectAlum" class="form__select">
+                                <option value="" selected disabled hidden>¿Cuantos sois en el equipo?</option>
+                                <option value="individual">Individual (1 persona)</option>
+                                <option value="equipo">Equipo Pequeño (1-5 personas)</option>
+                                <option value="corporativo">Corporativo (+5 personas)</option>
+                            </select>
+                            <div class="form__checkbox-row">
+                                <input type="checkbox" name="checkbox" class="form__checkbox" required>
+                                <label class="form__checkbox-label">
+                                    Acepto la <a href="">politica de privacidad</a> de Atalanta Evlution
+                                </label>
+                            </div>
+                            <button type="submit" class="form_button">Solicitar Triage de información</button>
+                        </form>
                     </div>
                 </div>
-
-                <form action="contact-user" method="post" class="form-contact">
-                    <legend>Iniciar Diagnostico de Seguridad</legend>
-                    <label for="first-name" class="form__label">Nombre</label>
-                    <input type="text" id="first-name" required placeholder="Introduzca su nombre" class="form__input">
-                    <label for="last-name"  class="form__label">Apellidos</label>
-                    <input type="text" id="last-name" required placeholder="Introduzca su apellido" class="form__input">
-                    <label for="email" class="form__label">Email</label>
-                    <input type="email" id="email"  required placeholder="Email" class="form__input">
-                    <label for="company" class="form__label">Empresa</label>
-                    <input type="text" id="company" required placeholder="Empresa" class="form__input">
-                    <label for="select" class="form__label">Cargo</label>
-                    <select name="Cargo" id="select" class="form__select" required>
-                        <option value="" selected disabled hidden>Cargo</option>
-                        <option value="ciso">CISO</option>
-                        <option value="cto">CTO</option>
-                        <option value="responsable RHH">Responsable RRHH</option>
-                        <option value="Pentester">Pentester Senior</option>
-                        <option value="otro">Otro</option>
-                    </select>
-                    <label for="selectCert" class="form__label">Nivel de Certificación de Interés</label>
-                    <select name="Certificaciones" id="selectCert" class="form__select">
-                        <option value="" selected disabled hidden>¿Cual es el desafio que mas te urge resolver?</option>
-                        <option value="certificación">Certificaciones OffSec (OSCP, OSEP, OSWE...).</option>
-                        <option value="itinerarios">Itinerarios Personalizados para Equipos (SOC/Red Team).</option>
-                        <option value="bootcamps">Bootcamps y Formación Presencial/In-Company.</option>
-                        <option value="gap">Gap Analysis: Evaluación de habilidades del equipo.</option>
-                    </select>
-                    <label for="">Número de Alumnos</label>
-                    <select name="cantidadAlumnos" id="selectAlum" class="form__select">
-                        <option value="" selected disabled hidden>¿Cuantos sois en el equipo?</option>
-                        <option value="individual">Individual (1 persona)</option>
-                        <option value="equipo">Equipo Pequeño (1-5 personas)</option>
-                        <option value="corporativo">Corporativo (+5 personas)</option>
-                    </select>
-                    <div class="form__checkbox-row">
-                        <input type="checkbox" name="checkbox" class="form__checkbox" required>
-                        <label class="form__checkbox-label">
-                            Acepto la <a href="">politica de privacidad</a> de Atalanta Evlution
-                        </label>
-                    </div>
-                    <button type="submit" class="form_button">Solicitar Triage de información</button>
-                </form>
             </div>
         </div>
     </div>
@@ -329,5 +333,6 @@
         </ul>
     </div>
 </footer>
+<script src="./scripts/forms.js"></script>
 </body>
 </html>

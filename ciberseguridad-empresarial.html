@@ -55,7 +55,7 @@
                 </div>
             </div>
         </div>
-        <a href="#" class="header__button-form">
+        <a href="#" id="btn-apertura-formulario" class="header__button-form">
             <span class="header__button-form-span">Solicitar Auditoría Técnica</span>
         </a>
     </header>
@@ -188,74 +188,96 @@
             <a href="">Único Official Learning Partner de OffSec en España</a>
         </div>
     </main>
+    El JavaScript no funciona porque el HTML que has pegado tiene errores de estructura graves (etiquetas abiertas y mal cerradas) que rompen el DOM. Cuando el navegador intenta leer el documento, se "pierde" y no encuentra los IDs que el JS necesita para funcionar.
 
-    <div class="form__container">
-        <div class="form__centrar"> <div class="form__container">
-    
-                <div class="todojunto"> 
-    
-                    <div class="form__left">
-                        <h2 class="form__container-title">¿Tienes un proyecto en mente?</h2>
-    
-                        <div class="form__subcontainer">
-                            <p class="form__container-text">
-                                Estamos listos para escucharte y ayudarte a llevar tu ciberseguridad al siguiente nivel. 
-                                Cuéntanos qué necesitas y nuestro equipo de expertos se pondrá en contacto contigo a la brevedad.
-                            </p>
+Aquí tienes los motivos exactos y el código corregido:
+
+¿Por qué fallaba?
+Jerarquía Rota: En la sección del formulario, tenías etiquetas <div> y </div> desordenadas al final.
+
+Faltaba el Modal: El botón de arriba busca un ID btn-apertura-formulario, pero el formulario que está al final del código no tiene el ID form ni las clases de modal (modal-overlay) que configuramos antes. Se quedó como un div estático al final de la página.
+
+Botones Huérfanos: Había etiquetas de cierre de formulario antes de tiempo.
+
+Código HTML Corregido y Estructurado
+Copia y sustituye toda la parte final (desde el cierre de </main> hasta el final) por este bloque. He incluido las clases de modal para que el JS pueda mostrarlo y ocultarlo:
+
+HTML
+    </main>
+
+    <div id="form" class="modal-overlay" style="display: none;">
+        <div class="modal-wrapper">
+            <span id="btnCerrar" class="modal-cerrar">&times;</span>
+            
+            <div class="form__container">
+                <div class="form__centrar">
+                    <div class="todojunto">
                         
-                            <div class="form__item">
-                                <img src="images/form_images/form_image1.png" alt="" class="form__img">
-                                <p class="form__container-text">Asesoramiento personalizado según tus objetivos.</p>
-                            </div>
-                            <div class="form__item">
-                                <img src="./images/form_images/form_image2.png" alt="" class="form__img">
-                                <p class="form__container-text">Respuesta rápida y soluciones estratégicas.</p>
-                            </div>
-                            <div class="form__item">
-                                <img src="./images/form_images/form_image3.png" alt="" class="form__img">
-                                <p class="form__container-text">Compromiso total con la confidencialidad de tu información.</p>
-                            </div>
-                            <div class="form__item">
-                                <img src="./images/form_images/form_image4.png" alt="" class="form__img">
-                                <p class="form__container-text">Líderes en innovación y protección digital.</p>
+                        <div class="form__left">
+                            <h2 class="form__container-title">¿Tienes un proyecto en mente?</h2>
+                            <div class="form__subcontainer">
+                                <p class="form__container-text">
+                                    Estamos listos para escucharte y ayudarte a llevar tu ciberseguridad al siguiente nivel. 
+                                    Cuéntanos qué necesitas y nuestro equipo de expertos se pondrá en contacto contigo a la brevedad.
+                                </p>
+                                <div class="form__item">
+                                    <img src="./images/main_images/Form_1.png" alt="" class="form__img">
+                                    <p class="form__container-text">Auditorías y pruebas de penetración (Red Team)</p>
+                                </div>
+                                <div class="form__item">
+                                    <img src="./images/contacto_images/Icon_2.png" alt="" class="form__img">
+                                    <p class="form__container-text">Cumplimiento normativo (ISO, ENS, DORA, NIS2)</p>
+                                </div>
+                                <div class="form__item">
+                                    <img src="./images/contacto_images/Header_1.png" alt="" class="form__img">
+                                    <p class="form__container-text">Seguridad Cloud y OT/IoT para entornos digitales e industriales</p>
+                                </div>
+                                <div class="form__item">
+                                    <img src="./images/contacto_images/Header_3.png" alt="" class="form__img">
+                                    <p class="form__container-text">Equipo certificado con experiencia internacional</p>
+                                </div>
                             </div>
                         </div>
+                        <form action="contact-user" method="post" class="form-contact">
+                            <legend>Iniciar Diagnóstico de Seguridad</legend>
+                            
+                            <label for="first-name" class="form__label">Nombre</label>
+                            <input type="text" id="first-name" name="nombre" required placeholder="Introduzca su nombre" class="form__input">
+                            
+                            <label for="last-name" class="form__label">Apellidos</label>
+                            <input type="text" id="last-name" name="apellidos" required placeholder="Introduzca su apellido" class="form__input">
+                            
+                            <label for="email" class="form__label">Email</label>
+                            <input type="email" id="email" name="email" required placeholder="Email" class="form__input">
+                            
+                            <label for="company" class="form__label">Empresa</label>
+                            <input type="text" id="company" name="empresa" required placeholder="Empresa" class="form__input">
+                            
+                            <label for="select" class="form__label">Cargo</label>
+                            <select name="Cargo" id="select" class="form__select" required>
+                                <option value="" selected disabled hidden>Cargo</option>
+                                <option value="ciso">CISO</option>
+                                <option value="cto">CTO</option>
+                                <option value="responsable it">Responsable IT</option>
+                                <option value="ceo">CEO</option>
+                                <option value="otro">Otro</option>
+                            </select>
+
+                            <label for="optional" class="form__label">¿Busca una solución inmediata o está en fase de planificación?</label>
+                            <input type="text" id="optional" name="fase" required placeholder="" class="form__input">
+                            
+                            <div class="form__checkbox-row">
+                                <input type="checkbox" name="checkbox" class="form__checkbox" required>
+                                <label class="form__checkbox-label">
+                                    Acepto la <a href="#">política de privacidad</a> de Atalanta Evolution
+                                </label>
+                            </div>
+                            <button type="submit" class="form_button">Solicitar diagnóstico técnico</button>
+                        </form>
                     </div>
-    
-                    <form action="contact-user" method="post" class="form-contact">
-                        <legend>Escríbenos</legend>
-                        
-                        <label for="full-name" class="form__label">Nombre completo</label>
-                        <input type="text" id="full-name" name="full-name" required placeholder="Tu nombre" class="form__input">
-                        
-                        <label for="email-contact" class="form__label">Correo electrónico profesional</label>
-                        <input type="email" id="email-contact" name="email" required placeholder="tu@empresa.com" class="form__input">
-                        
-                        <label for="subject" class="form__label">Asunto</label>
-                        <select name="subject" id="subject" class="form__select" required>
-                            <option value="" selected disabled hidden>Selecciona una opción</option>
-                            <option value="consultoria">Consultoría General</option>
-                            <option value="diagnostico">Diagnóstico de Seguridad</option>
-                            <option value="ia">Implementación de IA</option>
-                            <option value="otro">Otro</option>
-                        </select>
-    
-                        <label for="message" class="form__label">Mensaje</label>
-                        <textarea id="message" name="message" rows="4" required placeholder="¿En qué podemos ayudarte?" class="form__input" style="resize: vertical; min-height: 100px;"></textarea>
-    
-                        <div class="form__checkbox-row">
-                            <input type="checkbox" name="privacy-policy" id="privacy-policy" class="form__checkbox" required>
-                            <label for="privacy-policy" class="form__checkbox-label">
-                                He leído y acepto la <a href="">política de privacidad</a> de Atalanta Evolution.
-                            </label>
-                        </div>
-    
-                        <button type="submit" class="form_button">Enviar mensaje</button>
-                    </form>
-    
                 </div>
             </div>
-        </div>
+        </div> 
     </div>
 
     <footer class="footer">
@@ -352,5 +374,6 @@
             </ul>
         </div>
     </footer>
+    <script src="./scripts/forms.js"></script>
 </body>
 </html>

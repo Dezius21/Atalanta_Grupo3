@@ -1,0 +1,236 @@
+:root{
+    --color-blanco: #ffffff;
+    --color-negro: #000000;
+    --color-rojo: #e50914;
+}
+
+*{
+    font-family: 'DM Sans', sans-serif;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    width: 100%;
+}
+
+/* TITULOS */
+
+.index__title-negro{
+    color: var(--color-negro);
+    font-size: 28px;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 45px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.index__title-blanco{
+    color: var(--color-blanco);
+    font-size: 28px;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 45px;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* CONTENEDOR CONFIAN */
+
+.index__confian-container{
+    background: var(--color-blanco);
+    width: 100%;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.index__confian-stats{
+    display: flex;
+    justify-content: center;
+    gap: 100px;
+    flex-wrap: wrap;
+}
+
+.index__confian-item{
+    max-width: 260px;
+}
+
+.index__confian-number{
+    color: var(--color-rojo);
+    font-size: 64px;
+    font-weight: 800;
+    margin-bottom: 20px;
+}
+
+.index__confian-text{
+    color: var(--color-negro);
+    font-size: 25px;
+    line-height: 1.3;
+}
+
+
+
+/* CONTENEDOR TARJETAS LINK */
+
+.index__tarjetaslink{
+    background: linear-gradient(to bottom, rgb(78, 7, 7), rgb(0, 0, 0));
+    width: 100%;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.index__tarjetaslink-text{
+    color: var(--color-blanco);
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 30px;
+}
+    
+
+
+
+/* OFFSEC */
+
+.index__offsec-wrapper{
+    width:100%;
+    background: var(--color-blanco)
+}
+
+.index__offsec{
+    max-width:1200px;
+    margin:auto;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:60px;
+    padding:80px 20px;
+}
+
+.index__offsec-izq{
+    flex:1;
+    max-width: 500px;
+}
+
+.index__offsec-izq p{
+    letter-spacing: 0.7px;
+    margin-bottom: 30px;
+}
+
+.index__offsec-izq ul{
+    margin-bottom: 30px;
+}
+
+.index__offsec-izq li{
+    letter-spacing: 0.7px;
+    margin-bottom: 10px;
+}
+
+.idex__offsec-izq-btn{
+    display:inline-block;
+    background-color:#e50914;
+    text-decoration:none;
+    color:white;
+    padding:14px 28px;
+    border-radius:8px;
+    font-weight:600;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.idex__offsec-izq-btn:hover{
+    transform:scale(1.07);
+    background-color:#fa1723;
+}
+
+.index__offsec-der{
+    flex:1;
+    text-align:center;
+}
+
+.index__offsec-der img{
+    max-width:60%;
+}
+
+
+/* tarjetas como trabajamos */
+
+.index__trabajamos{
+    background: linear-gradient(to bottom, rgb(78, 7, 7), rgb(0, 0, 0));
+    width: 100%;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.index__trabajamos-text{
+    color: var(--color-blanco);
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 35px;
+}
+
+
+
+
+/* Carousel de empresas */
+.index__carousel-container{
+    background-color: var(--color-blanco);
+    width: 100%;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.index__carousel-text{
+    color: var(--color-negro);
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 35px;
+}
+
+/* CONTENEDOR GENERAL */
+
+.index__carousel{
+    width:100%;
+    max-width:1200px;
+    margin:auto;
+    display:flex;
+    align-items:center;
+    gap:20px;
+}
+
+.index__galeria{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+    padding: 20px;
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.index__carousel-item{
+    width: calc(25% - 12px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.index__galeria img{
+    width: 100%;
+    height: 120px;
+    object-fit: contain;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.index__galeria img.visible{
+    opacity: 1;
+    transform: translateY(0);
+}

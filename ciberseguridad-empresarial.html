@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ciberseguridad | Atalanta</title>
+    <link rel="stylesheet" href="./pages/index.css">
 </head>
 <body>
     <header class="header">
@@ -189,69 +190,72 @@
     </main>
 
     <div class="form__container">
-
-        <h2 class=form__container-title>Inicia tu Diagnóstico de Seguridad con Atalanta</h2>
-
-        <p class="form__container-text">Protege tu negocio e impulsa tu transformación digital con soluciones diseñadas por expertos <span></span>certificados con experiencia internacional. Completa los datos para iniciar vuestro reconocimiento de superficie pública y estrategia 
-        adaptada.</p>
-
-        <div>
-            <img src="images/form_images/form_image1.png" alt="" class="form__img">
-            <p class="form__container-text">Equipo certificado con experiencia internacional</p>
+        <div class="form__centrar"> <div class="form__container">
+    
+                <div class="todojunto"> 
+    
+                    <div class="form__left">
+                        <h2 class="form__container-title">¿Tienes un proyecto en mente?</h2>
+    
+                        <div class="form__subcontainer">
+                            <p class="form__container-text">
+                                Estamos listos para escucharte y ayudarte a llevar tu ciberseguridad al siguiente nivel. 
+                                Cuéntanos qué necesitas y nuestro equipo de expertos se pondrá en contacto contigo a la brevedad.
+                            </p>
+                        
+                            <div class="form__item">
+                                <img src="images/form_images/form_image1.png" alt="" class="form__img">
+                                <p class="form__container-text">Asesoramiento personalizado según tus objetivos.</p>
+                            </div>
+                            <div class="form__item">
+                                <img src="./images/form_images/form_image2.png" alt="" class="form__img">
+                                <p class="form__container-text">Respuesta rápida y soluciones estratégicas.</p>
+                            </div>
+                            <div class="form__item">
+                                <img src="./images/form_images/form_image3.png" alt="" class="form__img">
+                                <p class="form__container-text">Compromiso total con la confidencialidad de tu información.</p>
+                            </div>
+                            <div class="form__item">
+                                <img src="./images/form_images/form_image4.png" alt="" class="form__img">
+                                <p class="form__container-text">Líderes en innovación y protección digital.</p>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <form action="contact-user" method="post" class="form-contact">
+                        <legend>Escríbenos</legend>
+                        
+                        <label for="full-name" class="form__label">Nombre completo</label>
+                        <input type="text" id="full-name" name="full-name" required placeholder="Tu nombre" class="form__input">
+                        
+                        <label for="email-contact" class="form__label">Correo electrónico profesional</label>
+                        <input type="email" id="email-contact" name="email" required placeholder="tu@empresa.com" class="form__input">
+                        
+                        <label for="subject" class="form__label">Asunto</label>
+                        <select name="subject" id="subject" class="form__select" required>
+                            <option value="" selected disabled hidden>Selecciona una opción</option>
+                            <option value="consultoria">Consultoría General</option>
+                            <option value="diagnostico">Diagnóstico de Seguridad</option>
+                            <option value="ia">Implementación de IA</option>
+                            <option value="otro">Otro</option>
+                        </select>
+    
+                        <label for="message" class="form__label">Mensaje</label>
+                        <textarea id="message" name="message" rows="4" required placeholder="¿En qué podemos ayudarte?" class="form__input" style="resize: vertical; min-height: 100px;"></textarea>
+    
+                        <div class="form__checkbox-row">
+                            <input type="checkbox" name="privacy-policy" id="privacy-policy" class="form__checkbox" required>
+                            <label for="privacy-policy" class="form__checkbox-label">
+                                He leído y acepto la <a href="">política de privacidad</a> de Atalanta Evolution.
+                            </label>
+                        </div>
+    
+                        <button type="submit" class="form_button">Enviar mensaje</button>
+                    </form>
+    
+                </div>
+            </div>
         </div>
-        <div>
-            <img src="./images/form_images/form_image2.png" alt="" class="form__img">
-            <p class="form__container-text">Seguridad Cloud y OT/IoT para entornos digitales e industriales</p>
-        </div>
-        <div>
-            <img src="./images/form_images/form_image3.png" alt="">
-            <p class="form__container-text">Auditorías y pruebas de penetración (Red Team)</p>
-        </div>
-        <div>
-            <img src="./images/form_images/form_image4.png" alt="" class="form__img">
-            <p class="form__container-text">Cumplimiento normativo (ISO, ENS, DORA, NIS2)</p>
-        </div>
-
-
-
-        <form action="contact-user" method="post" class="form-contact">
-            <legend>Iniciar Diagnostico de Seguridad</legend>
-            <label for="first-name" class="form__label">Nombre</label>
-            <input type="text" id="first-name" required placeholder="Introduce su nombre" class="form__input">
-            <br>
-            <label for="last-name"  class="form__label">Apellidos</label>
-            <input type="text" id="last-name" required placeholder="Introduce su apellido" class="form__input">
-            <br>
-            <label for="email" class="form__label">Email</label>
-            <input type="email" id="email"  required placeholder="Email" class="form__input">
-            <br>
-            <label for="company" class="form__label">Empresa</label>
-            <input type="text" id="company" required placeholder="Empresa" class="form__input">
-            <br>
-            <label for="select" class="form__label">Cargo</label>
-            <select name="cargo" id="select" class="form__select">
-                <option value="" selected disabled hidden>Cargo</option>
-                <option value="ciso">CISO</option>
-                <option value="cto">CTO</option>
-                <option value="responsable it">Responsable IT</option>
-                <option value="ceo">CEO</option>
-                <option value="otro">Otro</option>
-            </select>
-            <select name="area" class="form__select">
-                <option value="" selected disabled hidden>¿Cual es el desafio que mas le urge resolver?</option>
-                <option value="ciberseguridad">Ciberseguridad Avanzada (Red Team, SOC, Cumplimiento)</option>
-                <option value="estrategia">Estrategia Digital e IA (Arquitectura segura y Transformación)</option>
-                <option value="formacion">Formación / Atalanta Academy (Certificaciones OffSec)</option>
-            </select>
-            <br>
-            <label for="optional" class="form__label">¿Busca una solución inmediata o está en fase de planificación?</label>
-            <input type="text" id="optional" required placeholder="" class="form__input">
-            <br>
-            <input type="checkbox" name="checkbox" class="form__checkbox">
-            <label for="form__checkbox" class="form__label">Acepto la <a href="">politica de privacidad</a> de Atalanta Evlution</label>
-            <br>
-            <button type="submit" class="form_button">Solicitar diagnostico tecnico</button>
-        </form>
     </div>
 
     <footer class="footer">

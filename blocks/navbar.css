@@ -1,11 +1,10 @@
 /* --- Estructura Principal del Navbar --- */
 .navbar {
     display: flex;
-    background-color: transparent;
+    background-color: #00000080;;
     justify-content: space-evenly;
     align-items: center; /* Alineación vertical central */
     padding: 20px 133px;
-    background-color: transparent;
     font-family: 'Montserrat', sans-serif;
     gap: 23px;
     width: 90%;

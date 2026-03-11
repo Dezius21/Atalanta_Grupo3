@@ -7,9 +7,19 @@
     padding: 20px 133px;
     background-color: transparent;
     font-family: 'Montserrat', sans-serif;
-    position: absolute;
+    /*position: absolute;*/
     gap: 23px;
     width: 90%;
+
+    position: fixed;
+    top: 0;
+    left:0;
+    z-index: 1000;
+    transition: transform 0.4s ease;
+}
+
+.navbar.oculto{
+    transform: translateY(-100%);
 }
 
 .navbar__logo {

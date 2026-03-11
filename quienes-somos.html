@@ -111,7 +111,7 @@
             </div>
           </div>
 
-          <a href="#" class="hero__button">
+          <a href="#" id="btn-apertura-formulario" class="hero__button">
             <span class="hero__button-text"
               >Agendar una sesión estratégica</span
             >
@@ -492,197 +492,115 @@
         </div>
       </div>
     </section>
-
-
-    <footer class="footer">
-      
-      <div class="footer__top">
-          <div class="footer__top-img-container">
-              <img class="footer__top-img" src="images/main_images/Favicon_270x270.png">
-          </div>
-
-          <div class="footer__column"> <!-- pestañas de arriba -->
-              <h4 class="footer__column-title">Menú</h4>
-              <div class="footer__list-columns">
-                  <ul class="footer__list">
-                      <li style="padding-bottom: 0.7rem;">
-                          <a class="footer__link" href="#"> <!-- METER LINKS A LAS PAGINAS ================================================================================== -->
-                              <span>Quiénes somos</span>
-                          </a>
-                      </li>
-                      <li style="padding-bottom: 0.7rem;">
-                          <a class="footer__link" href="#">
-                              <span>Ciberseguridad</span>
-                          </a>
-                      </li>
-                      <li>
-                          <a class="footer__link" href="#">
-                              <span>Digital</span>
-                          </a>
-                      </li>
-                  </ul>
-
-                  <ul class="footer__list">
-                      <li style="padding-bottom: 0.7rem;">
-                          <a class="footer__link" href="#">
-                              <span>Formación</span>
-                          </a>
-                      </li>
-                      <li style="padding-bottom: 0.7rem;">
-                          <a class="footer__link" href="#">
-                              <span>Empleo</span>
-                          </a>
-                      </li>
-                      <li>
-                          <a class="footer__link" href="#">
-                              <span>Contacto</span>
-                          </a>
-                      </li>
-                  </ul>
-              </div>
-          </div>
-
-          <div class="footer__column"> <!-- contacto -->
-              <h4 class="footer__column-title">Contacta con nosotros</h4>
-              <ul class="footer__list">
-                  <li class="footer__list-item"> <!-- correo -->
-                      <a class="footer__link" href="mailto:info@atalantago.com" target="_blank">
-                          <span>info@atalantago.com</span>
-                      </a> 
-                  </li> 
-                  <li class="footer__list-item"> <!-- linkedin -->
-                      <a class="footer__link" href="https://www.linkedin.com/company/atalanta-ciberseguridad?trk=ppro_cprof" target="_blank">
-                          <span>Linkedin</span>
-                      </a> 
-                  </li> 
-                  <li class="footer__list-item"> 
-                      <a class="footer__link" href="https://www.instagram.com/atalanta.academy/" target="_blank">
-                          <span>Instagram</span>
-                      </a> 
-                  </li> <!-- instagram -->
-                  <li class="footer__list-item"> <!-- direccion -->
-                      <span class="footer__plain-text">C. de Carranza, 25, 3º – 3, Centro, 28004 Madrid</span>
-                  </li> 
-              </ul>
-          </div>
-      </div>
-
-      <div class="footer__bottom">
-          <p class="footer__copyright">Copyright © 2026. Todos los derechos reservados por Atalanta Evolution</p>
-          <ul class="footer__legal-list">
-              <li class="footer__list-item">
-                  <a class="footer__legal-link" href="#">
-                      <span>AVISO LEGAL</span>
-                  </a>
-              </li>
-              <li class="footer__list-item">
-                  <a class="footer__legal-link" href="#">
-                      <span>POLÍTICA DE PRIVACIDAD</span>
-                  </a>
-              </li>
-              <li class="footer__list-item">
-                  <a class="footer__legal-link" href="#">
-                      <span>POLITICA DE COOKIES</span>
-                  </a>
-              </li>
-          </ul>
-      </div>
-    </footer>
-    <script src="./scripts/header_temporal.js"></script>
-    <script src="./scripts/quienes-somos.js"></script>
-    <footer class="footer">
-
+    <div id="form" class="modal-overlay" style="display: none;">
+      <div class="modal-wrapper">
+          <span id="btnCerrar" class="modal-cerrar">&times;</span>
+          <div class="form__container">
+              <div class="form__centrar">
+                  <div class="todojunto">
+  
+                      <div class="form__left">
+                          <h2 class="form__container-title">Inicia tu Diagnóstico de Seguridad con Atalanta</h2>
+                          <div class="form__subcontainer">
+                              <p class="form__container-text">Protege tu negocio e impulsa tu transformación digital con soluciones diseñadas por expertos certificados con experiencia internacional. Completa los datos para iniciar vuestro reconocimiento de superficie pública y estrategia adaptada.</p>
+                              <div class="form__item">
+                                  <img src="./images/contacto_images/Header_3.png" alt="" class="form__img">
+                                  <p class="form__container-text"> Soluciones avanzadas para blindar tu negocio frente a ciberamenazas.</p>
+                              </div>
+                              <div class="form__item">
+                                  <img src="./images/contacto_images/Header_1.png" alt="" class="form__img">
+                                  <p class="form__container-text">Diseño y ejecución de estrategias digitales sin comprometer la seguridad.</p>
+                              </div>
+                              <div class="form__item">
+                                  <img src="./images/main_images/Form_1.png" alt="" class="form__img">
+                                  <p class="form__container-text">Certificaciones reconocidas</p>
+                              </div>
+                              <div class="form__item">
+                                  <img src="./images/contacto_images/Icon_2.png" alt="" class="form__img">
+                                  <p class="form__container-text">Expertos en ciberseguridad, IA y transformación digital con experiencia internacional.</p>
+                              </div>
+                          </div>
+                      </div>
+  
+                      <form action="contact-user" method="post" class="form-contact">
+                          <legend>Iniciar Diagnostico de Seguridad</legend>
+                          <label for="first-name" class="form__label">Nombre</label>
+                          <input type="text" id="first-name" required placeholder="Introduzca su nombre" class="form__input">
+                          
+                          <label for="last-name" class="form__label">Apellidos</label>
+                          <input type="text" id="last-name" required placeholder="Introduzca su apellido" class="form__input">
+                          
+                          <label for="email" class="form__label">Email</label>
+                          <input type="email" id="email" required placeholder="Email" class="form__input">
+                          
+                          <label for="company" class="form__label">Empresa</label>
+                          <input type="text" id="company" required placeholder="Empresa" class="form__input">
+                          
+                          <label for="select" class="form__label">Cargo</label>
+                          <select name="Cargo" id="select" class="form__select" required>
+                              <option value="" selected disabled hidden>Cargo</option>
+                              <option value="ciso">CISO</option>
+                              <option value="cto">CTO</option>
+                              <option value="responsable it">Responsable IT</option>
+                              <option value="ceo">CEO</option>
+                              <option value="otro">Otro</option>
+                          </select>
+                          
+                          <label for="optional" class="form__label">¿Busca una solución inmediata o está en fase de planificación?</label>
+                          <input type="text" id="optional" required placeholder="" class="form__input">
+                          
+                          <div class="form__checkbox-row">
+                              <input type="checkbox" name="checkbox" class="form__checkbox" required>
+                              <label class="form__checkbox-label">
+                                  Acepto la <a href="">politica de privacidad</a> de Atalanta Evlution
+                              </label>
+                          </div>
+                          <button type="submit" class="form_button">Solicitar diagnostico tecnico</button>
+                      </form>
+                  </div> </div> </div> </div> </div> <footer class="footer">
       <div class="footer__top">
           <div class="footer__top-img-container">
               <img class="footer__top-img" src="images/main_images/Atalanta_Logo_1.png">
           </div>
-
-          <div class="footer__column"> <!-- pestañas de arriba -->
+          <div class="footer__column">
               <h4 class="footer__column-title">Menú</h4>
               <div class="footer__list-columns">
                   <ul class="footer__list">
-                      <li style="padding-bottom: 0.7rem;">
-                          <a class="footer__link" href="#"> <!-- METER LINKS A LAS PAGINAS ================================================================================== -->
-                              <span>Quiénes somos</span>
-                          </a>
-                      </li>
-                      <li style="padding-bottom: 0.7rem;">
-                          <a class="footer__link" href="#">
-                              <span>Ciberseguridad</span>
-                          </a>
-                      </li>
-                      <li>
-                          <a class="footer__link" href="#">
-                              <span>Digital</span>
-                          </a>
-                      </li>
+                      <li style="padding-bottom: 0.7rem;"><a class="footer__link" href="#"><span>Quiénes somos</span></a></li>
+                      <li style="padding-bottom: 0.7rem;"><a class="footer__link" href="#"><span>Ciberseguridad</span></a></li>
+                      <li><a class="footer__link" href="#"><span>Digital</span></a></li>
                   </ul>
-
                   <ul class="footer__list">
-                      <li style="padding-bottom: 0.7rem;">
-                          <a class="footer__link" href="#">
-                              <span>Formación</span>
-                          </a>
-                      </li>
-                      <li style="padding-bottom: 0.7rem;">
-                          <a class="footer__link" href="#">
-                              <span>Empleo</span>
-                          </a>
-                      </li>
-                      <li>
-                          <a class="footer__link" href="#">
-                              <span>Contacto</span>
-                          </a>
-                      </li>
+                      <li style="padding-bottom: 0.7rem;"><a class="footer__link" href="#"><span>Formación</span></a></li>
+                      <li style="padding-bottom: 0.7rem;"><a class="footer__link" href="#"><span>Empleo</span></a></li>
+                      <li><a class="footer__link" href="#"><span>Contacto</span></a></li>
                   </ul>
               </div>
           </div>
-
-          <div class="footer__column"> <!-- contacto -->
+  
+          <div class="footer__column">
               <h4 class="footer__column-title">Contacta con nosotros</h4>
               <ul class="footer__list">
-                  <li class="footer__list-item"> <!-- correo -->
-                      <a class="footer__link" href="mailto:info@atalantago.com" target="_blank">
-                          <span>info@atalantago.com</span>
-                      </a> 
-                  </li> 
-                  <li class="footer__list-item"> <!-- linkedin -->
-                      <a class="footer__link" href="https://www.linkedin.com/company/atalanta-ciberseguridad?trk=ppro_cprof" target="_blank">
-                          <span>Linkedin</span>
-                      </a> 
-                  </li> 
-                  <li class="footer__list-item"> 
-                      <a class="footer__link" href="https://www.instagram.com/atalanta.academy/" target="_blank">
-                          <span>Instagram</span>
-                      </a> 
-                  </li> <!-- instagram -->
-                  <li class="footer__list-item"> <!-- direccion -->
-                      <span class="footer__plain-text">C. de Carranza, 25, 3º – 3, Centro, 28004 Madrid</span>
-                  </li> 
+                  <li class="footer__list-item"><a class="footer__link" href="mailto:info@atalantago.com"><span>info@atalantago.com</span></a></li>
+                  <li class="footer__list-item"><a class="footer__link" href="https://www.linkedin.com/company/atalanta-ciberseguridad"><span>Linkedin</span></a></li>
+                  <li class="footer__list-item"><a class="footer__link" href="https://www.instagram.com/atalanta.academy/"><span>Instagram</span></a></li>
+                  <li class="footer__list-item"><span class="footer__plain-text">C. de Carranza, 25, 3º – 3, Centro, 28004 Madrid</span></li>
               </ul>
           </div>
       </div>
-
+  
       <div class="footer__bottom">
           <p class="footer__copyright">Copyright © 2026. Todos los derechos reservados por Atalanta Evolution</p>
           <ul class="footer__legal-list">
-              <li class="footer__list-item">
-                  <a class="footer__legal-link" href="#">
-                      <span>AVISO LEGAL</span>
-                  </a>
-              </li>
-              <li class="footer__list-item">
-                  <a class="footer__legal-link" href="#">
-                      <span>POLÍTICA DE PRIVACIDAD</span>
-                  </a>
-              </li>
-              <li class="footer__list-item">
-                  <a class="footer__legal-link" href="#">
-                      <span>POLITICA DE COOKIES</span>
-                  </a>
-              </li>
+              <li class="footer__list-item"><a class="footer__legal-link" href="#"><span>AVISO LEGAL</span></a></li>
+              <li class="footer__list-item"><a class="footer__legal-link" href="#"><span>POLÍTICA DE PRIVACIDAD</span></a></li>
+              <li class="footer__list-item"><a class="footer__legal-link" href="#"><span>POLITICA DE COOKIES</span></a></li>
           </ul>
       </div>
   </footer>
+  
+  <script src="./scripts/header_temporal.js"></script>
+  <script src="./scripts/quienes-somos.js"></script>
+  <script src="./scripts/forms.js"></script>
   </body>
 </html>

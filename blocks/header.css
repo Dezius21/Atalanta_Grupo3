@@ -1,8 +1,7 @@
 /* --- HERO SECTION --- */
 .hero {
     /* Fondo oscuro con degradado para asegurar legibilidad */
-    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 1)), 
-                url('../images/background_images/Background_11.jpeg'); /* Asegúrate de tener una imagen de circuitos aquí */
+    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 1));                 /* Asegúrate de tener una imagen de circuitos aquí */
     background-size: cover;
     background-position: center;
     min-height: 90vh;
@@ -11,6 +10,28 @@
     justify-content: center;
     padding: 100px 20px;
     font-family: 'Montserrat', sans-serif; /* Recomendada para este estilo */
+}
+
+.hero_digital{
+    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 1)), url('../images/background_images/Background_11.jpeg');
+}
+.hero_quienes-somos{
+    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 1)), url('../images/background_images/Background_4.png');
+}
+.hero_empleo{
+    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 1)), url('../images/background_images/Background_11.jpeg');
+}
+.hero_ciberseguridad{
+    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 1)), url('../images/background_images/Background_6.png');
+}
+.hero_formacion{
+    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 1)), url('../images/background_images/Background_9.png');
+}
+.hero_contacto{
+    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 1)), url('../images/background_images/Background_14.png');
+}
+.hero_noticias{
+    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 1)), url('../images/background_images/Background_16.png');
 }
 
 .hero__content {

@@ -80,17 +80,6 @@
     transform: translateY(0);
 }
 
-/*
-.team-card {
-    width: 230px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    gap: 20px;
-}
-*/
-
 .team-card {
     width: 230px;
     display: flex;

@@ -17,6 +17,7 @@
     <title>Equipo de expertos en ciberseguridad | Atalanta</title>
 
     <link rel="stylesheet" href="./pages/index.css">
+    <link rel="stylesheet" href="./vendor/normalize.css">
 </head>
 <body>
   <header class="header">
@@ -27,37 +28,37 @@
 
       <ul class="navbar__list">
         <li class="navbar__item">
-          <a href="#" class="navbar__link">Quiénes somos</a>
+          <a href="quienes-somos.html" class="navbar__link">Quiénes somos</a>
         </li>
 
         <li class="navbar__item navbar__item--dropdown">
-          <a href="#" class="navbar__link">Servicios</a>
+          <span class="navbar__link">Servicios</span>
 
           <ul class="navbar__dropdown">
             <li class="navbar__dropdown-item">
-              <a href="#" class="navbar__dropdown-link">Ciberseguridad</a>
+              <a href="ciberseguridad-empresarial.html" class="navbar__dropdown-link">Ciberseguridad</a>
             </li>
 
             <li class="navbar__dropdown-item">
-              <a href="#" class="navbar__dropdown-link">Digital</a>
+              <a href="digital.html" class="navbar__dropdown-link">Digital</a>
             </li>
 
             <li class="navbar__dropdown-item">
-              <a href="#" class="navbar__dropdown-link">Formación</a>
+              <a href="formacion-ciberseguridad.html" class="navbar__dropdown-link">Formación</a>
             </li>
           </ul>
         </li>
 
         <li class="navbar__item">
-          <a href="#" class="navbar__link">Empleo</a>
+          <a href="oportunidades-de-empleo.html" class="navbar__link">Empleo</a>
         </li>
 
         <li class="navbar__item">
-          <a href="#" class="navbar__link">Noticias</a>
+          <a href="noticias.html" class="navbar__link">Noticias</a>
         </li>
 
         <li class="navbar__item">
-          <a href="#" class="navbar__link">Contacto</a>
+          <a href="contacto.html" class="navbar__link">Contacto</a>
         </li>
       </ul>
     </nav>
@@ -121,75 +122,75 @@
       <p>Descubre nuestros servicios y programas diseñados para proteger organizaciones, impulsar la transformación digital y formar a los expertos del mañana.</p>
     </div>
 
-    <div > <!-- tarjetas -->
-      <div > <!-- tarjeta 1 -->
-        <a href="#"> <!-- METER LINK A LA PAGINA CORRESPONDIENTE --------------------------------- -->
+    <div class="cards"> <!-- tarjetas -->
+      <div class="card card_index-1"> <!-- tarjeta 1 -->
+        <a class="card__index-link" href="#"> <!-- METER LINK A LA PAGINA CORRESPONDIENTE --------------------------------- -->
           <div> <!-- imagen -->
-            <img src="images/index_images/icon_1.png">
+            <img class="card__image" src="images/index_images/icon_1.png">
           </div> 
           <div> <!-- titulo -->
-            <h2>Ciberseguridad avanzada</h2>
+            <h2 class="card__title ">Ciberseguridad avanzada</h2>
           </div> 
           <div> <!-- subtitulo -->
-            <p>Protección integral para tu organizacion</p>
+            <p class="card__subtitle">Protección integral para tu organizacion</p>
           </div> 
           <div> <!-- texto -->
-            <p>Protegemos tu negocio frente a las amenazas más avanzadas</p>
+            <p class="card__text">Protegemos tu negocio frente a las amenazas más avanzadas</p>
           </div> 
           <div> <!-- lista -->
-            <ul>
-              <li>Red Team Y DevSecOps</li>
-              <li>Seguridad Cloud y OT/IoT</li>
-              <li>Cumplimiento normativo (ISO, ENS, DORA, NIS2...).</li>
-              <li>Servicios de ciberdefensa (MDR, Thread Hunting, Incident Response...).</li>
+            <ul class="card__list">
+              <li class="card__list-item">Red Team Y DevSecOps</li>
+              <li class="card__list-item">Seguridad Cloud y OT/IoT</li>
+              <li class="card__list-item">Cumplimiento normativo (ISO, ENS, DORA, NIS2...).</li>
+              <li class="card__list-item">Servicios de ciberdefensa (MDR, Thread Hunting, Incident Response...).</li>
             </ul>
           </div> 
         </a>
       </div>
 
-      <div> <!-- tarjeta 2 -->
-        <a href="#"> <!-- METER LINK A LA PAGINA CORRESPONDIENTE --------------------------------- -->
+      <div class="card card_index-2"> <!-- tarjeta 2 -->
+        <a class="card__index-link"href="#"> <!-- METER LINK A LA PAGINA CORRESPONDIENTE --------------------------------- -->
           <div> <!-- imagen -->
-            <img src="images/index_images/icon_2.png">
+            <img class="card__image" src="images/index_images/icon_2.png">
           </div> 
           <div> <!-- titulo -->
-            <h2>Digital e IA</h2>
+            <h2 class="card__title">Digital e IA</h2>
           </div> 
           <div> <!-- subtitulo -->
-            <p>Impulsa tu negocio de forma segura y eficiente</p>
+            <p class="card__subtitle">Impulsa tu negocio de forma segura y eficiente</p>
           </div> 
           <div> <!-- texto -->
-            <p>Integramos la ciberseguridad en cada paso de tu transformación digital</p>
+            <p class="card__text">Integramos la ciberseguridad en cada paso de tu transformación digital</p>
           </div> 
           <div> <!-- lista -->
-            <ul>
-              <li>Planes Directores y Arquitecturas seguras</li>
-              <li>Gobierno de Identidades y Gestión de riesgos</li>
-              <li>Continuidad de negocio (BCP/DRP).</li>
+            <ul class="card__list">
+              <li class="card__list-item">Planes Directores y Arquitecturas seguras</li>
+              <li class="card__list-item">Gobierno de Identidades y Gestión de riesgos</li>
+              <li class="card__list-item">Continuidad de negocio (BCP/DRP).</li>
             </ul>
           </div> 
         </a>
       </div>
 
-      <div> <!-- tarjeta 3 -->
-        <a href="#"> <!-- METER LINK A LA PAGINA CORRESPONDIENTE --------------------------------- -->
+      <div class="card card_index-3"> <!-- tarjeta 3 -->
+        <a class="card__index-link" href="#"> <!-- METER LINK A LA PAGINA CORRESPONDIENTE --------------------------------- -->
           <div> <!-- imagen -->
-            <img src="images/index_images/icon_3.png">
+            <img class="card__image" src="images/index_images/icon_3.png">
           </div> 
           <div> <!-- titulo -->
-            <h2>Atalanta Academy</h2>
+            <h2 class="card__title">Atalanta Academy</h2>
           </div> 
           <div> <!-- subtitulo -->
-            <p>Crea expertos en ciberseguridad</p>
+            <p class="card__subtitle">Crea expertos en ciberseguridad</p>
           </div> 
           <div> <!-- texto -->
-            <p>Desarrolla tu carrera con Atalanta Academy y programas diseñados para el mundo real</p>
+            <p class="card__text">Desarrolla tu carrera con Atalanta Academy y programas diseñados para el mundo real</p>
           </div> 
           <div> <!-- lista -->
-            <ul>
-              <li>Certificados oficiales (Offsec Partner).</li>
-              <li>Laboratorios propios y plataforma CTF</li>
-              <li>Itinerarios profesionales y acuerdos con universidades</li>
+            <ul class="card__list">
+              <li class="card__list-item">Certificados oficiales (Offsec Partner).</li>
+              <li class="card__list-item">Laboratorios propios y plataforma CTF</li>
+              <li class="card__list-item">Itinerarios profesionales y acuerdos con universidades</li>
             </ul>
           </div> 
         </a>
@@ -200,7 +201,7 @@
   <!-- ========================================================================================================== -->
 
     <div class="index__confian-container"> <!-- Parte de los numeros esos -->
-      <div class="index__title-negro"> 
+      <div class="index__title-blanco"> 
         <h2>Confían en Atalanta para proteger lo que más importa</h2>
       </div>
       <div class="index__confian-stats">
@@ -243,7 +244,7 @@
         <p>Te acompañamos de principio a fin: desde entender tus procesos y riesgos hasta operar la ciberseguridad en el día a día de tu organización.</p>
       </div>
       <div> <!-- tarjetas -->
-        <div> <!-- 1 -->
+        <div class="index_trabajamos-card"> <!-- 1 -->
           <div> <!-- img -->
             <img  src="images/index_images/icon_4.png">
           </div>
@@ -251,7 +252,8 @@
             <h3>Priorizamos la calidad y los resultados</h3>
           </div>
         </div>
-        <div> <!-- 2 -->
+
+        <div class="index_trabajamos-card"> <!-- 2 -->
           <div> <!-- img -->
             <img  src="images/index_images/icon_5.png">
           </div>
@@ -259,7 +261,8 @@
             <h3>Utilizamos metodologías y herramientas diseñadas y creadas por nosotros</h3>
           </div>
         </div>
-        <div> <!-- 3 -->
+
+        <div class="index_trabajamos-card"> <!-- 3 -->
           <div> <!-- img -->
             <img  src="images/index_images/icon_6.png">
           </div>
@@ -267,7 +270,8 @@
             <h3>Ponemos a prueba tu seguridad</h3>
           </div>
         </div>
-        <div> <!-- 4 -->
+
+        <div class="index_trabajamos-card"> <!-- 4 -->
           <div> <!-- img -->
             <img  src="images/index_images/icon_7.png">
           </div>
@@ -275,7 +279,8 @@
             <h3>Te ayudamos a salir de un incidente de seguridad</h3>
           </div>
         </div>
-        <div> <!-- 5 -->
+
+        <div class="index_trabajamos-card"> <!-- 5 -->
           <div> <!-- img -->
             <img  src="images/index_images/iconos_8.png">
           </div>
@@ -283,7 +288,8 @@
             <h3>Somos proactivos y escuchamos las necesidades de nuestros clientes</h3>
           </div>
         </div>
-        <div> <!-- 6 -->
+        
+        <div class="index_trabajamos-card"> <!-- 6 -->
           <div> <!-- img -->
             <img  src="images/index_images/icon_9.png">
           </div>

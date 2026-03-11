@@ -4,153 +4,143 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Noticias</title>
+    <link rel="stylesheet" href="./pages/index.css">
 </head>
 <body>
     <header class="header">
         <nav class="navbar">
-            <a href="./index.html" class="navbar__logo-conatiner">
-                <img src="" alt="" class="navbar__logo">
+            <a href="./index.html" class="navbar__logo-container">
+                <img src="./images/main_images/Atalanta_Logo_1.png" alt="Logo Atalanta" class="navbar__logo">
             </a>
-            <!-- Faltan las anclas del nav -->
+            
             <ul class="navbar__list">
-                <li class="navbar__item">Quiénes somos</li>
-                <li class="navbar__item">
-                    Servicios
-                    <ul class="dropdown-items">
-                        <li class="dropdown-items__item">Ciberseguridad</li>
-                        <li class="dropdown-items__item">Digital</li>
-                        <li class="dropdown-items__item">Formación</li>
+                <li class="navbar__item"><a href="#" class="navbar__link">Quiénes somos</a></li>
+                <li class="navbar__item navbar__item--dropdown">
+                    <a href="#" class="navbar__link">Servicios</a>
+                    <ul class="navbar__dropdown">
+                        <li class="navbar__dropdown-item"><a href="#" class="navbar__dropdown-link">Ciberseguridad</a></li>
+                        <li class="navbar__dropdown-item"><a href="#" class="navbar__dropdown-link">Digital</a></li>
+                        <li class="navbar__dropdown-item"><a href="#" class="navbar__dropdown-link">Formación</a></li>
                     </ul>
                 </li>
-                <li class="navbar__item">Empleo</li>
-                <li class="navbar__item">Noticias</li>
-                <li class="navbar__item">Contacto</li>
+                <li class="navbar__item"><a href="#" class="navbar__link">Empleo</a></li>
+                <li class="navbar__item"><a href="#" class="navbar__link">Noticias</a></li>
+                <li class="navbar__item"><a href="#" class="navbar__link">Contacto</a></li>
             </ul>
         </nav>
-        <div class="header__info">
-            <h1 class="header__heading">NOTICIAS</h1>
-            <h2 class="header__title">CONOCE LAS ÚLTIMAS TENDENCIAS EN CIBERSEGURIDAD Y TRANSFORMACIÓN DIGITAL</h2>
-            <p class="header__paragraph">Explora artículos, guías y novedades sobre ciberseguridad, inteligencia artificial, transformación digital y formación especializada. Mantente al día con las mejores prácticas y consejos para proteger tu negocio y potenciar tu carrera.
-                    </p>
-                </div>
-            </div>
-        </div>
-</header>
     
-    <main class="main">
+        <section class="hero">
+            <div class="hero__content">
+                <p class="hero__heading">NOTICIAS</p>
+                <h1 class="hero__title">CONOCE LAS ÚLTIMAS TENDENCIAS EN CIBERSEGURIDAD Y TRANSFORMACIÓN DIGITAL</h1>
+                <p class="hero__paragraph">
+                    Explora artículos, guías y novedades sobre ciberseguridad, inteligencia artificial, transformación digital y formación especializada. 
+                    Mantente al día con las mejores prácticas y consejos para proteger tu negocio y potenciar tu carrera.
+                </p>
+                
+                <a href="#noticias-recientes" class="hero__button">
+                    <span class="hero__button-text">Ver artículos recientes</span>
+                </a>
+            </div>
+        </section>
+    </header>
+    
+    <main class="main" id="noticias-recientes">
         <div class="main_notice-container">
-            <button>1</button>
-            <button>2</button>
-            <button>3</button>
-            <button>Siguiente ></button>
+            <div class="pagination">
+                <button class="pagination__btn">1</button>
+                <button class="pagination__btn">2</button>
+                <button class="pagination__btn">3</button>
+                <button class="pagination__btn pagination__btn--next">Siguiente ></button>
+            </div>
         </div>
     </main>
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    <div class="footer__top">
-        <div class="footer__top-img-container">
-            <img class="footer__top-img" src="images/main_images/Atalanta_Logo_1.png">
-        </div>
-
-        <div class="footer__column"> <!-- pestañas de arriba -->
-            <h4 class="footer__column-title">Menú</h4>
-            <div class="footer__list-columns">
-                <ul class="footer__list">
-                    <li style="padding-bottom: 0.7rem;">
-                        <a class="footer__link" href="#"> <!-- METER LINKS A LAS PAGINAS ================================================================================== -->
-                            <span>Quiénes somos</span>
-                        </a>
+        <footer class="footer">
+            <div class="footer__top">
+                <div class="footer__top-img-container">
+                    <img class="footer__top-img" src="images/main_images/Atalanta_Logo_1.png" alt="Atalanta Logo">
+                </div>
+        
+                <div class="footer__column"> <h4 class="footer__column-title">Menú</h4>
+                    <div class="footer__list-columns">
+                        <ul class="footer__list">
+                            <li>
+                                <a class="footer__link" href="./quienes-somos.html">
+                                    <span>Quiénes somos</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="footer__link" href="./ciberseguridad.html">
+                                    <span>Ciberseguridad</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="footer__link" href="./digital.html">
+                                    <span>Digital</span>
+                                </a>
+                            </li>
+                        </ul>
+        
+                        <ul class="footer__list">
+                            <li>
+                                <a class="footer__link" href="./formacion.html">
+                                    <span>Formación</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="footer__link" href="./empleo.html">
+                                    <span>Empleo</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="footer__link" href="./noticias.html">
+                                    <span>Noticias</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+        
+                <div class="footer__column"> <h4 class="footer__column-title">Contacta con nosotros</h4>
+                    <ul class="footer__list">
+                        <li class="footer__list-item">
+                            <a class="footer__link" href="mailto:info@atalantago.com" target="_blank">
+                                <span>info@atalantago.com</span>
+                            </a> 
+                        </li> 
+                        <li class="footer__list-item">
+                            <a class="footer__link" href="https://www.linkedin.com/company/atalanta-ciberseguridad" target="_blank">
+                                <span>Linkedin</span>
+                            </a> 
+                        </li> 
+                        <li class="footer__list-item"> 
+                            <a class="footer__link" href="https://www.instagram.com/atalanta.academy/" target="_blank">
+                                <span>Instagram</span>
+                            </a> 
+                        </li> 
+                        <li class="footer__list-item"> 
+                            <span class="footer__plain-text">C. de Carranza, 25, 3º – 3, Centro, 28004 Madrid</span>
+                        </li> 
+                    </ul>
+                </div>
+            </div>
+        
+            <div class="footer__bottom">
+                <p class="footer__copyright">Copyright © 2026. Todos los derechos reservados por Atalanta Evolution</p>
+                <ul class="footer__legal-list">
+                    <li class="footer__list-item">
+                        <a class="footer__legal-link" href="#">AVISO LEGAL</a>
                     </li>
-                    <li style="padding-bottom: 0.7rem;">
-                        <a class="footer__link" href="#">
-                            <span>Ciberseguridad</span>
-                        </a>
+                    <li class="footer__list-item">
+                        <a class="footer__legal-link" href="#">POLÍTICA DE PRIVACIDAD</a>
                     </li>
-                    <li>
-                        <a class="footer__link" href="#">
-                            <span>Digital</span>
-                        </a>
-                    </li>
-                </ul>
-
-                <ul class="footer__list">
-                    <li style="padding-bottom: 0.7rem;">
-                        <a class="footer__link" href="#">
-                            <span>Formación</span>
-                        </a>
-                    </li>
-                    <li style="padding-bottom: 0.7rem;">
-                        <a class="footer__link" href="#">
-                            <span>Empleo</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="footer__link" href="#">
-                            <span>Contacto</span>
-                        </a>
+                    <li class="footer__list-item">
+                        <a class="footer__legal-link" href="#">POLÍTICA DE COOKIES</a>
                     </li>
                 </ul>
             </div>
-        </div>
-
-        <div class="footer__column"> <!-- contacto -->
-            <h4 class="footer__column-title">Contacta con nosotros</h4>
-            <ul class="footer__list">
-                <li class="footer__list-item"> <!-- correo -->
-                    <a class="footer__link" href="mailto:info@atalantago.com" target="_blank">
-                        <span>info@atalantago.com</span>
-                    </a> 
-                </li> 
-                <li class="footer__list-item"> <!-- linkedin -->
-                    <a class="footer__link" href="https://www.linkedin.com/company/atalanta-ciberseguridad?trk=ppro_cprof" target="_blank">
-                        <span>Linkedin</span>
-                    </a> 
-                </li> 
-                <li class="footer__list-item"> 
-                    <a class="footer__link" href="https://www.instagram.com/atalanta.academy/" target="_blank">
-                        <span>Instagram</span>
-                    </a> 
-                </li> <!-- instagram -->
-                <li class="footer__list-item"> <!-- direccion -->
-                    <span class="footer__plain-text">C. de Carranza, 25, 3º – 3, Centro, 28004 Madrid</span>
-                </li> 
-            </ul>
-        </div>
-    </div>
-
-    <div class="footer__bottom">
-        <p class="footer__copyright">Copyright © 2026. Todos los derechos reservados por Atalanta Evolution</p>
-        <ul class="footer__legal-list">
-            <li class="footer__list-item">
-                <a class="footer__legal-link" href="#">
-                    <span>AVISO LEGAL</span>
-                </a>
-            </li>
-            <li class="footer__list-item">
-                <a class="footer__legal-link" href="#">
-                    <span>POLÍTICA DE PRIVACIDAD</span>
-                </a>
-            </li>
-            <li class="footer__list-item">
-                <a class="footer__legal-link" href="#">
-                    <span>POLITICA DE COOKIES</span>
-                </a>
-            </li>
-        </ul>
-    </div>
+        </footer>
 </footer>
 </body>
 </html>

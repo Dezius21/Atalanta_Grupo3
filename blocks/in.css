@@ -139,6 +139,7 @@ body{
 .index__offsec-izq{
     flex:1;
     max-width: 500px;
+    color: #000000;
 }
 
 .index__offsec-izq p{

@@ -13,6 +13,8 @@ function mostrarPolitica(politicaId) {
 
     // Update URL anchor
     history.replaceState(null, null, "#" + politicaId);
+
+    window.scrollTo({ top: 0, behavior: "smooth" });
 }
 
 
@@ -32,5 +34,4 @@ window.addEventListener("DOMContentLoaded", () => {
     } else {
         mostrarPolitica("legal"); // seccion por defecto
     }
-
 });

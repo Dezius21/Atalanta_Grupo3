@@ -319,7 +319,7 @@
 }
 
 .main__container-certifications {
-    background: linear-gradient(180deg, #250d0d 0%, #000000 100%);
+    background: linear-gradient(180deg, #000000 0%, #250d0d 100%);
     width: 100%;
     padding: 80px 20px;
     text-align: center;

@@ -1,0 +1,352 @@
+*{
+    font-family: 'DM Sans', sans-serif;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+.ciber__hero {
+    background-color: white;
+    width: 100%;
+    padding: 80px 20px;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.ciber__hero h2 {
+    font-size: 32px;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: rgb(0, 0, 0);
+    max-width: 800px;
+    margin: 0 auto 24px;
+    line-height: 1.3;
+}
+
+.ciber__hero p {
+    font-size: 16px;
+    color: #000000;
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.7;
+}
+
+/* ===== RESET del .card heredado de card.css ===== */
+.ciber__main__card.card,
+.main__card.card {
+    clip-path: none !important;
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    width: 330px !important;
+    height: 360px !important;
+    min-height: unset !important;
+    background: #972622 !important;
+    border-radius: 0 !important;
+    padding: 40px 25px !important;
+    color: white !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    box-sizing: border-box !important;
+    z-index: 1 !important;
+    justify-self: center !important;
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%) !important;
+    transition: transform 0.4s ease !important;
+}
+
+.ciber__main__card.card::before,
+.main__card.card::before {
+    content: "" !important;
+    position: absolute !important;
+    inset: 2px !important;
+    background: #000000 !important;
+    clip-path: inherit !important;
+    border-radius: 0 !important;
+    z-index: -1 !important;
+}
+
+.ciber__main__card.card:hover,
+.main__card.card:hover {
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%) !important;
+    border-radius: 0 !important;
+    background-color: #972622 !important;
+    transform: translateY(-8px) scale(1.02) !important;
+}
+
+.ciber__main__card.card:hover::before,
+.main__card.card:hover::before {
+    clip-path: inherit !important;
+    border-radius: 0 !important;
+    background: #111111 !important;
+}
+
+/* ===== CONTENEDOR ===== */
+.ciber__main__cards-container {
+    background: linear-gradient(180deg, #3a0808 0%, #000000 100%);
+    width: 100%;
+    padding: 60px 20px;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.ciber__main__cards-container h2 {
+    font-size: 32px;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: white;
+    max-width: 800px;
+    margin: 0 auto 20px;
+}
+
+.ciber__main__cards-container > p {
+    font-size: 16px;
+    color: #cccccc;
+    max-width: 700px;
+    margin: 0 auto 50px;
+    line-height: 1.7;
+}
+
+/* ===== GRID HEXAGONAL (8 tarjetas = 3 filas) ===== */
+.ciber__main__cards-container {
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+.ciber__main__cards-container h2,
+.ciber__main__cards-container > p {
+    grid-column: 1;
+}
+
+/* Grid aplicado al contenedor, las tarjetas son hijos directos */
+.ciber__main__cards-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Sub-grid solo para las tarjetas */
+.ciber__cards-grid {
+    display: grid;
+    grid-template-columns: repeat(9, 175px);
+    grid-template-rows: 290px 355px;
+    justify-content: center;
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+.ciber__main__card.card img,
+.main__card.card img {
+    width: 70px !important;
+    height: 70px !important;
+    object-fit: contain !important;
+    margin-bottom: 10px !important;
+}
+
+/* Fila 1 */
+.ciber__cards-grid > *:nth-child(1) { grid-column: 1 / span 2; grid-row: 1; }
+.ciber__cards-grid > *:nth-child(2) { grid-column: 3 / span 2; grid-row: 1; }
+.ciber__cards-grid > *:nth-child(3) { grid-column: 5 / span 2; grid-row: 1; }
+.ciber__cards-grid > *:nth-child(4) { grid-column: 7 / span 2; grid-row: 1; }
+
+/* Fila 2 (intercalada) */
+.ciber__cards-grid > *:nth-child(5) { grid-column: 2 / span 2; grid-row: 2; }
+.ciber__cards-grid > *:nth-child(6) { grid-column: 4 / span 2; grid-row: 2; }
+.ciber__cards-grid > *:nth-child(7) { grid-column: 6 / span 2; grid-row: 2; }
+.ciber__cards-grid > *:nth-child(8) { grid-column: 8 / span 2; grid-row: 2; }
+
+
+
+/* ===== CONTENEDOR ÁREAS ===== */
+.ciber__main__container-areas {
+    background: linear-gradient(180deg, #000000 0%, #250d0d 100%);
+    width: 100%;
+    padding: 60px 20px 80px;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.ciber__main__container-areas > h3 {
+    font-size: 28px;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: white;
+    max-width: 800px;
+    margin: 0 auto 20px;
+}
+
+.ciber__main__container-areas > p {
+    font-size: 16px;
+    color: #cccccc;
+    max-width: 700px;
+    margin: 0 auto 60px;
+    line-height: 1.7;
+}
+
+/* ===== GRID DE TARJETAS ===== */
+.ciber__areas-grid {
+    position: relative;
+    width: 1200px;
+    height: 880px;
+    margin: 0 auto;
+}
+
+/* ===== RESET .card heredado ===== */
+.ciber__main_card-areas {
+    width: 400px !important;
+    min-height: 360px !important;
+    background: #972622 !important;
+    color: white !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    padding: 20px 60px !important;
+    box-sizing: border-box !important;
+    position: absolute !important;
+    z-index: 1 !important;
+    clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%) !important;
+    transition: clip-path 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+                background-color 0.4s ease,
+                border-radius 0.4s ease !important;
+}
+
+.ciber__main_card-areas::before {
+    content: "" !important;
+    position: absolute !important;
+    inset: 2px !important;
+    background: #000 !important;
+    clip-path: inherit !important;
+    z-index: -1 !important;
+    transition: background 0.4s ease !important;
+    border-radius: 0 !important;
+}
+
+/* --- Posiciones: 2 arriba, 2 abajo intercaladas --- */
+.ciber__main_card-areas:nth-of-type(1) { top: 0;     left: 150px; }
+.ciber__main_card-areas:nth-of-type(2) { top: 0;     left: 620px; }
+.ciber__main_card-areas:nth-of-type(3) { top: 420px; left: 150px; }
+.ciber__main_card-areas:nth-of-type(4) { top: 420px; left: 620px; }
+
+.ciber__main_card-areas::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    clip-path: inherit;
+    background-size: cover;
+    background-position: center;
+    opacity: 0.3; /* ajusta a tu gusto */
+    z-index: 0;
+}
+
+.ciber__main_card-areas:nth-of-type(1)::after { background-image: url('../images/background_images/Background_1.jpeg'); }
+.ciber__main_card-areas:nth-of-type(2)::after { background-image: url('../images/background_images/Background_2.jpeg'); }
+.ciber__main_card-areas:nth-of-type(3)::after { background-image: url('../images/background_images/Background_3.jpeg'); }
+.ciber__main_card-areas:nth-of-type(4)::after { background-image: url('../images/background_images/Background_5.jpeg'); }
+
+
+/* --- Hover: se convierte en rectángulo --- */
+.ciber__main_card-areas:hover {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 50%, 100% 100%, 0% 100%, 0% 50%) !important;
+    border-radius: 12px !important;
+}
+
+.ciber__main_card-areas:hover::before {
+    background: rgba(20, 20, 20, 0.9) !important;
+    border-radius: 12px !important;
+}
+
+/* --- Contenido --- */
+.ciber__main_card-areas h3 {
+    font-size: 24px;
+    font-weight: 900;
+    color: white;
+    padding-bottom: 32px;
+}
+
+.ciber__main_card-areas p,
+.ciber__main_card-areas ul {
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: opacity 0.3s ease 0.2s;
+    text-align: left;
+    color: white;
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+.ciber__main_card-areas:hover p,
+.ciber__main_card-areas:hover ul {
+    opacity: 1;
+    max-height: 500px;
+}
+
+.ciber__main_card-areas ul {
+    padding-left: 20px;
+    list-style-type: square;
+}
+
+.ciber__main_card-areas li {
+    margin-bottom: 6px;
+    color: white;
+}
+
+.ciber__main_card-areas h3,
+.ciber__main_card-areas p,
+.ciber__main_card-areas ul {
+    position: relative;
+    z-index: 2;
+}
+
+.ciber__main__button-form{
+    display:inline-block;
+    background-color:#e50914;
+    text-decoration:none;
+    color:white;
+    padding:14px 28px;
+    border-radius:8px;
+    font-weight:600;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.ciber__main__button-form:hover{
+    transform:scale(1.07);
+    background-color:#fa1723;
+}
+
+.main__container-certifications {
+    background: linear-gradient(180deg, #250d0d 0%, #000000 100%);
+    width: 100%;
+    padding: 80px 20px;
+    text-align: center;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+}
+
+.main__container-certifications h2 {
+    font-size: 28px;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: white;
+    max-width: 800px;
+}
+
+.main__container-certifications p {
+    font-size: 16px;
+    color: #cccccc;
+    max-width: 700px;
+    line-height: 1.7;
+}
+
+.img-certifications {
+    max-width: 900px;
+    width: 100%;
+    object-fit: contain;
+}

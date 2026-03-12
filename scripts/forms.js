@@ -1,7 +1,7 @@
 
 const modal = document.getElementById("form");
-const btnAbrir = document.getElementById("btn-apertura-formulario");
-const btnCerrar = document.getElementById("btnCerrar");
+const btnAbrir = document.getElementsByClassName("btn-apertura-formulario");
+const btnCerrar = document.getElementsByClassName("btnCerrar");
 const formElement = document.querySelector(".form-contact");
 
 const cerrarModal = () => {

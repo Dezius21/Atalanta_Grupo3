@@ -1,6 +1,7 @@
 .testimonials{
     background: #0d0d0d;
     padding: 80px 5%;
+    margin: 15px;
 }
 .main__carousel-container{
     display: flex;

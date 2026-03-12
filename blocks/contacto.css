@@ -235,7 +235,7 @@
 ══════════════════════════════ */
 
 .main{
-    height: 60vh;
+    min-height: 60vh;  /* antes era solo height */
     background-color: #000;
 
 }

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./blocks/register-login.css">
+    <title>Login | Atalanta</title>
+</head>
+<body>
+    <div class="auth">
+        <div class="auth__container" id="auth-container">
+          
+          <div class="auth__form-area auth__form-area--signup">
+            <form class="auth__form" action="#">
+              <a href="index.html" class="auth__logo-link">
+                <img src="./images/main_images/Atalanta_Logo_1.png" alt="Atalanta Logo" class="auth__logo-img">
+              </a>
+              
+              <h2 class="auth__title">Crear Cuenta</h2>
+              <div class="auth__socials">
+                <a href="#" class="auth__social-btn"><img src="https://cdn-icons-png.flaticon.com/512/300/300221.png" alt="Google"></a>
+              </div>
+              <span class="auth__subtitle">o usa tu email para registrarte</span>
+              <input type="text" class="auth__input" placeholder="Nombre" />
+              <input type="email" class="auth__input" placeholder="Email" />
+              <input type="password" class="auth__input" placeholder="Contraseña" />
+              <button class="auth__btn auth__btn--primary">Registrarte</button>
+            </form>
+          </div>
+      
+          <div class="auth__form-area auth__form-area--signin">
+            <form class="auth__form" action="#">
+              <a href="index.html" class="auth__logo-link">
+                <img src="./images/main_images/Atalanta_Logo_1.png" alt="Atalanta Logo" class="auth__logo-img">
+              </a>
+              
+              <h2 class="auth__title">Login</h2>
+              <span class="auth__subtitle">o continúa con</span>
+              <div class="auth__socials">
+                <a href="#" class="auth__social-btn"><img src="https://cdn-icons-png.flaticon.com/512/300/300221.png" alt="Google"></a>
+              </div>
+              <input type="email" class="auth__input" placeholder="Email" />
+              <input type="password" class="auth__input" placeholder="Contraseña" />
+              <a href="#" class="auth__link">¿Olvidaste tu contraseña?</a>
+              <button class="auth__btn auth__btn--primary">Iniciar sesión</button>
+            </form>
+          </div>
+      
+          <div class="auth__overlay-container">
+            <div class="auth__overlay">
+              <div class="auth__overlay-panel auth__overlay-panel--left">
+                <h2 class="auth__title">¡Bienvenido de vuelta!</h2>
+                <p class="auth__overlay-text">Loguéate. Prometemos que nosotros sí cuidamos tus datos.</p>
+                <button class="auth__btn auth__btn--ghost" id="signIn">Inicia sesión</button>
+              </div>
+              <div class="auth__overlay-panel auth__overlay-panel--right">
+                <h2 class="auth__title">¿Nuevo aquí?</h2>
+                <p class="auth__overlay-text">Regístrate para obtener más detalles e iniciar tu viaje con nosotros</p>
+                <button class="auth__btn auth__btn--ghost" id="signUp">Regístrate</button>
+              </div>
+            </div>
+          </div>
+      
+        </div>
+      </div>
+
+      <script>
+        const signUpButton = document.getElementById('signUp');
+        const signInButton = document.getElementById('signIn');
+        const container = document.getElementById('auth-container');
+
+        signUpButton.addEventListener('click', () => {
+          container.classList.add('auth__container--active-right');
+        });
+
+        signInButton.addEventListener('click', () => {
+          container.classList.remove('auth__container--active-right');
+        });
+      </script>
+</body>
+</html>

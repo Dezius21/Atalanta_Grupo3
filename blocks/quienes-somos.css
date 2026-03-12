@@ -229,3 +229,80 @@
 .values__subtitle{
     margin-bottom: 45px;
 }
+.values__grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    justify-content: center;
+    padding: 2rem 0;
+  }
+  
+  /* Block: value-card */
+  .value-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-subtle);
+    border-radius: 12px;
+    padding: 2.5rem 1.5rem;
+    flex: 1 1 250px; /* Responsive: grows but stays around 250px */
+    max-width: 350px;
+    text-align: center;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  /* Hover Effect: The "Tech" Glow */
+  .value-card:hover {
+    border-color: var(--accent-red);
+    transform: translateY(-8px);
+    box-shadow: 0 10px 30px rgba(255, 49, 49, 0.15), 
+                0 0 10px rgba(255, 49, 49, 0.1);
+  }
+  
+  /* Element: Icon */
+  .value-card__icon {
+    width: 50px;
+    height: auto;
+    margin-bottom: 1.5rem;
+    transition: transform 0.3s ease;
+    /* Adds a subtle red glow to the white icon */
+    filter: drop-shadow(0 0 8px rgba(255, 49, 49, 0.4));
+  }
+  
+  .value-card:hover .value-card__icon {
+    transform: scale(1.1);
+  }
+  
+  /* Element: Title */
+  .value-card__title {
+    color: #ffffff;
+    font-family: var(--font-main);
+    font-size: 1.15rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 1rem;
+  }
+  
+  /* Element: Text */
+  .value-card__text {
+    color: var(--text-muted);
+    font-family: var(--font-main);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin: 0;
+  }
+  
+  /* Responsive tweak for mobile */
+  @media (max-width: 768px) {
+    .values__grid {
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .value-card {
+      width: 100%;
+      max-width: 100%;
+    }
+  }

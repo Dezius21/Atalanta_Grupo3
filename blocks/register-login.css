@@ -1,0 +1,301 @@
+:root {
+    --bg-dark: #050505;
+    --glass-bg: rgba(20, 20, 22, 0.4);
+    --glass-border: rgba(255, 255, 255, 0.08);
+    --accent-red: #822525;
+    --text-white: #ffffff;
+    --text-muted: #b0b0b0;
+    --input-bg: rgba(255, 255, 255, 0.05);
+  }
+  
+  body {
+    background-color: var(--bg-dark);
+    background-image: 
+      radial-gradient(circle at 15% 50%, rgba(255, 49, 49, 0.15), transparent 25%),
+      radial-gradient(circle at 85% 30%, rgba(255, 49, 49, 0.1), transparent 25%);
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
+  
+  .auth {
+    padding: 2rem;
+  }
+  
+  /* Bloque Principal */
+  .auth__container {
+    background: var(--glass-bg);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6), inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+    position: relative;
+    overflow: hidden;
+    width: 768px;
+    max-width: 100%;
+    min-height: 520px; /* Aumentado ligeramente para acomodar el logo visualmente */
+  }
+  
+  /* Elementos: Áreas de formulario */
+  .auth__form-area {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    transition: all 0.6s ease-in-out;
+  }
+  
+  .auth__form-area--signin {
+    left: 0;
+    width: 50%;
+    z-index: 2;
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  .auth__form-area--signup {
+    left: 0;
+    width: 50%;
+    opacity: 0;
+    z-index: 1;
+    visibility: hidden; 
+    transition: all 0.6s ease-in-out;
+  }
+  
+  .auth__form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0 50px;
+    height: 100%;
+    text-align: center;
+    color: var(--text-white);
+  }
+  
+  /* Elementos de Texto e Inputs */
+  .auth__title {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+  }
+  
+  .auth__subtitle {
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-bottom: 15px;
+  }
+  
+  /* Estilos del Logo */
+  .auth__logo-link {
+    display: inline-block;
+    margin-bottom: 1rem;
+    transition: transform 0.3s ease;
+  }
+  
+  .auth__logo-link:hover {
+    transform: scale(1.05);
+  }
+  
+  .auth__logo-img {
+    max-width: 140px; /* Ajusta este valor según las proporciones de tu logo */
+    height: auto;
+    display: block;
+    /* Si tu logo es negro, puedes usar filter: invert(1) para que sea blanco */
+  }
+  
+  /* Elementos Sociales */
+  .auth__socials {
+    margin: 15px 0;
+    display: flex;
+    gap: 15px;
+  }
+  
+  .auth__social-btn {
+    border: 1px solid var(--glass-border);
+    border-radius: 50%;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 5px;
+    height: 40px;
+    width: 40px;
+    background: var(--input-bg);
+    transition: transform 0.3s ease, border-color 0.3s ease;
+  }
+  
+  .auth__social-btn img {
+    width: 20px;
+    filter: invert(1);
+  }
+  
+  .auth__social-btn:hover {
+    transform: translateY(-3px);
+    border-color: var(--accent-red);
+  }
+  
+  .auth__input {
+    background-color: var(--input-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 8px;
+    color: var(--text-white);
+    padding: 12px 15px;
+    margin: 8px 0;
+    width: 100%;
+    box-sizing: border-box;
+    outline: none;
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+  }
+  
+  .auth__input:focus {
+    border-color: var(--accent-red);
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+  
+  .auth__link {
+    color: var(--text-muted);
+    font-size: 13px;
+    text-decoration: none;
+    margin: 15px 0;
+    transition: color 0.3s ease;
+  }
+  
+  .auth__link:hover {
+    color: var(--accent-red);
+  }
+  
+  /* Botones y Modificadores */
+  .auth__btn {
+    border-radius: 8px;
+    border: none;
+    color: #FFFFFF;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 12px 45px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: transform 80ms ease-in, box-shadow 0.3s ease;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+  
+  .auth__btn:active {
+    transform: scale(0.95);
+  }
+  
+  .auth__btn--primary {
+    background-color: rgb(182, 18, 18);
+  }
+  
+  .auth__btn--primary:hover {
+    box-shadow: 0 0 15px rgba(255, 49, 49, 0.4);
+  }
+  
+  .auth__btn--ghost {
+    background-color: transparent;
+    border: 1px solid #FFFFFF;
+  }
+  
+  .auth__btn--ghost:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+  
+  /* Cortina (Overlay) */
+  .auth__overlay-container {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+    transition: transform 0.6s ease-in-out;
+    z-index: 100;
+  }
+  
+  .auth__overlay {
+    background: linear-gradient(135deg, var(--accent-red), #990000);
+    color: #FFFFFF;
+    position: relative;
+    left: -100%;
+    height: 100%;
+    width: 200%;
+    transform: translateX(0);
+    transition: transform 0.6s ease-in-out;
+  }
+  
+  .auth__overlay-panel {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0 40px;
+    text-align: center;
+    top: 0;
+    height: 100%;
+    width: 50%;
+    transform: translateX(0);
+    transition: transform 0.6s ease-in-out;
+    box-sizing: border-box;
+  }
+  
+  .auth__overlay-panel--left {
+    transform: translateX(-20%);
+  }
+  
+  .auth__overlay-panel--right {
+    right: 0;
+    transform: translateX(0);
+  }
+  
+  .auth__overlay-text {
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 20px;
+    letter-spacing: 0.5px;
+    margin: 20px 0 30px;
+  }
+  
+  /* Modificador de Estado Activo (Controlado por JS) */
+  .auth__container--active-right .auth__form-area--signin {
+    transform: translateX(100%);
+    opacity: 0;
+    visibility: hidden;
+  }
+  
+  .auth__container--active-right .auth__form-area--signup {
+    transform: translateX(100%);
+    opacity: 1;
+    z-index: 5;
+    visibility: visible;
+    animation: show 0.6s;
+  }
+  
+  .auth__container--active-right .auth__overlay-container {
+    transform: translateX(-100%);
+  }
+  
+  .auth__container--active-right .auth__overlay {
+    transform: translateX(50%);
+  }
+  
+  .auth__container--active-right .auth__overlay-panel--left {
+    transform: translateX(0);
+  }
+  
+  .auth__container--active-right .auth__overlay-panel--right {
+    transform: translateX(20%);
+  }
+  
+  @keyframes show {
+    0%, 49.99% {
+      opacity: 0;
+      z-index: 1;
+    }
+    50%, 100% {
+      opacity: 1;
+      z-index: 5;
+    }
+  }

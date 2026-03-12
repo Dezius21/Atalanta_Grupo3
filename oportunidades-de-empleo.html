@@ -6,7 +6,7 @@
     <title>Oportunidades de empleo</title>
     <link rel="stylesheet" href="./pages/index.css">
 </head>
-<body>
+<body class="empleo__body">
     <header class="header">
         <nav class="navbar">
       <a href="./index.html" class="navbar__logo-container">
@@ -62,15 +62,15 @@
     
                 <div class="hero__tags">
                     <div class="hero__tag">
-                        <img src="./images/form_images/form_image2.png" alt="LinkedIn" class="hero__icon">
+                        <img src="./images/empleo_images/Header_1.png" alt="LinkedIn" class="hero__icon">
                         <p class="hero__text">Ofertas activas en LinkedIn.</p>
                     </div>
                     <div class="hero__tag">
-                        <img src="./images/header_images/tag_four.png" alt="Líder" class="hero__icon">
+                        <img src="./images/empleo_images/Header_2.png" alt="Líder" class="hero__icon">
                         <p class="hero__text">Empresa líder de ciberseguridad.</p>
                     </div>
                     <div class="hero__tag">
-                        <img src="./images/form_images/form_image1.png" alt="Internacional" class="hero__icon">
+                        <img src="./images/empleo_images/Header_3.png" alt="Internacional" class="hero__icon">
                         <p class="hero__text">Entorno internacional y flexible.</p>
                     </div>
                 </div>
@@ -84,86 +84,69 @@
     
     <main>
         <div class="main__employment">
-            <select name="contratos" id="contratos" class="employment_select">
-                <option value="" selected disabled hidden>Todas las Ubicaciones</option>
-                <option value="asuncion">asuncion</option>
-                <option value="madrid">Madrid</option>
-            </select>
-            <select name="equipos" id="equipos" class="employment_select">
-                <option value="" selected disabled hidden>Todos los equipos</option>
-                <option value="blue-team">Blue Team</option>
-                <option value="comercial">Comercial</option>
-                <option value="soc">SOC</option>
-            </select>
-            <select name="contrato" id="contratos" class="employment_select">
-                <option value="" selected disabled hidden>Todos los tipos de contactos</option>
-                <option value="autonomo">Autonomo</option>
-                <option value="indefinido">indefinido</option>
-            </select>
-
+            <div class="employment__filters">
+                <select name="ubicacion" id="ubicacion" class="employment_select">
+                    <option value="">Todas las Ubicaciones</option>
+                    <option value="asuncion">Asunción</option>
+                    <option value="madrid">Madrid</option>
+                </select>
+        
+                <select name="equipos" id="equipos" class="employment_select">
+                    <option value="">Todos los equipos</option>
+                    <option value="blue-team">Blue Team</option>
+                    <option value="comercial">Comercial</option>
+                    <option value="soc">SOC</option>
+                </select>
+        
+                <select name="contrato" id="contrato" class="employment_select">
+                    <option value="">Todos los tipos de contratos</option>
+                    <option value="autonomo">Autónomo</option>
+                    <option value="indefinido">Indefinido</option>
+                </select>
+            </div>
+        
             <div class="main__container-employment">
+                
                 <div class="container-employment">
-                    <legend>Asuncion</legend>
+                    <legend class="employment__city-title">Asunción</legend>
+                    
+                    <div class="employment-item" data-ubicacion="asuncion" data-equipo="comercial" data-contrato="indefinido">
+                        <div class="employment-item__info">
+                            <h3>Ejecutivo/a de cuentas</h3>
+                            <p>Híbrido - Indefinido</p>
+                        </div>
+                        <a href="#" class="pagination__btn">Inscríbete Ahora</a>
+                    </div>
                 </div>
-                <div class="employment-item">
-                    <h3>Ejecutivo/a de cuentas</h3>
-                    <p>Hibrido</p>
-                    <a href="#" class="carousel__button-form">
-                    <span class="employment__button-form-span">Inscribete Ahora</span>
-                </a>
-                </div>
+        
                 <div class="container-employment">
-                    <legend>Madrid</legend>
-                    <div class="employment-item">
-                        <h3>Analista de ciberseguridad - respuesta incidentes</h3>
-                        <p>Hibrido</p>
-                        <a href="#" class="carousel__button-form">
-                    <span class="employment__button-form-span">Inscribete Ahora</span>
-                </a>
+                    <legend class="employment__city-title">Madrid</legend>
+                    
+                    <div class="employment-item" data-ubicacion="madrid" data-equipo="blue-team" data-contrato="indefinido">
+                        <div class="employment-item__info">
+                            <h3>Analista de ciberseguridad - respuesta incidentes</h3>
+                            <p>Híbrido - Indefinido</p>
+                        </div>
+                        <a href="#" class="pagination__btn">Inscríbete Ahora</a>
                     </div>
-                    <div class="employment-item">
-                        <h3>Technical Project Manager</h3>
-                        <p>Hibrido</p>
-                        <a href="#" class="carousel__button-form">
-                    <span class="employment__button-form-span">Inscribete Ahora</span>
-                </a>
-                    </div>
-                    <div class="employment-item">
-                        <h3>Analista SOC N3</h3>
-                        <p>Hibrido</p>
-                        <a href="#" class="carousel__button-form">
-                    <span class="employment__button-form-span">Inscribete Ahora</span>
-                </a>
-                    </div>
-                    <div class="employment-item">
-                        <h3>Key Account Manager Ciberseguridad</h3>
-                        <p>Hibrido</p>
-                        <a href="#" class="carousel__button-form">
-                    <span class="employment__button-form-span">Inscribete Ahora</span>
-                </a>
+                    
+                    <div class="employment-item" data-ubicacion="madrid" data-equipo="soc" data-contrato="indefinido">
+                        <div class="employment-item__info">
+                            <h3>Analista SOC N3</h3>
+                            <p>Híbrido - Indefinido</p>
+                        </div>
+                        <a href="#" class="pagination__btn">Inscríbete Ahora</a>
                     </div>
                 </div>
             </div>
-            <p>Si las ofertas que tenemos activas ahora mismo no se adecúan a tu perfil pero aún así quieres formar parte de Atalanta, envíanos tu Cv a: personas@atalantago.com y te tendremos en cuenta más adelante.</p>
+        
+            <div class="pagination">
+                <button class="pagination__btn">Anterior</button>
+                <button class="pagination__btn">1</button>
+                <button class="pagination__btn">2</button>
+                <button class="pagination__btn">Siguiente</button>
+            </div>
         </div>
-
-
-            <div class="carousel-container">
-                <div class="carousel-track">
-                  <div class="carousel-item">
-                      <p>Trabajar en Atalanta es cercanía, camaradería y buen ambiente. Puedes ser tú mismo mientras creces rodeado de grandes profesionales. Compartimos pasión por la ciberseguridad y eso se nota en el día a día. Además, existe una flexibilidad real que permite adaptar tu ritmo de vida a las necesidades del proyecto… y viceversa.</p>
-                    </div>
-                  <div class="carousel-item">
-                    <p>En Atalanta siento algo que no había vivido en otras empresas: apoyo real, confianza y acompañamiento constante por parte de mi mánager. Eso hace que venga a trabajar a gusto.Aquí el ambiente es diferente. Hay compañerismo de verdad, sin competitividad innecesaria. Si necesitas ayuda, la tienes. Y eso marca la diferencia.Me siento valorada, tanto por el trabajo que realizo en Atalanta como en proyectos como Honeywell.</p>
-                    </div>
-                  <div class="carousel-item">
-                    <p>Llevo tres meses en Atalanta y desde el primer día me he sentido muy a gusto. Entré al equipo de Digital e IA con muchas ganas de aprender y encontré personas dispuestas a ayudarte y, al mismo tiempo, a darte espacio para aportar tus propias ideas.Formar parte de una empresa de ciberseguridad tan dinámica y ambiciosa te impulsa a mejorar cada día.En este tiempo he crecido más de lo que esperaba y tengo la sensación de estar en el lugar adecuado, rodeado de un equipo que avanza en la misma dirección. Me siento muy orgulloso de formar parte de esta etapa.</p>
-                    </div>
-                  <div class="carousel-item">
-                      <p>Aunque trabajo de forma bastante autónoma, hay detalles que marcan la diferencia: la apuesta por la formación continua, las actividades para reforzar el equipo y los incentivos para atraer talento.Atalanta cuida a las personas. Desde la cena de Navidad hasta los encuentros de verano, se nota el esfuerzo por crear equipo más allá del día a día.Para mí, es una de las mejores empresas en las que he estado.</p>
-                    </div>
-                  </div>
-                </div>    
     </main>
     
     <footer class="footer">
@@ -263,5 +246,66 @@
     <script src="./scripts/forms.js"></script>
     <script src="./scripts/carousel.js"></script>
     <script src="./scripts/header_temporal.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+    // 1. Obtenemos los elementos selectores
+    const selectUbicacion = document.getElementById("ubicacion");
+    const selectEquipo = document.getElementById("equipos");
+    const selectContrato = document.getElementById("contrato");
+
+    // 2. Obtenemos todas las ofertas y contenedores de ciudad
+    const ofertas = document.querySelectorAll(".employment-item");
+    const contenedores = document.querySelectorAll(".container-employment");
+
+    // 3. Función principal de filtrado
+    function filtrarOfertas() {
+        // Obtenemos los valores seleccionados actualmente
+        const valUbicacion = selectUbicacion.value.toLowerCase();
+        const valEquipo = selectEquipo.value.toLowerCase();
+        const valContrato = selectContrato.value.toLowerCase();
+
+        // Evaluamos cada oferta individualmente
+        ofertas.forEach(oferta => {
+            const ubicacionOferta = oferta.getAttribute("data-ubicacion").toLowerCase();
+            const equipoOferta = oferta.getAttribute("data-equipo").toLowerCase();
+            const contratoOferta = oferta.getAttribute("data-contrato").toLowerCase();
+
+            // Verificamos si la oferta coincide con los filtros (si el filtro está vacío, cuenta como true)
+            const coincideUbicacion = (valUbicacion === "" || ubicacionOferta === valUbicacion);
+            const coincideEquipo = (valEquipo === "" || equipoOferta === valEquipo);
+            const coincideContrato = (valContrato === "" || contratoOferta === valContrato);
+
+            // Si coincide con los tres, la mostramos; si no, la ocultamos
+            if (coincideUbicacion && coincideEquipo && coincideContrato) {
+                oferta.style.display = "block"; // O "flex" dependiendo de tu CSS (index.css)
+            } else {
+                oferta.style.display = "none";
+            }
+        });
+
+        // 4. Ocultar el bloque de la ciudad si no hay ofertas visibles dentro
+        contenedores.forEach(contenedor => {
+            // Buscamos cuántas ofertas están visibles dentro de este contenedor específico
+            const ofertasVisibles = Array.from(contenedor.querySelectorAll(".employment-item")).filter(
+                item => item.style.display !== "none"
+            );
+
+            // Si hay 0 ofertas visibles, ocultamos el título de la ciudad (legend) y su margen
+            if (ofertasVisibles.length === 0) {
+                contenedor.style.display = "none";
+            } else {
+                contenedor.style.display = "block";
+            }
+        });
+    }
+
+    // 5. Agregamos los "event listeners" para que filtren cuando el usuario cambie una opción
+    if(selectUbicacion && selectEquipo && selectContrato) {
+        selectUbicacion.addEventListener("change", filtrarOfertas);
+        selectEquipo.addEventListener("change", filtrarOfertas);
+        selectContrato.addEventListener("change", filtrarOfertas);
+        }
+    });
+    </script>
 </body>
 </html>

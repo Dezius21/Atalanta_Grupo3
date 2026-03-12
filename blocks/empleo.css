@@ -1,0 +1,140 @@
+/* --- ESTILOS GENERALES DEL CONTENEDOR --- */
+.empleo__body{
+    background: white !important;
+}
+.main{
+    background-color: white;
+    
+}
+.main__employment {
+    max-width: 1000px; 
+    margin: 40px auto;
+    padding: 0 20px;
+    font-family: Arial, sans-serif;
+}
+
+/* --- FILTROS DE BÚSQUEDA --- */
+.employment__filters {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+
+.employment_select {
+    padding: 10px 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    cursor: pointer;
+    font-size: 1rem;
+    flex-grow: 1;
+}
+
+/* --- TÍTULO DE LA CIUDAD --- */
+.employment__city-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 15px;
+    margin-top: 30px;
+    border-bottom: 2px solid #e61d2b; 
+    padding-bottom: 5px;
+}
+
+/* --- LISTA DE OFERTAS (TARJETAS) --- */
+.employment-item {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    padding: 20px;
+    margin-bottom: 15px;
+    border: 1px solid #eaeaea;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+    background-color: #fff;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    
+    /* 🛠️ FIX SOLAPAMIENTO: Mantener distancias y alturas correctas */
+    height: auto !important; 
+    gap: 20px; 
+    overflow: hidden; 
+}
+
+.employment-item:hover {
+    transform: translateY(-2px); 
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* 🛠️ FIX SOLAPAMIENTO: Contenedor del texto de la oferta */
+.employment-item__info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px; 
+    flex-grow: 1; /* Obliga al texto a empujar al botón a la derecha */
+}
+
+/* 🛠️ FIX SOLAPAMIENTO: Limpiar márgenes que venían de index.css */
+.employment-item__info h3, 
+.employment-item__info p {
+    margin: 0 !important; 
+    padding: 0 !important;
+    line-height: 1.5 !important; 
+}
+
+.employment-item__info h3 {
+    color: #111;
+    font-size: 1.2rem;
+}
+
+.employment-item__info p {
+    color: #666;
+    font-size: 0.95rem;
+}
+
+/* --- BOTONES Y PAGINACIÓN --- */
+.pagination {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    padding: 40px 0;
+}
+
+.pagination__btn {
+    background-color: transparent;
+    border: 1px solid #e61d2b;
+    color: black;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: 0.3s;
+    text-decoration: none; 
+    font-weight: 600;
+    display: inline-block; 
+    white-space: nowrap; 
+}
+
+.pagination__btn:hover {
+    background-color: #e61d2b;
+    color: white; 
+}
+
+/* --- RESPONSIVE (MÓVILES) --- */
+@media (max-width: 600px) {
+    .employment__filters {
+        flex-direction: column; /* Apila los selectores de filtro */
+    }
+    
+    .employment-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px !important; 
+    }
+    
+    .pagination__btn {
+        width: 100%; /* Botón de lado a lado para facilitar el toque en móvil */
+        text-align: center;
+        margin-top: 10px; 
+        box-sizing: border-box;
+    }
+}

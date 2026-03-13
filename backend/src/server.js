@@ -1,0 +1,46 @@
+const express = require('express');
+const cors = require('cors');
+const helmet = require('helmet');
+const rateLimit = require('express-rate-limit');
+require('dotenv').config();
+const db = require('./config/db');
+
+const app = express();
+
+
+//-Seguridad-//
+app.use(helmet());
+
+app.use(cors({
+    origin: 'http://localhost:5500',
+    credentials : true
+}));
+
+//-Rate limit(global)-//
+const limiter = rateLimit({
+    windowMs: 15* 60 *1000,
+    max: 70,
+    message: {error: 'Demasiadas peticiones intenta mas tarde'}
+});
+
+app.use(limiter);
+
+//-Rate limit(login)-//
+const loginLimiter = rateLimit({
+    windowMs: 15 * 60 *1000,
+    max: 5,
+    message: {error: 'Demasiadas peticiones intenta mas tarde'}
+})
+
+app.use(express.json());
+app.use(express.urlencoded({extended: true}));
+
+app.get('/', (req , res) => {
+    res. json({mensaje: 'API Atalanta funciona'})
+});
+
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () =>{
+    console.log(`Servidor corriendo localmente en http://localhost:${PORT}`);
+})
+

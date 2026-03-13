@@ -1,0 +1,67 @@
+const argon2 = require('argon2');
+const jwt = require('jsonwebtoken');
+const {findByEmail, createUser} = require('../models/usermode');
+
+//-Registro-//
+
+const register = async (req , res) =>{
+    try{
+        const{nombre, email, password, rol} = req.body;
+        //comprobacion de el email en la DB
+        const existingUser = await findByEmail(email);
+        if(existingUser){
+            return res.status(400).json({error: 'El mail ya esta registrado'})
+        }
+
+        //hasheo de contraseña
+        const hashedPassword = await argon2.hash(password);
+
+        //creacion de user en DB
+        const userId = await createUser(nombre,email, hashedPassword, rol);
+
+        res.status(201).json({mensaje: 'Usuario creado correctamente'});
+
+        } catch (error){
+            console.error('Error en registro' , error.message);
+            res.status(500).json({error: 'Error interno del servidor'})
+        }
+    }
+
+//-Login-//
+
+const login = async (req,res) =>{
+try{
+    //Busqueda de usuario em la DB
+    const{email,password} = req.body;
+    
+    const user = await findByEmail(email);
+    if(!user){
+        return res.status(401).json({error: 'Credenciales Incorrectas'})
+    }
+
+    //Comparacion de contraseña hash en DB
+    const validPassword = await argon2.verify(user.password, password);
+    if(!validPassword){
+        return res.status(401).json({error: 'Credenciales incorrectas'});
+    }
+
+    //Generacion de token JWT con datos del usuario
+    const token = jwt.sign(
+        {id: user.id, email: user.email, rol: user.rol},
+        process.env.JWT_SECRET,
+        {expiresIn: '8h'}
+    );
+
+    res.json({
+        mensaje:'Login correcto',
+        token,
+        usuario: {id: user.id, nombre: user.nombre, email: user.email, rol: user.rol},
+    })
+
+}catch(error){
+    console.error('Error en login' , error.message);
+    res.status(500).json({error: 'Error interno del servidor'})
+}
+};
+
+module.exports = {register, login};

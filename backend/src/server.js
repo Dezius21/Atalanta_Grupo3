@@ -35,6 +35,9 @@ const loginLimiter = rateLimit({
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
+const authRoutes = require('./routes/authRoutes');
+app.use('/api/auth', authRoutes);
+
 app.get('/', (req , res) => {
     res. json({mensaje: 'API Atalanta funciona'})
 });
@@ -44,3 +47,4 @@ app.listen(PORT, () =>{
     console.log(`Servidor corriendo localmente en http://localhost:${PORT}`);
 })
 
+module.exports = {loginLimiter};

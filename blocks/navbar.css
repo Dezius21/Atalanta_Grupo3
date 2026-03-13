@@ -40,7 +40,7 @@
 .navbar__link {
     text-decoration: none;
     color: white;
-    font-size: 22px;
+    font-size: 17px;
     font-weight: 600;
     position: relative; /* Base para la línea y la flecha */
     display: inline-block;

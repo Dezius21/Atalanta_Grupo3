@@ -16,11 +16,10 @@
     align-items: center;
     justify-content: center;
     border-radius: 15px;
-    min-height: auto; /* Cambiado de 100vh para que encaje en el modal */
+    min-height: auto;
     padding: 2rem;
 }
 
-/* Wrapper de las dos columnas */
 .todojunto {
     display: flex;
     gap: 3rem;
@@ -29,9 +28,6 @@
 }
 
 
-/* ══════════════════════════════
-   COLUMNA IZQUIERDA
-══════════════════════════════ */
 .form__left {
     flex: 1;
     display: flex;
@@ -75,9 +71,6 @@
 }
 
 
-/* ══════════════════════════════
-   TARJETA FORMULARIO (derecha)
-══════════════════════════════ */
 .form-contact {
     flex: 1;
     background-color: #1a1a1a;
@@ -132,8 +125,6 @@
 .form__select:focus {
     border-color: #c0392b;
 }
-
-/* Select con flecha */
 .form__select {
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='7' viewBox='0 0 12 7'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%239ca3af' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
     background-repeat: no-repeat;
@@ -193,7 +184,7 @@
     background-color: #a93226;
 }
 
-/* --- Nuevas clases para el Modal --- */   
+
 .modal-overlay {
     position: fixed;
     top: 0;
@@ -229,13 +220,10 @@
 
 
 
-/* TARJETAS */
-/* ══════════════════════════════
-   SECCIÓN "¿EN QUÉ PODEMOS AYUDARTE?"
-══════════════════════════════ */
+
 
 .main{
-    min-height: 60vh;  /* antes era solo height */
+    min-height: 60vh;  
     background-color: #000;
 
 }
@@ -261,7 +249,7 @@
 .main__card {
     width: 400px;
     min-height: 360px;
-    background: #972622; /* color del borde */
+    background: #972622;
     color: white;
     display: flex;
     flex-direction: column;
@@ -272,21 +260,67 @@
     box-sizing: border-box;
     position: relative;
     clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+
+    /* Entrada: estado inicial oculto */
+    opacity: 0;
+    transform: translateY(40px);
+    transition:
+        opacity 0.6s ease,
+        transform 0.6s ease,
+        filter 0.3s ease;   /* para el hover brightness */
+    will-change: opacity, transform;
 }
 
+/* Entrada: estado visible (añadido por JS con IntersectionObserver) */
+.main__card.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Retardos escalonados: 1º → 0s, 2º → 0.18s, 3º → 0.36s */
+.main__card:nth-child(1) { transition-delay: 0s; }
+.main__card:nth-child(2) { transition-delay: 0.18s; }
+.main__card:nth-child(3) { transition-delay: 0.36s; }
+
+/* Hover: elevación + brillo */
+.main__card:hover {
+    transform: translateY(-12px);
+    filter: brightness(1.18);
+    cursor: pointer;
+}
+
+/* El ::before no interfiere con el hover del padre */
 .main__card::before {
     content: "";
     position: absolute;
     inset: 2px;
     background: #0f0f0f;
     clip-path: inherit;
-    z-index: -1;
+    z-index: 0;
+    transition: background 0.3s ease;
+}
+
+.main__card:hover::before {
+    background: #1a1a1a;
+}
+
+/* Todo el contenido por encima del ::before */
+.main__card-image,
+.main__card-title,
+.main__card-text {
+    position: relative;
+    z-index: 1;
 }
 
 .main__card-image {
     width: 90px;
     object-fit: contain;
     margin-bottom: 10px;
+    transition: transform 0.3s ease;
+}
+
+.main__card:hover .main__card-image {
+    transform: scale(1.12);
 }
 
 .main__card-title {

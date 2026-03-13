@@ -139,3 +139,147 @@
         padding: 20px;
     }
 }
+
+.hero {
+    position: relative;
+    overflow: hidden;
+    /* El resto de tus propiedades (min-height, display, etc.) se conservan */
+}
+
+/* ── 2. Fondos del carousel ─────────────────────────────────────────── */
+.hero__bg {
+    position: absolute;
+    inset: 0;                          /* top:0 right:0 bottom:0 left:0 */
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transform: scale(1.06);
+    transition: opacity 1s cubic-bezier(0.77, 0, 0.175, 1),
+                transform 1.4s cubic-bezier(0.77, 0, 0.175, 1);
+    will-change: opacity, transform;
+    z-index: 0;
+}
+
+.hero__bg--active {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Asigna cada fondo a su slide.
+   Usa tus rutas de imágenes reales: */
+.hero__bg--1 {
+    background: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.92)),
+                url('../images/background_images/Background_4.png');
+    background-size: cover;
+    background-position: center;
+}
+.hero__bg--2 {
+    background: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.92)),
+                url('../images/background_images/Background_1.jpeg');
+    background-size: cover;
+    background-position: center;
+}
+.hero__bg--3 {
+    background: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.92)),
+                url('../images/background_images/Background_9.png');
+    background-size: cover;
+    background-position: center;
+}
+
+/* ── 3. Slides de contenido ─────────────────────────────────────────── */
+.hero__slide {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 100px 20px;
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s ease 0.35s, transform 0.7s ease 0.35s;
+    pointer-events: none;   /* inactivo por defecto */
+    z-index: 2;
+}
+
+.hero__slide--active {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+    /* Necesario para que el slide activo ocupe el espacio y empuje la altura */
+    position: relative;
+}
+
+/* ── 4. Controles: flechas ──────────────────────────────────────────── */
+.hero__arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: white;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.2s, border-color 0.2s;
+    backdrop-filter: blur(4px);
+}
+.hero__arrow:hover {
+    background: rgba(230, 29, 43, 0.5);
+    border-color: #e61d2b;
+}
+.hero__arrow--prev { left: 32px; }
+.hero__arrow--next { right: 32px; }
+
+/* ── 5. Controles: dots ─────────────────────────────────────────────── */
+.hero__dots {
+    position: absolute;
+    bottom: 32px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.hero__dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 0;
+}
+.hero__dot--active {
+    width: 28px;
+    border-radius: 4px;
+    background: #e61d2b;
+}
+
+/* ── 6. Barra de progreso ────────────────────────────────────────────── */
+.hero__progress {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 3px;
+    width: 0%;
+    background: #e61d2b;
+    z-index: 10;
+}
+.hero__progress--running {
+    transition: width 5000ms linear;
+    width: 100%;
+}
+
+/* ── 7. Responsive ───────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+    .hero__arrow--prev { left: 12px; }
+    .hero__arrow--next { right: 12px; }
+}

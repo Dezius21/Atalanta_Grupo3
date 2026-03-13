@@ -1,7 +1,6 @@
 /* --- HERO SECTION --- */
 .hero {
-    /* Fondo oscuro con degradado para asegurar legibilidad */
-    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 1));                 /* Asegúrate de tener una imagen de circuitos aquí */
+    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 1)); 
     background-size: cover;
     background-position: center;
     min-height: 90vh;
@@ -9,7 +8,7 @@
     align-items: center;
     justify-content: center;
     padding: 100px 20px;
-    font-family: 'Montserrat', sans-serif; /* Recomendada para este estilo */
+    font-family: 'Montserrat', sans-serif;
 }
 
 .hero_digital{
@@ -42,9 +41,8 @@
     align-items: center;
 }
 
-/* El pequeño texto de arriba: "QUIÉNES SOMOS" */
 .hero__heading {
-    color: #e61d2b; /* Rojo corporativo */
+    color: #e61d2b; 
     text-transform: uppercase;
     font-weight: 800;
     font-size: 16px;
@@ -53,7 +51,6 @@
     margin-top: 65px;
 }
 
-/* Título principal: Grande y Blanco */
 .hero__title {
     color: white;
     font-size: 48px;
@@ -63,7 +60,6 @@
     margin-bottom: 30px;
 }
 
-/* Párrafo descriptivo: Rojo y centrado */
 .hero__paragraph {
     color: #e61d2b;
     font-size: 18px;
@@ -73,7 +69,7 @@
     margin-bottom: 40px;
 }
 
-/* Contenedor de las etiquetas (El recuadro con borde) */
+
 .hero__tags {
     display: flex;
     gap: 40px;
@@ -82,7 +78,7 @@
     border-radius: 15px;
     padding: 25px 40px;
     margin-bottom: 40px;
-    backdrop-filter: blur(5px); /* Efecto cristal */
+    backdrop-filter: blur(5px); 
 }
 
 .hero__tag {
@@ -146,7 +142,7 @@
     /* El resto de tus propiedades (min-height, display, etc.) se conservan */
 }
 
-/* ── 2. Fondos del carousel ─────────────────────────────────────────── */
+/* ── Fondos del carousel ─────────────────────────────────────────── */
 .hero__bg {
     position: absolute;
     inset: 0;                          /* top:0 right:0 bottom:0 left:0 */
@@ -165,8 +161,6 @@
     transform: scale(1);
 }
 
-/* Asigna cada fondo a su slide.
-   Usa tus rutas de imágenes reales: */
 .hero__bg--1 {
     background: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.92)),
                 url('../images/background_images/Background_4.png');
@@ -186,7 +180,7 @@
     background-position: center;
 }
 
-/* ── 3. Slides de contenido ─────────────────────────────────────────── */
+/* ── Slides de contenido ─────────────────────────────────────────── */
 .hero__slide {
     position: absolute;
     inset: 0;
@@ -197,7 +191,7 @@
     opacity: 0;
     transform: translateY(24px);
     transition: opacity 0.7s ease 0.35s, transform 0.7s ease 0.35s;
-    pointer-events: none;   /* inactivo por defecto */
+    pointer-events: none;
     z-index: 2;
 }
 
@@ -205,11 +199,10 @@
     opacity: 1;
     transform: translateY(0);
     pointer-events: auto;
-    /* Necesario para que el slide activo ocupe el espacio y empuje la altura */
     position: relative;
 }
 
-/* ── 4. Controles: flechas ──────────────────────────────────────────── */
+/* ── Controles: flechas ──────────────────────────────────────────── */
 .hero__arrow {
     position: absolute;
     top: 50%;
@@ -235,7 +228,7 @@
 .hero__arrow--prev { left: 32px; }
 .hero__arrow--next { right: 32px; }
 
-/* ── 5. Controles: dots ─────────────────────────────────────────────── */
+/* ── Controles: dots ─────────────────────────────────────────────── */
 .hero__dots {
     position: absolute;
     bottom: 32px;
@@ -263,7 +256,7 @@
     background: #e61d2b;
 }
 
-/* ── 6. Barra de progreso ────────────────────────────────────────────── */
+/* ── Barra de progreso ────────────────────────────────────────────── */
 .hero__progress {
     position: absolute;
     bottom: 0;
@@ -284,7 +277,7 @@
 }
 @media (max-width: 576px) {
     .hero__title {
-        font-size: 26px; /* Letra más pequeña para no romper la pantalla */
+        font-size: 26px; 
     }
     .hero__button {
         padding: 15px 20px;

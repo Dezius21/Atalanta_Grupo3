@@ -53,8 +53,6 @@
     box-shadow: 0 2px 5px rgba(0,0,0,0.03);
     background-color: #fff;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
-    
-    /* 🛠️ FIX SOLAPAMIENTO: Mantener distancias y alturas correctas */
     height: auto !important; 
     gap: 20px; 
     overflow: hidden; 
@@ -65,15 +63,13 @@
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 
-/* 🛠️ FIX SOLAPAMIENTO: Contenedor del texto de la oferta */
 .employment-item__info {
     display: flex;
     flex-direction: column;
     gap: 5px; 
-    flex-grow: 1; /* Obliga al texto a empujar al botón a la derecha */
+    flex-grow: 1; 
 }
 
-/* 🛠️ FIX SOLAPAMIENTO: Limpiar márgenes que venían de index.css */
 .employment-item__info h3, 
 .employment-item__info p {
     margin: 0 !important; 
@@ -121,7 +117,7 @@
 /* --- RESPONSIVE (MÓVILES) --- */
 @media (max-width: 600px) {
     .employment__filters {
-        flex-direction: column; /* Apila los selectores de filtro */
+        flex-direction: column; 
     }
     
     .employment-item {
@@ -131,7 +127,7 @@
     }
     
     .pagination__btn {
-        width: 100%; /* Botón de lado a lado para facilitar el toque en móvil */
+        width: 100%;
         text-align: center;
         margin-top: 10px; 
         box-sizing: border-box;

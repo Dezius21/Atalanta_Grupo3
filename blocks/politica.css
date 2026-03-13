@@ -18,7 +18,6 @@ body{
     padding: 120px 40px 120px;
 }
   
-  /* Secciones de política - ocultas por defecto */
 .politicas {
     display: none;
 }
@@ -27,7 +26,6 @@ body{
     display: block;
 }
   
-  /* Tipografía del contenido */
 .politicas h2 {
     font-size: 3rem;
     margin-top: 80px;
@@ -52,7 +50,7 @@ body{
     color: red;
 }
   
-  /* Botones fijos en la parte inferior, centrados */
+
 .politicas-buttons {
     bottom: 0;
     left: 0;

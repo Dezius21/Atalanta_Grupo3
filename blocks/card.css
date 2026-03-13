@@ -1,18 +1,15 @@
 .cards {
     margin: 40px auto; 
     position: relative;
-    /* Ancho total: 800px (inicio última tarjeta) + 400px (su ancho) = 1200px */
     width: 1200px;
-    /* Alto total: 180px (inicio tarjeta central) + 360px (su alto) = 540px */
     height: 540px;
     display: block;
 }
 
-/* --- Tarjeta General (Hexágono con Borde) --- */
 .card {
     width: 400px;
     min-height: 360px;
-    background: #972622; /* Este actúa como el color del borde */
+    background: #972622; 
     color: white;
     display: flex;
     flex-direction: column;
@@ -23,8 +20,6 @@
     box-sizing: border-box;
     position: absolute;
     z-index: 1;
-
-    /* Forma original */
     clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
 
     transition: clip-path 0.6s cubic-bezier(0.4, 0, 0.2, 1), 
@@ -48,23 +43,20 @@
     margin: 10px 0;
 }
 
-/* --- Aplicación del diseño de borde de tu referencia --- */
 .card::before {
     content: "";
     position: absolute;
-    inset: 2px; /* Grosor del borde */
-    background: #000; /* Fondo interno de la tarjeta */
-    clip-path: inherit; /* Hereda hexágono o cuadrado automáticamente */
+    inset: 2px; 
+    background: #000; 
+    clip-path: inherit;
     z-index: -1;
     transition: background 0.4s ease;
 }
 
-/* --- Posiciones Originales (Sin cambios) --- */
 .card_index-1 { top: 0; left: 0; }
 .card_index-2 { top: 180px; left: 400px; }
 .card_index-3 { top: 0; left: 800px; }
 
-/* --- Transformación a cuadrado SOLO para estas clases --- */
 .card_index-1:hover, 
 .card_index-2:hover, 
 .card_index-3:hover {
@@ -76,11 +68,10 @@
 .card_index-1:hover::before, 
 .card_index-2:hover::before, 
 .card_index-3:hover::before {
-    background: rgba(20, 20, 20, 0.9); /* Fondo interno en hover */
+    background: rgba(20, 20, 20, 0.9); 
     border-radius: 12px;
 }
 
-/* --- Contenido (Se mantiene igual) --- */
 .card__index-link {
     color: white;
     text-decoration: none;
@@ -107,7 +98,6 @@
     transition: opacity 0.3s ease 0.2s;
 }
 
-/* Mostrar contenido en hover */
 .card:hover .card__subtitle,
 .card:hover .card__text,
 .card:hover .card__list {
@@ -124,7 +114,7 @@
         gap: 20px;
     }
     .card {
-        position: relative; /* Quitamos la posición absoluta */
+        position: relative; 
         top: auto !important;
         left: auto !important;
         width: 100%;
@@ -135,15 +125,14 @@
 @media (max-width: 1200px) {
     .cards {
         width: 100%;
-        height: auto; /* Quitamos la altura fija de 540px */
+        height: auto; 
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: 40px; /* Espacio entre los hexágonos */
+        gap: 40px; 
         margin: 0 auto;
     }
 
-    /* Reseteamos las posiciones exactas de cada tarjeta */
     .card_index-1, 
     .card_index-2, 
     .card_index-3 {
@@ -155,6 +144,6 @@
     .card {
         width: 100%;
         max-width: 350px;
-        min-height: 360px; /* Mantenemos esto para no deformar el hexágono */
+        min-height: 360px; 
     }
 }

@@ -1,5 +1,3 @@
-//js para que el header aparezca y se oculte en base a si scrolleas hacia arriba o abajo
-//el nombre del header habra que cambiarlo
 const header = document.querySelector('.navbar');
 let ultimoScroll = 0;
 

@@ -54,11 +54,9 @@ body{
 
 .index__confian-stats {
     display: grid;
-    /* Mantenemos 2 columnas iguales */
     grid-template-columns: repeat(2, 1fr); 
-    /* Las filas se ajustarán automáticamente al contenido o puedes definirlas */
     grid-template-rows: auto auto; 
-    justify-items: center; /* Centra los ítems horizontalmente dentro de su celda */
+    justify-items: center; 
     gap: 10px;
     width: 780px;
 }
@@ -67,16 +65,15 @@ body{
     background: #405866;
     background: linear-gradient(180deg, #1e293b 0%, #0f172a 100%);
     border: 1px solid rgba(255, 255, 255, 0.05);
-    width: 100%; /* Cambiado de max-width para que el primero pueda expandirse */
+    width: 100%; 
     border-radius: 30px;
     height: 230px;
     padding: 10px 30px;
 }
 
-/* El primer elemento ocupa las 2 columnas de la primera fila */
 .index__confian-item:nth-child(1) {
     grid-column: 1 / -1; 
-    max-width: 100%; /* Ajusta este valor para que sea más ancho que los de abajo si lo deseas */
+    max-width: 100%; 
     height: 200px;
 }
 
@@ -204,12 +201,10 @@ body{
     margin-bottom: 35px;
 }
 
-/* 1. Contenedor principal del Grid */
+/*Contenedor principal del Grid */
 .index__trabajamos > div:nth-of-type(3) {
     display: grid;
-    /* Creamos 7 columnas estrechas para poder intercalar las tarjetas */
     grid-template-columns: repeat(7, 135px); 
-    /* La primera fila es más corta para que la segunda suba y encaje en los huecos */
     grid-template-rows: 235px 300px; 
     justify-content: center;
     max-width: 1000px;
@@ -217,11 +212,11 @@ body{
     padding: 0 20px;
 }
 
-/* 2. Estilo Base de la Tarjeta Hexagonal */
+/*Estilo Base de la Tarjeta Hexagonal */
 .index_trabajamos-card {
     width: 260px;
     height: 300px;
-    background: #972622; /* Color del borde (Rojo Atalanta) */
+    background: #972622; 
     color: #ffffff;
     display: flex;
     flex-direction: column;
@@ -232,49 +227,42 @@ body{
     box-sizing: border-box;
     position: relative;
     z-index: 1;
-    justify-self: center; /* Centra la tarjeta dentro de sus 2 columnas del grid */
-    
-    /* Forma hexagonal con puntas arriba y abajo */
+    justify-self: center;
     clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-    
-    /* Animación suave (sin cambiar a cuadrado) */
     transition: transform 0.4s ease, z-index 0s;
 }
 
-/* 3. Fondo interno negro (Crea el efecto de borde de 2px) */
 .index_trabajamos-card::before {
     content: "";
     position: absolute;
-    inset: 2px; /* Grosor del borde */
-    background: #000000; /* Fondo de la tarjeta */
-    clip-path: inherit; /* Hereda la forma hexagonal */
+    inset: 2px; 
+    background: #000000; 
+    clip-path: inherit; 
     z-index: -1;
     transition: background 0.4s ease;
 }
 
-/* 4. Efecto Hover: Solo elevación e iluminación (sin perder la forma) */
 .index_trabajamos-card:hover {
     transform: translateY(-8px) scale(1.02);
     z-index: 10;
 }
 
 .index_trabajamos-card:hover::before {
-    background: #111111; /* Aclara ligeramente el fondo para dar feedback visual */
+    background: #111111;
 }
 
-/* 5. Posicionamiento en el Grid para crear el Panal (3 arriba, 3 abajo) */
+/*Posicionamiento en el Grid para crear el Panal (3 arriba, 3 abajo) */
 
 /* --- Fila 1 --- */
 .index_trabajamos-card:nth-child(1) { grid-column: 1 / span 2; grid-row: 1; }
 .index_trabajamos-card:nth-child(2) { grid-column: 3 / span 2; grid-row: 1; }
 .index_trabajamos-card:nth-child(3) { grid-column: 5 / span 2; grid-row: 1; }
 
-/* --- Fila 2 (Intercalada) --- */
+/* --- Fila 2 --- */
 .index_trabajamos-card:nth-child(4) { grid-column: 2 / span 2; grid-row: 2; }
 .index_trabajamos-card:nth-child(5) { grid-column: 4 / span 2; grid-row: 2; }
 .index_trabajamos-card:nth-child(6) { grid-column: 6 / span 2; grid-row: 2; }
 
-/* 6. Estilos del contenido interno (Imágenes y Textos) */
 .index_trabajamos-card img {
     width: 50px;
     height: 50px;
@@ -289,7 +277,6 @@ body{
     line-height: 1.4;
 }
 
-/* 7. Adaptación Responsive para Móviles y Tablets pequeñas */
 @media (max-width: 992px) {
     .index__trabajamos > div:nth-of-type(3) {
         display: flex;
@@ -369,7 +356,7 @@ body{
 @media (max-width: 992px) {
     .index__confian-stats {
         width: 100%;
-        grid-template-columns: 1fr; /* 1 sola columna */
+        grid-template-columns: 1fr; 
     }
     .index__confian-item {
         height: auto;
@@ -388,13 +375,13 @@ body{
     }
     
     .index__carousel-item {
-        width: calc(50% - 12px); /* 2 logos por fila en tablet */
+        width: calc(50% - 12px); 
     }
 }
 
 @media (max-width: 576px) {
     .index__carousel-item {
-        width: 100%; /* 1 logo por fila en móvil */
+        width: 100%;
     }
     .index__title-negro, .index__title-blanco {
         font-size: 22px;
@@ -402,7 +389,7 @@ body{
 }
 @media (max-width: 1200px) {
     .index__tarjetaslink {
-        height: auto; /* Quitamos la altura fija de 950px */
-        padding-bottom: 80px; /* Damos un poco de aire abajo */
+        height: auto; 
+        padding-bottom: 80px;
     }
 }

@@ -37,7 +37,7 @@
     overflow: hidden;
     width: 768px;
     max-width: 100%;
-    min-height: 520px; /* Aumentado ligeramente para acomodar el logo visualmente */
+    min-height: 520px;
   }
   
   /* Elementos: Áreas de formulario */
@@ -100,10 +100,9 @@
   }
   
   .auth__logo-img {
-    max-width: 140px; /* Ajusta este valor según las proporciones de tu logo */
+    max-width: 140px;
     height: auto;
     display: block;
-    /* Si tu logo es negro, puedes usar filter: invert(1) para que sea blanco */
   }
   
   /* Elementos Sociales */
@@ -202,7 +201,7 @@
     background-color: rgba(255, 255, 255, 0.1);
   }
   
-  /* Cortina (Overlay) */
+ 
   .auth__overlay-container {
     position: absolute;
     top: 0;
@@ -258,7 +257,7 @@
     margin: 20px 0 30px;
   }
   
-  /* Modificador de Estado Activo (Controlado por JS) */
+  /* Modificador de Estado Activo*/
   .auth__container--active-right .auth__form-area--signin {
     transform: translateX(100%);
     opacity: 0;

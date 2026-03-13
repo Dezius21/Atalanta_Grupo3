@@ -11,7 +11,6 @@
     border-top: 1px solid #1e2330;
 }
 
-/* ── Fila superior (Menú + Contacto) ── */
 .footer__top {
     display: flex;
     justify-content: space-around;
@@ -30,7 +29,6 @@
     height: 100px;
 }
 
-/* Cada columna dentro de la fila superior */
 .footer__column {
     display: flex;
     flex-direction: column;
@@ -39,7 +37,6 @@
     flex: 1;
 }
 
-/* Título de cada columna (h4) */
 .footer__column-title {
     font-family: 'Syne', sans-serif;
     font-size: 1.2rem;
@@ -54,7 +51,6 @@
     text-align: center;
 }
 
-/* Lista de items de cada columna */
 .footer__list {
     list-style: none;
     display: flex;
@@ -68,7 +64,6 @@
     gap: 100px;
 }
 
-/* Enlaces dentro de la lista */
 .footer__link {
     font-size: 0.9rem;
     font-weight: 300;
@@ -81,7 +76,6 @@
     color: #ad0000;
 }
 
-/* Texto plano (sin enlace), ej: dirección */
 .footer__plain-text {
     color: #a0aec0;
     font-size: 0.85rem;
@@ -90,7 +84,6 @@
     text-align: center;
 }
 
-/* ── Fila inferior (copyright + legal) ── */
 .footer__bottom {
     background: linear-gradient(to bottom, #410000, #000000);
     display: flex;
@@ -101,14 +94,12 @@
     flex-wrap: wrap;
 }
 
-/* Texto de copyright */
 .footer__copyright {
     font-size: 0.78rem;
     color: #6b7280;
     font-weight: 300;
 }
 
-/* Lista de links legales (fila inferior) */
 .footer__legal-list {
     list-style: none;
     display: flex;
@@ -116,7 +107,6 @@
     gap: 1.6rem;
 }
 
-/* Links legales */
 .footer__legal-link {
     font-size: 0.7rem;
     font-weight: 500;

@@ -8,7 +8,7 @@ const total        = items.length;
 let current        = 0;
 let autoplayTimer  = null;
 
-// 1. Clonar elementos para el efecto infinito
+//Clonar elementos para el efecto infinito
 items.forEach(item => {
     const clone = item.cloneNode(true);
     track.appendChild(clone);
@@ -22,12 +22,12 @@ items.forEach(item => {
 const offset = total;
 current = offset;
 
-// 2. FUNCIÓN CLAVE: Medir el ancho dinámico exacto de la tarjeta
+//Medir el ancho dinámico exacto de la tarjeta
 function getSlideWidth() {
     return track.firstElementChild.getBoundingClientRect().width;
 }
 
-// 3. Aplicar el movimiento en PÍXELES exactos en lugar de porcentajes
+//Aplicar el movimiento en PÍXELES exactos en lugar de porcentajes
 function updateTrackPosition(animate = true) {
     const width = getSlideWidth();
     track.style.transition = animate ? 'transform 700ms cubic-bezier(0.25, 0.46, 0.45, 0.94)' : 'none';
@@ -58,7 +58,7 @@ function goTo(index) {
     }, { once: true });
 }
 
-// 4. Recalcular la posición automáticamente si la pantalla cambia de tamaño
+//Recalcular la posición automáticamente si la pantalla cambia de tamaño
 window.addEventListener('resize', () => {
     updateTrackPosition(false);
 });
@@ -78,7 +78,7 @@ function stopAutoPlay() {
 wrapper.addEventListener('mouseenter', stopAutoPlay);
 wrapper.addEventListener('mouseleave', startAutoPlay);
 
-// 5. Soporte táctil: pausar el carrusel al tocarlo en móviles
+//Soporte táctil: pausar el carrusel al tocarlo en móviles
 wrapper.addEventListener('touchstart', stopAutoPlay);
 wrapper.addEventListener('touchend', startAutoPlay);
 

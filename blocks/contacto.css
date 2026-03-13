@@ -260,36 +260,30 @@
     box-sizing: border-box;
     position: relative;
     clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
-
-    /* Entrada: estado inicial oculto */
     opacity: 0;
     transform: translateY(40px);
     transition:
         opacity 0.6s ease,
         transform 0.6s ease,
-        filter 0.3s ease;   /* para el hover brightness */
+        filter 0.3s ease;
     will-change: opacity, transform;
 }
 
-/* Entrada: estado visible (añadido por JS con IntersectionObserver) */
 .main__card.visible {
     opacity: 1;
     transform: translateY(0);
 }
 
-/* Retardos escalonados: 1º → 0s, 2º → 0.18s, 3º → 0.36s */
 .main__card:nth-child(1) { transition-delay: 0s; }
 .main__card:nth-child(2) { transition-delay: 0.18s; }
 .main__card:nth-child(3) { transition-delay: 0.36s; }
 
-/* Hover: elevación + brillo */
 .main__card:hover {
     transform: translateY(-12px);
     filter: brightness(1.18);
     cursor: pointer;
 }
 
-/* El ::before no interfiere con el hover del padre */
 .main__card::before {
     content: "";
     position: absolute;
@@ -304,7 +298,6 @@
     background: #1a1a1a;
 }
 
-/* Todo el contenido por encima del ::before */
 .main__card-image,
 .main__card-title,
 .main__card-text {
@@ -366,18 +359,14 @@
 }
 @media (max-width: 992px) {
     .modal-overlay {
-        /* Cambiamos la alineación para que no corte la parte de arriba */
         align-items: flex-start; 
-        /* Dejamos espacio arriba para que el formulario no tape la X */
         padding-top: 70px; 
     }
 
     .modal-cerrar {
-        /* Fijamos la X a la ventana del navegador */
         position: fixed;
         top: 15px;
         right: 20px;
-        /* Le damos un fondo sutil para que sea fácil de tocar y ver */
         background: rgba(230, 29, 43, 0.9); 
         width: 45px;
         height: 45px;
@@ -386,7 +375,7 @@
         justify-content: center;
         border-radius: 50%;
         font-size: 32px;
-        z-index: 10005; /* Nos aseguramos de que esté por encima de todo */
+        z-index: 10005;
         box-shadow: 0 4px 10px rgba(0,0,0,0.5);
     }
 }

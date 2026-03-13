@@ -3,7 +3,7 @@
     display: flex;
     background-color: #00000080;;
     justify-content: space-evenly;
-    align-items: center; /* Alineación vertical central */
+    align-items: center;
     padding: 20px 133px;
     font-family: 'Montserrat', sans-serif;
     gap: 23px;
@@ -36,44 +36,41 @@
     padding: 0;
 }
 
-/* --- Estilos de los Enlaces Principales --- */
+
 .navbar__link {
     text-decoration: none;
     color: white;
     font-size: 17px;
     font-weight: 600;
-    position: relative; /* Base para la línea y la flecha */
+    position: relative; 
     display: inline-block;
-    padding: 8px 0; /* Espacio para que el hover no esté pegado al texto */
+    padding: 8px 0;
     transition: color 0.3s ease;
 }
 
-/* --- LA MAGIA: Línea Roja Redondeada (Hover Smooth) --- */
+
 .navbar__link::before {
     content: "";
     position: absolute;
     bottom: 0;
     left: 0;
-    width: 0;               /* Empieza invisible */
-    height: 4px;            /* Grosor de la línea */
+    width: 0;              
+    height: 4px;           
     background-color: #ff0000; 
-    border-radius: 10px;    /* Bordes redondeados */
-    transition: width 0.35s ease; /* Transición suave */
+    border-radius: 10px;
+    transition: width 0.35s ease; 
 }
 
-/* Activación de la línea al hacer hover */
 .navbar__item:hover .navbar__link::before {
     width: 100%;
 }
 
-/* --- Lógica del Dropdown (Flecha y Menú) --- */
 .navbar__item--dropdown {
     position: relative;
     padding-top: 11px;
-    padding-bottom: 10px; /* Evita que el menú se cierre al mover el ratón */
+    padding-bottom: 10px;
 }
 
-/* La Flecha (usando ::after para no chocar con la línea ::before) */
 .navbar__item--dropdown .navbar__link::after {
     content: "";
     display: inline-block;
@@ -85,7 +82,6 @@
     transition: transform 0.3s ease;
 }
 
-/* Rotación de flecha y mantenimiento de línea roja al abrir dropdown */
 .navbar__item--dropdown:hover .navbar__link::after {
     transform: rotate(180deg);
 }
@@ -103,7 +99,7 @@
     min-width: 180px;
     border-radius: 4px;
     box-shadow: 0px 4px 10px rgba(0,0,0,0.3);
-    z-index: 10; /* Asegura que esté por encima de otros elementos */
+    z-index: 10; 
 }
 
 .navbar__item--dropdown:hover .navbar__dropdown {
@@ -127,7 +123,6 @@
     font-weight: 500;
 }
 
-/* Quitamos el efecto de la línea roja en los links internos del dropdown */
 .navbar__dropdown-link::before {
     display: none;
 }
@@ -143,7 +138,7 @@
         justify-content: space-between;
     }
 
-    /* El botón de hamburguesa (3 rayas) */
+    
     .navbar__toggle {
         display: flex;
         flex-direction: column;
@@ -153,7 +148,7 @@
         background: transparent;
         border: none;
         cursor: pointer;
-        z-index: 1001; /* Por encima del menú desplegado */
+        z-index: 1001;
     }
 
     .navbar__toggle span {
@@ -164,7 +159,7 @@
         transition: all 0.3s ease;
     }
 
-    /* Animación del botón hamburguesa para convertirse en 'X' */
+    
     .navbar__toggle.activa span:nth-child(1) {
         transform: translateY(9.5px) rotate(45deg);
     }
@@ -175,18 +170,17 @@
         transform: translateY(-9.5px) rotate(-45deg);
     }
 
-    /* Modificamos la lista para móviles */
+    
     .navbar__list {
         position: absolute;
         top: 100%;
         left: 0;
         width: 100%;
-        background-color: rgba(0, 0, 0, 0.95); /* Fondo oscuro semitransparente */
+        background-color: rgba(0, 0, 0, 0.95); 
         flex-direction: column;
         gap: 20px;
         padding: 30px 0;
-        
-        /* Oculta por defecto con animación */
+
         transform: translateY(-150%);
         opacity: 0;
         visibility: hidden;
@@ -194,7 +188,7 @@
         z-index: -1;
     }
 
-    /* Al añadir esta clase con JS, el menú bajará */
+    
     .navbar__list.activa {
         transform: translateY(0);
         opacity: 1;
@@ -204,10 +198,9 @@
     .navbar__link {
         font-size: 20px;
     }
-
-    /* Ajustes para el submenú "Servicios" en móvil */
+    
     .navbar__dropdown {
-        position: static; /* Para que empuje el contenido hacia abajo y no flote */
+        position: static; 
         display: none;
         background-color: transparent;
         box-shadow: none;
@@ -215,7 +208,6 @@
         padding-top: 15px;
     }
 
-    /* Mostrar submenú al hacer hover/click en el padre en móvil */
     .navbar__item--dropdown:hover .navbar__dropdown {
         display: flex;
         flex-direction: column;

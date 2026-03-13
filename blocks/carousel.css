@@ -123,44 +123,38 @@
     }
 }
 @media (max-width: 992px) {
-    /* Reducimos márgenes que pueden causar scroll horizontal en móvil */
     .testimonials {
         padding: 40px 15px;
         margin: 0; 
     }
 
-    /* Apilamos el carrusel (arriba) y los textos (abajo) */
     .main__carousel-container {
         flex-direction: column;
         gap: 30px;
     }
 
-    /* Aseguramos que el contenedor del carrusel no se desborde */
     .carousel-container-left {
         width: 100%;
         max-width: 100vw;
     }
 
-    /* Ajustamos el slide para que ocupe toda la pantalla y el texto baje de línea */
     .carousel-item {
         min-width: 100%; 
-        flex: 0 0 100%; /* Evita que flexbox los encoja */
+        flex: 0 0 100%;
         padding: 20px 15px;
         box-sizing: border-box;
     }
 
-    /* Ajustamos el tamaño del texto para que encaje mejor */
     .carousel-item p {
         font-size: 1rem;
-        white-space: normal; /* Fuerza a que el texto salte de línea */
+        white-space: normal; 
     }
 
-    /* Ajustamos el panel derecho (Textos y botones) */
     .carousel-container-rigth {
         width: 100%;
         padding-left: 0;
         border-left: none;
-        border-top: 1px solid #2a2a2a; /* Línea separadora arriba */
+        border-top: 1px solid #2a2a2a; 
         padding-top: 30px;
         text-align: center;
         align-items: center;
@@ -171,7 +165,7 @@
     }
 
     .carousel-controls {
-        justify-content: center; /* Centramos las flechitas */
+        justify-content: center;
         margin-top: 15px;
     }
 }

@@ -21,11 +21,12 @@ const register = async (req , res) =>{
 
         res.status(201).json({mensaje: 'Usuario creado correctamente'});
 
-        } catch (error){
-            console.error('Error en registro' , error.message);
-            res.status(500).json({error: 'Error interno del servidor'})
-        }
+    }catch (error){
+        console.error('Error en registro' , error.message);
+        res.status(500).json({error: 'Error interno del servidor'})
     }
+}
+    
 
 //-Login-//
 

@@ -350,3 +350,34 @@
     width: 100%;
     object-fit: contain;
 }
+@media (max-width: 1200px) {
+    /* El panal de 8 tarjetas */
+    .ciber__cards-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        height: auto;
+    }
+    .ciber__main__card.card {
+        width: 100% !important;
+        max-width: 320px !important;
+        margin: 0 auto;
+    }
+
+    /* Las 4 tarjetas de áreas absolutas */
+    .ciber__areas-grid {
+        width: 100%;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+    }
+    .ciber__main_card-areas {
+        position: relative !important;
+        top: auto !important;
+        left: auto !important;
+        width: 100% !important;
+        max-width: 350px !important;
+    }
+}

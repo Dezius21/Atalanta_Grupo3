@@ -294,8 +294,7 @@
     margin: 0;
   }
   
-  /* Responsive tweak for mobile */
-  @media (max-width: 768px) {
+@media (max-width: 768px) {
     .values__grid {
       flex-direction: column;
       align-items: center;
@@ -306,3 +305,30 @@
       max-width: 100%;
     }
   }
+@media (max-width: 992px) {
+    .intro {
+        padding: 60px 20px; /* Reducimos los márgenes laterales gigantes */
+    }
+    .intro__image {
+        width: 100%;
+        max-width: 300px;
+    }
+    .team__row {
+        flex-direction: column;
+        gap: 40px;
+    }
+    .sectors__container {
+        flex-direction: column;
+        text-align: center;
+    }
+    .sectors__content h2 {
+        font-size: 30px;
+    }
+    .sectors__content ul {
+        padding: 30px 30px 0;
+    }
+    .sectors__image-container img {
+        max-width: 100%;
+        margin-top: 30px;
+    }
+}

@@ -84,7 +84,12 @@ body{
     color: #38bdf8;
     font-size: 64px;
     font-weight: 800;
+    margin-top: 15px;
     margin-bottom: 20px;
+}
+
+.index__confian-number p{
+    min-width: 4ch;
 }
 
 .index__confian-text{

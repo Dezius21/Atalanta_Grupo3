@@ -366,3 +366,43 @@ body{
     opacity: 1;
     transform: translateY(0);
 }
+@media (max-width: 992px) {
+    .index__confian-stats {
+        width: 100%;
+        grid-template-columns: 1fr; /* 1 sola columna */
+    }
+    .index__confian-item {
+        height: auto;
+    }
+    .index__confian-item:nth-child(1) {
+        height: auto;
+    }
+    
+    .index__offsec {
+        flex-direction: column;
+        text-align: center;
+        padding: 40px 20px;
+    }
+    .index__offsec-izq {
+        max-width: 100%;
+    }
+    
+    .index__carousel-item {
+        width: calc(50% - 12px); /* 2 logos por fila en tablet */
+    }
+}
+
+@media (max-width: 576px) {
+    .index__carousel-item {
+        width: 100%; /* 1 logo por fila en móvil */
+    }
+    .index__title-negro, .index__title-blanco {
+        font-size: 22px;
+    }
+}
+@media (max-width: 1200px) {
+    .index__tarjetaslink {
+        height: auto; /* Quitamos la altura fija de 950px */
+        padding-bottom: 80px; /* Damos un poco de aire abajo */
+    }
+}

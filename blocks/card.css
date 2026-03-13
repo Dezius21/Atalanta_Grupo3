@@ -114,3 +114,47 @@
     opacity: 1;
     max-height: 500px;
 }
+@media (max-width: 1200px) {
+    .cards {
+        width: 100%;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+    .card {
+        position: relative; /* Quitamos la posición absoluta */
+        top: auto !important;
+        left: auto !important;
+        width: 100%;
+        max-width: 350px;
+        min-height: 300px;
+    }
+}
+@media (max-width: 1200px) {
+    .cards {
+        width: 100%;
+        height: auto; /* Quitamos la altura fija de 540px */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 40px; /* Espacio entre los hexágonos */
+        margin: 0 auto;
+    }
+
+    /* Reseteamos las posiciones exactas de cada tarjeta */
+    .card_index-1, 
+    .card_index-2, 
+    .card_index-3 {
+        position: relative;
+        top: auto;
+        left: auto;
+    }
+
+    .card {
+        width: 100%;
+        max-width: 350px;
+        min-height: 360px; /* Mantenemos esto para no deformar el hexágono */
+    }
+}

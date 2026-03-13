@@ -40,7 +40,7 @@
 .navbar__link {
     text-decoration: none;
     color: white;
-    font-size: 22px;
+    font-size: 17px;
     font-weight: 600;
     position: relative; /* Base para la línea y la flecha */
     display: inline-block;
@@ -130,4 +130,95 @@
 /* Quitamos el efecto de la línea roja en los links internos del dropdown */
 .navbar__dropdown-link::before {
     display: none;
+}
+@media (min-width: 993px) {
+    .navbar__toggle {
+        display: none;
+    }
+}
+
+@media (max-width: 992px) {
+    .navbar {
+        padding: 15px 20px;
+        justify-content: space-between;
+    }
+
+    /* El botón de hamburguesa (3 rayas) */
+    .navbar__toggle {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 30px;
+        height: 22px;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        z-index: 1001; /* Por encima del menú desplegado */
+    }
+
+    .navbar__toggle span {
+        width: 100%;
+        height: 3px;
+        background-color: white;
+        border-radius: 10px;
+        transition: all 0.3s ease;
+    }
+
+    /* Animación del botón hamburguesa para convertirse en 'X' */
+    .navbar__toggle.activa span:nth-child(1) {
+        transform: translateY(9.5px) rotate(45deg);
+    }
+    .navbar__toggle.activa span:nth-child(2) {
+        opacity: 0;
+    }
+    .navbar__toggle.activa span:nth-child(3) {
+        transform: translateY(-9.5px) rotate(-45deg);
+    }
+
+    /* Modificamos la lista para móviles */
+    .navbar__list {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.95); /* Fondo oscuro semitransparente */
+        flex-direction: column;
+        gap: 20px;
+        padding: 30px 0;
+        
+        /* Oculta por defecto con animación */
+        transform: translateY(-150%);
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.4s ease;
+        z-index: -1;
+    }
+
+    /* Al añadir esta clase con JS, el menú bajará */
+    .navbar__list.activa {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .navbar__link {
+        font-size: 20px;
+    }
+
+    /* Ajustes para el submenú "Servicios" en móvil */
+    .navbar__dropdown {
+        position: static; /* Para que empuje el contenido hacia abajo y no flote */
+        display: none;
+        background-color: transparent;
+        box-shadow: none;
+        text-align: center;
+        padding-top: 15px;
+    }
+
+    /* Mostrar submenú al hacer hover/click en el padre en móvil */
+    .navbar__item--dropdown:hover .navbar__dropdown {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
 }

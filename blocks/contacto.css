@@ -340,9 +340,6 @@
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* ══════════════════════════════
-   RESPONSIVE
-══════════════════════════════ */
 @media (max-width: 860px) {
     .todojunto {
         flex-direction: column;
@@ -350,5 +347,46 @@
 
     .form-contact {
         width: 100%;
+    }
+}
+
+@media (max-width: 992px) {
+    .main__grid {
+        flex-direction: column;
+    }
+    .main__card {
+        width: 100%;
+        max-width: 350px;
+    }
+}
+@media (max-width: 500px) {
+    .form-contact {
+        padding: 1.5rem;
+    }
+}
+@media (max-width: 992px) {
+    .modal-overlay {
+        /* Cambiamos la alineación para que no corte la parte de arriba */
+        align-items: flex-start; 
+        /* Dejamos espacio arriba para que el formulario no tape la X */
+        padding-top: 70px; 
+    }
+
+    .modal-cerrar {
+        /* Fijamos la X a la ventana del navegador */
+        position: fixed;
+        top: 15px;
+        right: 20px;
+        /* Le damos un fondo sutil para que sea fácil de tocar y ver */
+        background: rgba(230, 29, 43, 0.9); 
+        width: 45px;
+        height: 45px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        font-size: 32px;
+        z-index: 10005; /* Nos aseguramos de que esté por encima de todo */
+        box-shadow: 0 4px 10px rgba(0,0,0,0.5);
     }
 }

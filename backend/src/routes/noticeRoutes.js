@@ -19,13 +19,16 @@ const storage = multer.diskStorage({
 });
 
 const fileFilter = (req,file,cb) =>{
-    const allowed = /jpeg|jpg|png|gif|webp/;
-    const extValid = allowed.test(path.extname(file.originalname).toLowerCase());
-    const mimeValid = allowed.test(file.mimetype);
-    if(extValid && mimeValid){
-        cb(null,true);
-    }else{
-        cb(new Error('Solo se aceptan: jpeg, jpg, png, gif,webp'));
+    console.log('mimetype:', file.mimetype);  
+    console.log('extension:', path.extname(file.originalname).toLowerCase());
+    const extAllowed = /jpeg|jpg|png|gif|webp/;
+    const extValid = extAllowed.test(path.extname(file.originalname).toLowerCase());
+    const mimeValid = /image\/(jpeg|jpg|png|gif|webp)/.test(file.mimetype)
+            || file.mimetype === 'application/octet-stream';
+    if (extValid && mimeValid) {
+        cb(null, true);
+    } else {
+        cb(new Error('Solo se aceptan: jpeg, jpg, png, gif, webp'));
     }
 };
 

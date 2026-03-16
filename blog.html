@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Noticia</title>
+  <link rel="stylesheet" href="blocks/posts.css">
+</head>
+<body>
+
+  <header class="header">
+    <nav class="navbar">
+      <a href="./index.html" class="navbar__logo-conatiner">
+        <img src="" alt="" class="navbar__logo">
+      </a>
+      <ul class="navbar__list">
+        <li class="navbar__item">Quiénes somos</li>
+        <li class="navbar__item">
+          Servicios
+          <ul class="dropdown-items">
+            <li class="dropdown-items__item">Ciberseguridad</li>
+            <li class="dropdown-items__item">Digital</li>
+            <li class="dropdown-items__item">Formación</li>
+          </ul>
+        </li>
+        <li class="navbar__item">Empleo</li>
+        <li class="navbar__item"><a href="noticias.html">Noticias</a></li>
+        <li class="navbar__item">Contacto</li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="container">
+    <img id="postBanner" class="post-banner" src="" alt="" style="display:none">
+    <h1 class="post-titulo" id="postTitulo"></h1>
+    <p class="post-meta" id="postMeta"></p>
+    <div class="post-contenido" id="postContenido"></div>
+    <br>
+    <a href="noticias.html" class="btn btn-primary">← Volver a noticias</a>
+  </div>
+
+  <script src="scripts/blog.js"></script>
+</body>
+</html>

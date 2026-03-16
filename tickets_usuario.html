@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./blocks/tickets_usuario.css">
+</head>
+<body>
+    <div class="ticket-usr__container">
+        <div class="ticket-usr__form">
+            <form method="post">
+                <legend>Crear un ticket</legend>
+                <label for="titulo">Titulo</label>
+                <input type="text" id="titulo" required placeholder="Introduzca un titulo">
+                <label for="contenido">Contenido</label>
+                <textarea type="text" id="contenido" required placeholder="Introduzca el contenido del ticket"></textarea>
+                <label for="adjunto">Adjuntar archivo</label>
+                <input type="file" id="adjunto" accept="image/*,video/*" multiple>
+                <ul id="adjunto-lista"></ul>
+                <button type="submit">Enviar ticket</button>
+            </form>
+        </div>
+
+        <div id="modal-overlay">
+            <div id="modal">
+                <p>¿Estás seguro de que quieres enviar el ticket?</p>
+                <div id="modal-botones">
+                    <button type="button" id="modal-cancelar">Cancelar</button>
+                    <button type="button" id="modal-enviar">Enviar</button>
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <button>Ver todos mis tickets</button>
+        </div>
+    </div>
+
+    <script>
+        const input = document.getElementById('adjunto');
+        const lista = document.getElementById('adjunto-lista');
+        const form = document.querySelector('form');
+        const overlay = document.getElementById('modal-overlay');
+        let archivosSeleccionados = [];
+
+        // Intercepta el envío del formulario
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            overlay.style.display = 'flex';
+        });
+
+        document.getElementById('modal-cancelar').addEventListener('click', function() {
+            overlay.style.display = 'none';
+        });
+
+        document.getElementById('modal-enviar').addEventListener('click', function() {
+            overlay.style.display = 'none';
+            form.submit(); // envía el formulario de verdad
+        });
+
+        // Archivos
+        input.addEventListener('change', function() {
+            Array.from(this.files).forEach(file => {
+                archivosSeleccionados.push(file);
+            });
+            renderLista();
+        });
+
+        function renderLista() {
+            lista.innerHTML = '';
+            if (archivosSeleccionados.length === 0) {
+                lista.innerHTML = '<li style="color:#888; font-size:13px;">Ningún archivo seleccionado</li>';
+                return;
+            }
+            archivosSeleccionados.forEach((file, index) => {
+                const li = document.createElement('li');
+                li.innerHTML = `
+                    <span>${file.name}</span>
+                    <button type="button" onclick="eliminarArchivo(${index})">✕</button>
+                `;
+                lista.appendChild(li);
+            });
+        }
+
+        function eliminarArchivo(index) {
+            archivosSeleccionados.splice(index, 1);
+            renderLista();
+        }
+
+        renderLista();
+    </script>
+</body>
+</html>

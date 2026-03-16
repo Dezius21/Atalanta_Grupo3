@@ -8,7 +8,7 @@ const findByEmail = async (email) => {
     return rows[0];
 };
 
-const createUser = async (nombre, email, hashedPassword, rol = 'editor') => {
+const createUser = async (nombre, email, hashedPassword, rol = 'cliente') => {
     const [result] = await pool.execute(
         'INSERT INTO usuarios (nombre , email, password, rol) VALUES (?,?,?,?)',
         [nombre,email,hashedPassword,rol]

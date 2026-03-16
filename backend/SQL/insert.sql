@@ -36,6 +36,7 @@ CREATE TABLE contactos (
   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 ),
 
+USE ATALANTA_DB;
 
-
-SELECT * FROM USUARIOS ;
+ALTER TABLE usuarios 
+MODIFY COLUMN rol ENUM('admin', 'jefe', 'trabajador', 'cliente') DEFAULT 'cliente';

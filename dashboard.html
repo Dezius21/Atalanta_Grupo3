@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atalanta Dashboard</title>
+    <link rel="stylesheet" href="./pages/dashboard.css">
+</head>
+<body class="app">
+    <div class="dashboard">
+        <aside class="sidebar">
+            <div class="sidebar__brand">Atalanta</div>
+            <nav id="sidebar-nav" class="sidebar__nav"></nav>
+        </aside>
+
+        <main class="dashboard__main">
+            <header class="topbar">
+                <h2 id="view-title" class="topbar__title">Cargando interfaz...</h2>
+                <div class="topbar__user" id="user-info"></div>
+            </header>
+            
+            <section id="content-area" class="content-area"></section>
+        </main>
+    </div>
+
+    <div id="modal-root"></div>
+
+    <script src="./scripts/dashboard.js"></script>
+</body>
+</html>

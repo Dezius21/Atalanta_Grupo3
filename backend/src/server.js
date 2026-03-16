@@ -37,6 +37,9 @@ app.use(express.urlencoded({extended: true}));
 const authRoutes = require('./routes/authRoutes');
 app.use('/api/auth', authRoutes);
 
+const noticeRoutes = require('./routes/noticeRoutes');
+app.use('/api/noticias', noticeRoutes);
+
 app.get('/', (req , res) => {
     res. json({mensaje: 'API Atalanta funciona'})
 });

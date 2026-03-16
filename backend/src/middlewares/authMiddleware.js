@@ -1,3 +1,4 @@
+const ROLES_VALIDOS = ['admin', 'jefe', 'trabajador', 'cliente'];
 const jwt = require('jsonwebtoken');
 
 const protegerRuta = (req,res,next) =>{
@@ -22,6 +23,10 @@ const protegerRuta = (req,res,next) =>{
 
 const verificarRol = (...roles) => {
     return (req,res,next) => {
+        const rolesInvalidos = roles.filter(r => !ROLES_VALIDOS.includes(r));
+        if(rolesInvalidos.length > 0){
+            console.error(`Roles invalidos ${rolesInvalidos.join(', ')}`);
+        }
         if (!req.usuario){
             return res.status(401).json({error: 'No autenticado'})
         }

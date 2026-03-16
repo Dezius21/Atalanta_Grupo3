@@ -1,0 +1,182 @@
+* {
+    font-family: 'DM Sans', sans-serif
+}
+
+.ticket-usr__container {
+    max-width: 420px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+    box-sizing: border-box;
+}
+
+.ticket-usr__form {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 1rem;
+}
+
+.ticket-usr__form legend {
+    font-size: 27px;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.ticket-usr__form label {
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.ticket-usr__form input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 15px;
+    margin-bottom: 20px;
+}
+
+#contenido {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 15px;
+    margin-bottom: 20px;
+    height: 120px;
+    resize: vertical;
+}
+
+#adjunto {
+    display: none;
+}
+
+.ticket-usr__container label[for="adjunto"] {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    background: transparent;
+    cursor: pointer;
+    font-size: 15px;
+    margin-bottom: 8px;
+    box-sizing: border-box;
+    text-align: center;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.ticket-usr__container label[for="adjunto"]:hover {
+    color: white;
+    background-color: rgb(0, 91, 211);
+}
+
+#adjunto-label {
+    font-size: 13px;
+    color: #888;
+    margin-bottom: 30px;
+}
+
+.ticket-usr__container button {
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    background: transparent;
+    cursor: pointer;
+    font-size: 15px;
+    margin-bottom: 30px;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.ticket-usr__container button:hover {
+    color: white;
+    background-color: rgb(0, 91, 211);
+}
+
+#adjunto-lista {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 20px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 40px;
+}
+
+#adjunto-lista li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 6px 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 13px;
+}
+
+#adjunto-lista li button {
+    width: auto;
+    padding: 2px 7px;
+    font-size: 12px;
+    margin-bottom: 0;
+    border-radius: 6px;
+    color: #888;
+}
+
+#adjunto-lista li button:hover {
+    background-color: rgb(211, 0, 0);
+    color: white;
+}
+
+#modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+}
+
+#modal {
+    background: white;
+    border-radius: 12px;
+    padding: 2rem;
+    width: 100%;
+    max-width: 360px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+}
+
+#modal p {
+    font-size: 16px;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+#modal-botones {
+    display: flex;
+    gap: 10px;
+}
+
+#modal-botones button {
+    flex: 1;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    background: transparent;
+    cursor: pointer;
+    font-size: 15px;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+#modal-enviar:hover {
+    background-color: rgb(0, 91, 211);
+    color: white;
+}
+
+#modal-cancelar:hover {
+    background-color: rgb(211, 0, 0);
+    color: white;
+}

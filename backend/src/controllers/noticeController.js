@@ -31,8 +31,9 @@ const getNoticiasPorSlug = async (req,res) =>{
 
 //creacion de noticias (admin y jefe)
 const crearNoticia = async (req,res) => {
+    const imagen_url = req.file ? `/subida/${req.file.filename}` : null;
     try{
-        const {titulo, contenido, imagen_url, categoria} = req.body;
+        const {titulo, contenido, categoria} = req.body;
         
         const slug = titulo.toLowerCase()
             .replace(/\s+/g, '-')       

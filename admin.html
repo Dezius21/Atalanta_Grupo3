@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin</title>
+  <link rel="stylesheet" href="blocks/posts.css">
+</head>
+<body>
+
+  <header class="header">
+    <nav class="navbar">
+      <a href="./index.html" class="navbar__logo-conatiner">
+        <img src="" alt="" class="navbar__logo">
+      </a>
+      <ul class="navbar__list">
+        <li class="navbar__item">Quiénes somos</li>
+        <li class="navbar__item">
+          Servicios
+          <ul class="dropdown-items">
+            <li class="dropdown-items__item">Ciberseguridad</li>
+            <li class="dropdown-items__item">Digital</li>
+            <li class="dropdown-items__item">Formación</li>
+          </ul>
+        </li>
+        <li class="navbar__item">Empleo</li>
+        <li class="navbar__item"><a href="noticias.html">Noticias</a></li>
+        <li class="navbar__item">Contacto</li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="container">
+    <h1>Panel de Administración</h1>
+    <p style="color:#aaa; margin-bottom:30px;">Gestiona las noticias publicadas.</p>
+    <div id="adminList">
+      <p>Cargando...</p>
+    </div>
+  </div>
+
+  <script src="scripts/admin.js"></script>
+</body>
+</html>

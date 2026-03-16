@@ -4,6 +4,7 @@ const {getNoticias, getNoticiasPorSlug, crearNoticia, eliminarNoticia} = require
 const {protegerRuta, verificarRol} = require('../middlewares/authMiddleware');
 const multer = require('multer');
 const path= require('path');
+const {validarNoticia} = require('../middlewares/validaciones')
 
 router.get('/', getNoticias);
 router.get('/:slug', getNoticiasPorSlug)
@@ -19,8 +20,6 @@ const storage = multer.diskStorage({
 });
 
 const fileFilter = (req,file,cb) =>{
-    console.log('mimetype:', file.mimetype);  
-    console.log('extension:', path.extname(file.originalname).toLowerCase());
     const extAllowed = /jpeg|jpg|png|gif|webp/;
     const extValid = extAllowed.test(path.extname(file.originalname).toLowerCase());
     const mimeValid = /image\/(jpeg|jpg|png|gif|webp)/.test(file.mimetype)
@@ -38,5 +37,5 @@ const upload = multer({
     limits: {fileSize: 5 *1024 * 1024}
 });
 
-router.post('/', protegerRuta,verificarRol('admin','jefe'),upload.single('imagen'),crearNoticia);
+router.post('/', protegerRuta,verificarRol('admin','jefe'),validarNoticia,upload.single('imagen'),crearNoticia);
 module.exports= router;

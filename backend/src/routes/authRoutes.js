@@ -1,7 +1,7 @@
 const express =require('express');
 const router = express.Router();
 const{register, login} = require('../controllers/authController');
-const {loginLimiter} = require('../server');
+const { loginLimiter } = require('../middlewares/rateLimiters');
 
 //-Rutas-//
 router.post('/register' , register);

@@ -1,0 +1,41 @@
+CREATE DATABASE ATALANTA_DB CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+USE ATALANTA_DB;
+
+CREATE TABLE usuarios (
+  id         INT AUTO_INCREMENT PRIMARY KEY,
+  nombre     VARCHAR(100) NOT NULL,
+  email      VARCHAR(150) NOT NULL UNIQUE,
+  password   VARCHAR(255) NOT NULL,
+  rol        ENUM('admin','editor') DEFAULT 'editor',
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE noticias (
+  id          INT AUTO_INCREMENT PRIMARY KEY,
+  titulo      VARCHAR(255) NOT NULL,
+  slug        VARCHAR(255) NOT NULL UNIQUE,
+  contenido   TEXT NOT NULL,
+  imagen_url  VARCHAR(500),
+  categoria   VARCHAR(100),
+  publicado   BOOLEAN DEFAULT FALSE,
+  autor_id    INT,
+  created_at  TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  updated_at  TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  FOREIGN KEY (autor_id) REFERENCES usuarios(id) ON DELETE SET NULL
+);
+
+CREATE TABLE contactos (
+  id         INT AUTO_INCREMENT PRIMARY KEY,
+  nombre     VARCHAR(100) NOT NULL,
+  apellidos  VARCHAR(100),
+  email      VARCHAR(150) NOT NULL,
+  empresa    VARCHAR(150),
+  cargo      VARCHAR(100),
+  mensaje    TEXT,
+  leido      BOOLEAN DEFAULT FALSE,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+),
+
+
+
+SELECT * FROM USUARIOS ;

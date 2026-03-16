@@ -50,7 +50,7 @@ try{
     const token = jwt.sign(
         {id: user.id, email: user.email, rol: user.rol},
         process.env.JWT_SECRET,
-        {expiresIn: '8h'}
+        {expiresIn: '1h'}
     );
 
     res.json({

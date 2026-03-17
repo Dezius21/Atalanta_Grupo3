@@ -82,7 +82,7 @@ CREATE TABLE adjuntos(
 	archivo_3_url VARCHAR(255),
 	archivo_4_url VARCHAR(255),
 	archivo_5_url VARCHAR(255),
-	FOREIGN KEY (ticket_id) REFERENCES tickets(id) ON DELETE SET NULL
+	FOREIGN KEY (ticket_id) REFERENCES tickets(id)
 );
 
 CREATE TABLE comentarios (
@@ -126,8 +126,8 @@ INSERT INTO contactos_formacion (nombre, apellidos, email, empresa, cargo, inter
 
 INSERT INTO tickets (autor_id, titulo, contenido, estatus) VALUES
 (3, 'Error en acceso al sistema', 'No puedo iniciar sesión desde ayer por la mañana.', 'Creado'),
-(4, 'Fallo en exportación de reportes', 'El botón de exportar PDF no responde.', NULL, 'Asignado'),
-(5, 'Solicitud de nuevo usuario', 'Se necesita crear acceso para un nuevo empleado.', NULL, 'En_progreso'),
+(4, 'Fallo en exportación de reportes', 'El botón de exportar PDF no responde.', 'Asignado'),
+(5, 'Solicitud de nuevo usuario', 'Se necesita crear acceso para un nuevo empleado.', 'En_progreso'),
 (3, 'Problema con notificaciones', 'Las notificaciones por email no llegan.', 'Cerrado'),
 (4, 'Lentitud en la plataforma', 'La carga de páginas tarda más de 10 segundos.', 'Asignado');
 

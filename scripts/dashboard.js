@@ -1,7 +1,7 @@
 // ==========================================
 // 1. ESTADO GLOBAL Y UTILIDADES DE SEGURIDAD
 // ==========================================
-const currentUser = { id: 102, name: "Esther Howard", role: "Admin" }; // Cambia para probar cada rol
+const currentUser = { id: 102, name: "Esther Howard", role: "Cliente" }; // Cambia para probar cada rol
 
 function escapeHTML(str) {
     if (str === null || str === undefined) return '';

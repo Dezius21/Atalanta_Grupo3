@@ -82,7 +82,7 @@ CREATE TABLE adjuntos(
 	archivo_3_url VARCHAR(255),
 	archivo_4_url VARCHAR(255),
 	archivo_5_url VARCHAR(255),
-	FOREIGN KEY (ticket_id) REFERENCES tickets(id)
+	FOREIGN KEY (ticket_id) REFERENCES tickets(id) ON DELETE CASCADE
 );
 
 CREATE TABLE comentarios (

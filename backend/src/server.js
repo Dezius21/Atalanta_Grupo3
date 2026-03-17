@@ -5,6 +5,7 @@ require('dotenv').config();
 const db = require('./config/db');
 const rateLimit = require('express-rate-limit');
 const app = express();
+const path = require('path');
 
 
 //-Seguridad-//
@@ -53,11 +54,13 @@ app.use('/api/auth', authRoutes);
 const noticeRoutes = require('./routes/noticeRoutes');
 app.use('/api/noticias', noticeRoutes);
 
-const contactRoutes= require('./src/routes/contactRoutes');
+const contactRoutes= require('./routes/contactRoutes');
 app.use('/api/contacto',contactRoutes);
 
 const ticketRoutes = require('./routes/ticketRoutes');
 app.use('/api/tickets', ticketRoutes);
+
+app.use('/subida', express.static(path.join(__dirname, 'subida')));
 
 
 app.get('/', (req , res) => {

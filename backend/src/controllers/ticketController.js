@@ -186,12 +186,14 @@ const crearComentario = async (req, res) => {
 const subirAdjunto = async (req, res) => {
     try {
         const { id: ticket_id } = req.params;
-        const { url, nombre } = req.body;
         const { id: usuario_id, rol } = req.usuario;
 
-        if (!url) {
-            return res.status(400).json({ error: 'La URL del archivo es obligatoria' });
+        if (!req.file) {
+            return res.status(400).json({ error: 'No se recibió ningún archivo' });
         }
+
+        const url    = `/subida/tickets/${req.file.filename}`;
+        const nombre = req.file.originalname;
 
         const ticket = await obtenerTicketPorId(ticket_id);
         if (!ticket) {

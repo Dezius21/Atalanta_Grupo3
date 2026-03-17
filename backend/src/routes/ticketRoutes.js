@@ -1,5 +1,7 @@
 const express = require('express');
 const router = express.Router();
+const multer = require('multer');
+const path = require('path');
 
 const{
     crearTicket,
@@ -11,6 +13,30 @@ const{
     subirAdjunto,
     borrarAdjunto
 } = require('../controllers/ticketController');
+
+
+const storage = multer.diskStorage({
+    destination: path.join(__dirname, '../subida/tickets'),
+    filename: (req, file, cb) => {
+        cb(null, Date.now() + path.extname(file.originalname));
+    }
+});
+
+const fileFilter = (req, file, cb) => {
+    const extAllowed = /jpeg|jpg|png|gif|webp|pdf|doc|docx|xls|xlsx/;
+    const extValid = extAllowed.test(path.extname(file.originalname).toLowerCase());
+    if (extValid) {
+        cb(null, true);
+    } else {
+        cb(new Error('Formato no permitido. Usa: jpeg, jpg, png, gif, webp, pdf, doc, docx, xls, xlsx'));
+    }
+};
+
+const upload = multer({
+    storage,
+    fileFilter,
+    limits: { fileSize: 10 * 1024 * 1024 } // 10MB
+});
 
 const {protegerRuta, verificarRol} = require('../middlewares/authMiddleware');
 
@@ -36,7 +62,7 @@ router.post('/:id/comentarios', protegerRuta, crearComentario);
 // ─── ADJUNTOS ─────────────────────────────────────────────────────────────────
 
 // Subir adjunto a un ticket
-router.post('/:id/adjuntos', protegerRuta, subirAdjunto);
+router.post('/:id/adjuntos', protegerRuta, upload.single('archivo'), subirAdjunto);
 
 // Borrar adjunto específico de un ticket
 router.delete('/:ticket_id/adjuntos/:adjunto_id', protegerRuta, borrarAdjunto);

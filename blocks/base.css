@@ -1,0 +1,67 @@
+:root {
+    --color-sidebar-bg: #343a40;
+    --color-sidebar-text: #adb5bd;
+    --color-bg-main: #f8f9fa;
+    --color-text-main: #495057;
+    --color-text-muted: #868e96;
+    --color-danger: #dc3545;
+    --color-primary: #007bff;
+    --color-border: #dee2e6;
+    --color-white: #ffffff;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+}
+
+body {
+    background-color: var(--color-bg-main);
+    color: var(--color-text-main);
+}
+
+:root {
+    --color-bg: #f4f6f9;
+    --color-sidebar: #2c3e50;
+    --color-text: #333;
+    --color-text-light: #ecf0f1;
+    --color-primary: #3498db;
+    --color-danger: #e74c3c;
+    --color-success: #2ecc71;
+    --color-border: #bdc3c7;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', sans-serif; }
+
+body { background-color: var(--color-bg); color: var(--color-text); }
+
+/* Layout Básico */
+.dashboard { display: flex; height: 100vh; }
+.dashboard__main { flex: 1; display: flex; flex-direction: column; overflow: hidden; }
+.content-area { padding: 20px; overflow-y: auto; flex: 1; }
+
+/* Sidebar */
+.sidebar { width: 250px; background-color: var(--color-sidebar); color: var(--color-text-light); }
+.sidebar__brand { padding: 20px; font-size: 1.5rem; font-weight: bold; border-bottom: 1px solid rgba(255,255,255,0.1); }
+.sidebar__nav { list-style: none; padding-top: 20px; }
+.sidebar__item { padding: 15px 20px; cursor: pointer; transition: background 0.2s; }
+.sidebar__item:hover, .sidebar__item--active { background-color: var(--color-primary); }
+
+/* Topbar */
+.topbar { background: white; padding: 20px; display: flex; justify-content: space-between; border-bottom: 1px solid var(--color-border); }
+
+/* Tablas y Paneles */
+.panel { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); margin-bottom: 20px; }
+.panel__header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; }
+.table { width: 100%; border-collapse: collapse; }
+.table th, .table td { padding: 12px; text-align: left; border-bottom: 1px solid var(--color-border); }
+
+/* Botones y Formularios */
+.btn { padding: 8px 16px; border: none; border-radius: 4px; cursor: pointer; font-weight: bold; color: white; }
+.btn--primary { background-color: var(--color-primary); }
+.btn--success { background-color: var(--color-success); }
+.btn--danger { background-color: var(--color-danger); }
+
+.form-control { width: 100%; padding: 8px; margin-top: 5px; border: 1px solid var(--color-border); border-radius: 4px; }

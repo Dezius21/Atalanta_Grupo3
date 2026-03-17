@@ -63,25 +63,26 @@ CREATE TABLE contactos_formacion (
 );
 
 CREATE TABLE tickets (
-	id INT AUTO_INCREMENT PRIMARY KEY,
-    autor_id INT,
-    titulo VARCHAR(255) NOT NULL,
-    contenido TEXT NOT NULL,
-    evidence_url VARCHAR(255),
-    estatus ENUM('Creado','Asignado','En_progreso','Cerrado') DEFAULT 'Creado',
-    created_at  TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    updated_at  TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-    FOREIGN KEY (autor_id) REFERENCES usuarios(id) ON DELETE SET NULL
+  id           INT AUTO_INCREMENT PRIMARY KEY,
+  autor_id     INT,
+  asignado_a   INT DEFAULT NULL,
+  titulo       VARCHAR(255) NOT NULL,
+  contenido    TEXT NOT NULL,
+  evidence_url VARCHAR(255),
+  estatus      ENUM('Creado','Asignado','En_progreso','Cerrado') DEFAULT 'Creado',
+  created_at   TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  updated_at   TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  FOREIGN KEY (autor_id)   REFERENCES usuarios(id) ON DELETE SET NULL,
+  FOREIGN KEY (asignado_a) REFERENCES usuarios(id) ON DELETE SET NULL
 );
 
-CREATE TABLE comentarios(
-	id INT AUTO_INCREMENT PRIMARY KEY,
-    autor_id INT,
-    ticket_id INT,
-    comentario TEXT NOT NULL,
-    created_at  TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (autor_id) REFERENCES usuarios(id) ON DELETE SET NULL,
-    FOREIGN KEY (ticket_id) REFERENCES tickets(id) ON DELETE SET NULL
+CREATE TABLE comentarios (
+  id          INT AUTO_INCREMENT PRIMARY KEY,
+  ticket_id   INT,
+  autor_id    INT,
+  comentario  TEXT NOT NULL,
+  tipo        ENUM('comentario','cambio_estado') DEFAULT 'comentario',
+  created_at  TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (autor_id)  REFERENCES usuarios(id) ON DELETE SET NULL,
+  FOREIGN KEY (ticket_id) REFERENCES tickets(id)  ON DELETE CASCADE
 );
-
-

@@ -68,12 +68,21 @@ CREATE TABLE tickets (
   asignado_a   INT DEFAULT NULL,
   titulo       VARCHAR(255) NOT NULL,
   contenido    TEXT NOT NULL,
-  evidence_url VARCHAR(255),
   estatus      ENUM('Creado','Asignado','En_progreso','Cerrado') DEFAULT 'Creado',
   created_at   TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   updated_at   TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   FOREIGN KEY (autor_id)   REFERENCES usuarios(id) ON DELETE SET NULL,
   FOREIGN KEY (asignado_a) REFERENCES usuarios(id) ON DELETE SET NULL
+);
+
+CREATE TABLE adjuntos(
+	ticket_id INT PRIMARY KEY,
+	archivo_1_url VARCHAR(255),
+	archivo_2_url VARCHAR(255),
+	archivo_3_url VARCHAR(255),
+	archivo_4_url VARCHAR(255),
+	archivo_5_url VARCHAR(255),
+	FOREIGN KEY (ticket_id) REFERENCES tickets(id) ON DELETE CASCADE
 );
 
 CREATE TABLE comentarios (
@@ -85,15 +94,6 @@ CREATE TABLE comentarios (
   created_at  TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   FOREIGN KEY (autor_id)  REFERENCES usuarios(id) ON DELETE SET NULL,
   FOREIGN KEY (ticket_id) REFERENCES tickets(id)  ON DELETE CASCADE
-);
-CREATE TABLE comentarios(
-	id INT AUTO_INCREMENT PRIMARY KEY,
-    autor_id INT,
-    ticket_id INT,
-    comentario TEXT NOT NULL,
-    created_at  TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (autor_id) REFERENCES usuarios(id) ON DELETE SET NULL,
-    FOREIGN KEY (ticket_id) REFERENCES tickets(id) ON DELETE SET NULL
 );
 
 INSERT INTO usuarios (nombre, email, password, rol) VALUES
@@ -124,12 +124,19 @@ INSERT INTO contactos_formacion (nombre, apellidos, email, empresa, cargo, inter
 ('Pablo', 'Santos Ramos', 'pablo.santos@form4.com', 'AutoGroup', 'CEO', 'Transformación Digital', '250-500', FALSE),
 ('Nuria', 'Fuentes Prado', 'nuria.fuentes@form5.com', 'LegalTech', 'Responsable de Formación', 'Compliance', '10-50', TRUE);
 
-INSERT INTO tickets (autor_id, titulo, contenido, evidence_url, estatus) VALUES
-(3, 'Error en acceso al sistema', 'No puedo iniciar sesión desde ayer por la mañana.', 'https://cdn.atalanta.com/ev1.png', 'Creado'),
-(4, 'Fallo en exportación de reportes', 'El botón de exportar PDF no responde.', NULL, 'Asignado'),
-(5, 'Solicitud de nuevo usuario', 'Se necesita crear acceso para un nuevo empleado.', NULL, 'En_progreso'),
-(3, 'Problema con notificaciones', 'Las notificaciones por email no llegan.', 'https://cdn.atalanta.com/ev4.png', 'Cerrado'),
-(4, 'Lentitud en la plataforma', 'La carga de páginas tarda más de 10 segundos.', 'https://cdn.atalanta.com/ev5.png', 'Asignado');
+INSERT INTO tickets (autor_id, titulo, contenido, estatus) VALUES
+(3, 'Error en acceso al sistema', 'No puedo iniciar sesión desde ayer por la mañana.', 'Creado'),
+(4, 'Fallo en exportación de reportes', 'El botón de exportar PDF no responde.', 'Asignado'),
+(5, 'Solicitud de nuevo usuario', 'Se necesita crear acceso para un nuevo empleado.', 'En_progreso'),
+(3, 'Problema con notificaciones', 'Las notificaciones por email no llegan.', 'Cerrado'),
+(4, 'Lentitud en la plataforma', 'La carga de páginas tarda más de 10 segundos.', 'Asignado');
+
+INSERT INTO adjuntos (ticket_id,archivo_1_url) VALUES
+(1,'https://cdn.atalanta.com/ev1.png'),
+(2,'https://cdn.atalanta.com/ev4.png'),
+(3,'https://cdn.atalanta.com/ev2.png'),
+(4,'https://cdn.atalanta.com/ev3.png'),
+(5,'https://cdn.atalanta.com/ev5.png');
 
 INSERT INTO comentarios (autor_id, ticket_id, comentario) VALUES
 (1, 1, 'Estamos revisando el problema de acceso, en breve os damos respuesta.'),
@@ -137,5 +144,6 @@ INSERT INTO comentarios (autor_id, ticket_id, comentario) VALUES
 (3, 3, 'He enviado los datos del nuevo empleado por correo.'),
 (1, 4, 'Problema resuelto tras revisar la configuración SMTP.'),
 (2, 5, 'Se está analizando la carga del servidor en horas pico.');
+
 
 

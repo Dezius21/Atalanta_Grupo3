@@ -21,7 +21,10 @@
     margin-bottom: 20px;
     font-weight: bold;
 }
-
+#form-cliente-ticket{
+    display: flex;
+    flex-direction: column;
+}
 .ticket-usr__form label {
     font-size: 20px;
     font-weight: 500;
@@ -73,6 +76,18 @@
     background-color: rgb(0, 91, 211);
 }
 
+.add__file{
+    background-color: #597fa7;
+    padding: 7px 10px;
+    color: white;
+    border-radius: 13px;
+    width: max-content;
+    transition: all .25s;
+}
+.add__file:hover{
+    background-color: #709dce;
+}
+
 #adjunto-label {
     font-size: 13px;
     color: #888;
@@ -80,6 +95,8 @@
 }
 
 .ticket-usr__container button {
+    display: flex;
+    flex-direction: column;
     width: 100%;
     padding: 10px;
     border-radius: 8px;

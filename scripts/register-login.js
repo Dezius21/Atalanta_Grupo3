@@ -65,7 +65,7 @@ formLogin.addEventListener('submit', async (e) => {
 
   try {
     const res = await fetch(`${API_URL}/login`, {
-      method: 'POST',
+      method: 'post',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ email, password })
     });
@@ -80,7 +80,7 @@ formLogin.addEventListener('submit', async (e) => {
     localStorage.setItem('token', data.token);
     localStorage.setItem('usuario', JSON.stringify(data.usuario));
 
-    window.location.href = 'index.html';
+    window.location.href = 'dashboard.html';
 
   } catch (err) {
     console.error('Error de red:', err);

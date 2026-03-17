@@ -11,9 +11,22 @@ const app = express();
 app.use(helmet());
 
 app.use(cors({
-    origin: 'http://localhost:5500',
-    credentials : true
-}));
+    origin: function (origin, callback) {
+      // Permite null (archivo local), localhost:5500 y localhost:5173 etc.
+      const allowed = [
+        'http://localhost:5500',
+        'http://127.0.0.1:5500',   ////cambiar en post-produccion
+        'http://localhost:5173',
+        'http://192.168.56.1:5500'
+      ];
+      if (!origin || allowed.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error('CORS no permitido para: ' + origin));
+      }
+    },
+    credentials: true
+  }));
 
 //-Rate limit(global)-//
 const limiter = rateLimit({

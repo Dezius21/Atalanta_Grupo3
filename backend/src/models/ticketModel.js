@@ -94,16 +94,48 @@ const asignarTickets = async (ticket_id, trabajador_id) => {
     return result.affectedRows;
 }
 
+const cambiarEstatus = async (ticket_id, estatus) => {
+    const [result] = await pool.execute(
+        'UPDATE tickets SET estatus = ?, updated_at = NOW() WHERE id = ?',
+        [estatus, ticket_id]
+    );
+    return result.affectedRows;
+};
+
+
+const agregarComentario = async (ticket_id, autor_id, comentario, tipo = 'comentario') => {
+    const [result] = await pool.execute(
+        'INSERT INTO comentarios (ticket_id, autor_id, comentario, tipo) VALUES (?,?,?,?)',
+        [ticket_id, autor_id, comentario, tipo]
+    );
+    return result.insertId;
+};
+
+const obtenerComentariosPorTicket = async (ticket_id) => {
+    const [rows] = await pool.execute(`
+        SELECT 
+            c.id,
+            c.comentario,
+            c.tipo,
+            c.created_at,
+            u.nombre AS autor_nombre,
+            u.rol    AS autor_rol
+        FROM comentarios c
+        LEFT JOIN usuarios u ON c.autor_id = u.id
+        WHERE c.ticket_id = ?
+        ORDER BY c.created_at ASC
+    `, [ticket_id]);
+    return rows;
+};
 
 module.exports = {
-    crearTickets,
+    crearTicket,
     obtenerTodosLosTickets,
-    obtenerTicketPorCliente,
-    obtenerTicketPorTrabajador,
+    obtenerTicketsPorCliente,
+    obtenerTicketsPorTrabajador,
     obtenerTicketPorId,
-    asignarTickets,
-    // Tu compañero añadirá aquí:
-    // cambiarEstatus,
-    // agregarComentario,
-    // obtenerComentariosPorTicket
+    asignarTicket,
+    cambiarEstatus,
+    agregarComentario,
+    obtenerComentariosPorTicket
 };

@@ -94,6 +94,7 @@
     cursor: pointer;
     font-weight: 600;
     transition: opacity 0.2s;
+    width: max-content;
 }
 
 .btn:hover {

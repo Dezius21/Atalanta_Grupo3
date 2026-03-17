@@ -1,9 +1,9 @@
 const pool = require('../config/db');
 
-const crearTickets = async (autor_id, titulo, contenido,evidence_url = null) => {
+const crearTickets = async (autor_id, titulo, contenido) => {
     const [result] = await pool.execute(
-        'INSERT INTO tickets (autor_id, titulo, contenido, evidence_url) VAlUES (?,?,?,?)', 
-        [autor_id,titulo,contenido,evidence_url]
+        'INSERT INTO tickets (autor_id, titulo, contenido) VAlUES (?,?,?)', 
+        [autor_id,titulo,contenido]
     );
     return result.insertId;
 };
@@ -14,7 +14,6 @@ const obtenerTodosLosTickets = async () =>{
             t.id,
             t.titulo,
             t.contenido,
-            t.evidence_url,
             t.estatus,
             t.created_at,
             t.updated_at,
@@ -37,7 +36,6 @@ const obtenerTicketPorCliente= async (autor_id) =>{
             t.id,
             t.titulo,
             t.contenido,
-            t.evidence_url,
             t.estatus,
             t.created_at,
             t.updated_at,
@@ -56,7 +54,6 @@ const obtenerTicketPorTrabajador = async (trabajador_id) =>{
             t.id,
             t.titulo,
             t.contenido,
-            t.evidence_url,
             t.estatus,
             t.created_at,
             t.updated_at,
@@ -88,7 +85,7 @@ const obtenerTicketPorId = async (id) =>{
 
 const asignarTickets = async (ticket_id, trabajador_id) => {
     const [result] = await pool.execute(
-        "UPDATE tickets SET asignado_a = ?, estatus = 'Asignado', updated_at = NOW() WhERE id = ?",
+        "UPDATE tickets SET asignado_a = ?, estatus = 'Asignado', updated_at = NOW() WHERE id = ?",
         [trabajador_id, ticket_id]
     );
     return result.affectedRows;
@@ -128,14 +125,49 @@ const obtenerComentariosPorTicket = async (ticket_id) => {
     return rows;
 };
 
+const agregarAdjunto = async (ticket_id,url, nombre=null)=>{
+    const[conteo] = await pool.execute(
+        'SELECT COUNT(*) AS total FROM adjuntos WHERE ticket_id = ?', [ticket_id]
+    );
+
+    if(conteo[0].total >= 5){
+        throw new Error ('ESte ticket ya tiene los 5 archivos permitidos')
+    }
+
+    const [result] = await pool.execute(
+        'Insert INTO adjuntos (ticket_id, url, nombre) VALUES (?,?,?)',
+        [ticket_id,url,nombre]
+    );
+    return result.insertId;
+};
+
+const obtenerAdjuntosPorTicket = async (ticket_id) => {
+    const [rows] = await pool.execute(
+        'SELECT id,url,nombre,created_at FROM adjuntos WHERE ticket_id = ?',
+        [ticket_id]
+    );
+    return rows;
+};
+
+const eliminarAdjunto = async (adjunto_id, ticket_id) =>{
+    const [result] = await pool.execute(
+        'DELETE FROM adjuntos WHERE id = ? AND ticket_id = ?',
+        [adjunto_id,ticket_id]
+    );
+    return result.affectedRows;
+};
+
 module.exports = {
-    crearTicket,
+    crearTickets,
     obtenerTodosLosTickets,
-    obtenerTicketsPorCliente,
-    obtenerTicketsPorTrabajador,
+    obtenerTicketPorCliente,
+    obtenerTicketPorTrabajador,
     obtenerTicketPorId,
-    asignarTicket,
+    asignarTickets,
     cambiarEstatus,
     agregarComentario,
-    obtenerComentariosPorTicket
+    obtenerComentariosPorTicket,
+    agregarAdjunto,
+    obtenerAdjuntosPorTicket,
+    eliminarAdjunto
 };

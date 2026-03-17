@@ -75,16 +75,14 @@ CREATE TABLE tickets (
   FOREIGN KEY (asignado_a) REFERENCES usuarios(id) ON DELETE SET NULL
 );
 
-CREATE TABLE adjuntos(
-	ticket_id INT PRIMARY KEY,
-	archivo_1_url VARCHAR(255),
-	archivo_2_url VARCHAR(255),
-	archivo_3_url VARCHAR(255),
-	archivo_4_url VARCHAR(255),
-	archivo_5_url VARCHAR(255),
-	FOREIGN KEY (ticket_id) REFERENCES tickets(id) ON DELETE CASCADE
+CREATE TABLE adjuntos (
+    id         INT AUTO_INCREMENT PRIMARY KEY,
+    ticket_id  INT NOT NULL,
+    url        VARCHAR(255) NOT NULL,
+    nombre     VARCHAR(255),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (ticket_id) REFERENCES tickets(id) ON DELETE CASCADE
 );
-
 CREATE TABLE comentarios (
   id          INT AUTO_INCREMENT PRIMARY KEY,
   ticket_id   INT,

@@ -53,6 +53,10 @@ app.use('/api/auth', authRoutes);
 const noticeRoutes = require('./routes/noticeRoutes');
 app.use('/api/noticias', noticeRoutes);
 
+const ticketRoutes = require('./routes/ticketRoutes');
+app.use('/api/tickets', ticketRoutes);
+
+
 app.get('/', (req , res) => {
     res. json({mensaje: 'API Atalanta funciona'})
 });

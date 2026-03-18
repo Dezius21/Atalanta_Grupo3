@@ -65,4 +65,17 @@ const validarNoticia = [
 
 ]
 
-module.exports = {validarRegister, validarLogin , validarNoticia, validar}
+const validarContacto = [
+    body('nombre').trim().notEmpty().withMessage('El nombre es requerido').escape(),
+    body('apellidos').trim().notEmpty().withMessage('Los apellidos son requeridos').escape(),
+    body('email').trim().notEmpty().withMessage('Email no valido').escape(),
+    body('empresa').trim().notEmpty().withMessage('La empresa es requerida'),
+    body('cargo').trim().notEmpty().withMessage('El cargo es requerido').escape(),
+    body('tipoForm').notEmpty().withMessage('Error al cargar el formulario'),
+    body('mensaje').optional().trim().escape(),
+    body('interes').if(body('tipoForm').custom(val => val === 'servicio' || val === 'formacion')).notEmpty().withMessage('El interes es requerido').escape(),
+    body('tamaño').if(body('tipoForm').custom(val => val === 'formacion')).notEmpty().withMessage('El tamaño es requerido').escape(),
+    validar
+]
+
+module.exports = {validarRegister, validarLogin , validarNoticia, validarContacto, validar}

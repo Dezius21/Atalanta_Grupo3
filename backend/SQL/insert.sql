@@ -68,6 +68,7 @@ CREATE TABLE tickets (
   asignado_a   INT DEFAULT NULL,
   titulo       VARCHAR(255) NOT NULL,
   contenido    TEXT NOT NULL,
+  final        TEXT,
   estatus      ENUM('Creado','Asignado','En_progreso','Cerrado') DEFAULT 'Creado',
   created_at   TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   updated_at   TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,

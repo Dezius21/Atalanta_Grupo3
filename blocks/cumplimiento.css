@@ -1,0 +1,142 @@
+*{
+    font-family: 'DM Sans', sans-serif;
+}
+
+.intro {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 80px 200px 60px;
+    background: #ffffff;
+    min-height: 220px;
+    text-align: left;
+    gap: 30px;
+}
+
+.intro__image {
+    width: 350px;
+    display: block;
+    margin: 0 auto;
+}
+
+.intro__paragraph {
+    font-size: 16px;
+    font-weight: 400;
+    color: #1a1a1a;
+    line-height: 1.7;
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.normativass{
+    color: #ffffff;;
+    background: linear-gradient(180deg, #351212 0%, #000000 80%);
+}
+
+.normativass__container{
+    width: 100%;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.normativass__title{
+    font-size: 35px;
+    margin-bottom: 30px;
+}
+
+.normativass__subtitle{
+    margin-bottom: 45px;
+}
+.normativass__grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    justify-content: center;
+    padding: 2rem 0;
+  }
+  
+  /* Block: normativas-card */
+  .normativas-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-subtle);
+    border-radius: 12px;
+    padding: 2.5rem 1.5rem;
+    flex: 1 1 250px; /* Responsive: grows but stays around 250px */
+    max-width: 350px;
+    text-align: center;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  /* Hover Effect: The "Tech" Glow */
+  .normativas-card:hover {
+    border-color: var(--accent-red);
+    transform: translateY(-8px);
+    box-shadow: 0 10px 30px rgba(255, 49, 49, 0.15), 
+                0 0 10px rgba(255, 49, 49, 0.1);
+  }
+  
+  /* Element: Icon */
+  .normativas-card__icon {
+    width: 50px;
+    height: auto;
+    margin-bottom: 1.5rem;
+    transition: transform 0.3s ease;
+    /* Adds a subtle red glow to the white icon */
+    filter: drop-shadow(0 0 8px rgba(255, 49, 49, 0.4));
+  }
+  
+  .normativas-card:hover .normativas-card__icon {
+    transform: scale(1.1);
+  }
+  
+  /* Element: Title */
+  .normativas-card__title {
+    color: #ffffff;
+    font-family: var(--font-main);
+    font-size: 1.15rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 1rem;
+  }
+  
+  /* Element: Text */
+  .normativas-card__text {
+    color: var(--text-muted);
+    font-family: var(--font-main);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin: 0;
+  }
+  
+  /* Responsive tweak for mobile */
+  @media (max-width: 768px) {
+    .normativass__grid {
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .normativas-card {
+      width: 100%;
+      max-width: 100%;
+    }
+  }
+.sectorses { padding: 5rem 4rem; border-bottom: 1px solid var(--border); }
+  .sectores-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 2rem; }
+  .sectores-card {
+    border: 1px solid var(--border);
+    padding: 2rem;
+    background: var(--dark2);
+    transition: border-color 0.3s;
+  }
+  .sectores-card:hover { border-color: rgba(227,0,27,0.3); }
+  .sectores-icon { font-size: 1.5rem; margin-bottom: 0.8rem; }
+  .sectores-name { font-family: 'Syne', sans-serif; font-size: 1rem; font-weight: 700; margin-bottom: 0.5rem; }
+  .sectores-regs { display: flex; flex-wrap: wrap; gap: 0.3rem; margin-bottom: 0.8rem; }
+  .sectores-reg { font-size: 0.7rem; background: rgba(227,0,27,0.08); color: rgba(227,0,27,0.8); padding: 0.2rem 0.5rem; }
+  .sectores-desc { font-size: 0.82rem; color: var(--gray); line-height: 1.6; }

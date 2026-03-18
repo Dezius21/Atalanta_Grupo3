@@ -129,7 +129,7 @@ INSERT INTO tickets (autor_id, titulo, contenido, estatus) VALUES
 (3, 'Problema con notificaciones', 'Las notificaciones por email no llegan.', 'Cerrado'),
 (4, 'Lentitud en la plataforma', 'La carga de páginas tarda más de 10 segundos.', 'Asignado');
 
-INSERT INTO adjuntos (ticket_id,archivo_1_url) VALUES
+INSERT INTO adjuntos (ticket_id,url) VALUES
 (1,'https://cdn.atalanta.com/ev1.png'),
 (2,'https://cdn.atalanta.com/ev4.png'),
 (3,'https://cdn.atalanta.com/ev2.png'),

@@ -523,9 +523,9 @@
                             <label for="email" class="form__label">Email</label>
                             <input type="email" id="email" name="email" required placeholder="Email" class="form__input">
                             <label for="company" class="form__label">Empresa</label>
-                            <input type="text" id="company" name ="empresa "required placeholder="Empresa" class="form__input">
+                            <input type="text" id="company" name ="empresa" required placeholder="Empresa" class="form__input">
                             <label for="select" class="form__label">Cargo</label>
-                            <select name="Cargo" id="select" class="form__select" required>
+                            <select name="cargo" id="select" class="form__select" required>
                                 <option value="" selected disabled hidden>Cargo</option>
                                 <option value="ciso">CISO</option>
                                 <option value="cto">CTO</option>
@@ -534,7 +534,7 @@
                                 <option value="otro">Otro</option>
                             </select>
                             <label for="selectAlum" class="form__label">Número de personas a formar</label>
-                            <select name="cantidadAlumnos" id="selectAlum" class="form__select" required>
+                            <select name="tamano" id="selectAlum" class="form__select" required>
                                 <option value="" selected disabled hidden>¿Cuántos sois en el equipo?</option>
                                 <option value="1">Individual (1 persona)</option>
                                 <option value="2-5">Equipo pequeño (2-5 personas)</option>
@@ -542,7 +542,7 @@
                                 <option value="16+">Corporativo (+16 personas)</option>
                             </select>
                             <label for="selectCert" class="form__label">Nivel de Certificación de Interés</label>
-                            <select name="Certificaciones" id="selectCert" class="form__select">
+                            <select name="interes" id="selectCert" class="form__select">
                                 <option value="" selected disabled hidden>¿Cual es el desafio que mas te urge resolver?</option>
                                 <option value="certificación">Certificaciones OffSec (OSCP, OSEP, OSWE...).</option>
                                 <option value="itinerarios">Itinerarios Personalizados para Equipos (SOC/Red Team).</option>
@@ -550,7 +550,7 @@
                                 <option value="gap">Gap Analysis: Evaluación de habilidades del equipo.</option>
                             </select>                        
                             <div class="form__checkbox-row">
-                                <input type="checkbox" name="checkbox" class="form__checkbox" required>
+                                <input type="checkbox" name="leido" class="form__checkbox" required>
                                 <label class="form__checkbox-label">
                                     Acepto la <a href="">politica de privacidad</a> de Atalanta Evlution
                                 </label>

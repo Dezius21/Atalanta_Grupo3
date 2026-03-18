@@ -114,3 +114,83 @@
     border-radius: 12px;
     font-size: 0.85rem;
 }
+
+/* =========================================
+   MODIFICADORES DE COMPONENTES (BEM)
+   ========================================= */
+
+/* Modificadores para el panel header */
+.panel__header--wrap {
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+/* Modificadores para controles de formulario */
+.form-control--sm {
+    margin: 0;
+    padding: 5px;
+}
+
+.form-control--search {
+    width: 250px;
+    display: inline-block;
+    margin-top: 0;
+}
+
+/* Modificadores para botones */
+.btn--sm {
+    padding: 4px 8px;
+}
+
+.btn--full {
+    width: 100%;
+    margin-top: 10px;
+}
+
+.btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Acciones dentro de la tabla */
+.table__actions {
+    display: flex;
+    gap: 5px;
+    justify-content: center;
+}
+
+/* Paginación */
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.pagination__info {
+    font-weight: 600;
+}
+
+/* Utilidades de texto y listas */
+.text-muted {
+    color: var(--color-text-muted);
+    font-size: 13px;
+}
+
+.text-danger {
+    color: var(--color-danger);
+}
+
+.file-list__item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+    font-size: 0.9em;
+}
+
+.btn-icon {
+    border: none;
+    background: none;
+    cursor: pointer;
+}

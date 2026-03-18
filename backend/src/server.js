@@ -6,7 +6,7 @@ const db = require('./config/db');
 const rateLimit = require('express-rate-limit');
 const app = express();
 const path = require('path');
-
+const seedAdmin = require('./scripts/seed')
 
 //-Seguridad-//
 app.use(helmet());
@@ -18,7 +18,8 @@ app.use(cors({
         'http://localhost:5500',
         'http://127.0.0.1:5500',   ////cambiar en post-produccion
         'http://localhost:5173',
-        'http://192.168.56.1:5500'
+        'http://192.168.56.1:5500',
+        'http://172.26.96.1:5500'
       ];
       if (!origin || allowed.includes(origin)) {
         callback(null, true);
@@ -54,8 +55,8 @@ app.use('/api/auth', authRoutes);
 const noticeRoutes = require('./routes/noticeRoutes');
 app.use('/api/noticias', noticeRoutes);
 
-const contactRoutes= require('./routes/contactRoutes');
-app.use('/api/contacto',contactRoutes);
+//const contactRoutes= require('./routes/contactRoutes');
+//app.use('/api/contacto',contactRoutes);
 
 const ticketRoutes = require('./routes/ticketRoutes');
 app.use('/api/tickets', ticketRoutes);
@@ -66,6 +67,8 @@ app.use('/subida', express.static(path.join(__dirname, 'subida')));
 app.get('/', (req , res) => {
     res. json({mensaje: 'API Atalanta funciona'})
 });
+
+seedAdmin();
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () =>{

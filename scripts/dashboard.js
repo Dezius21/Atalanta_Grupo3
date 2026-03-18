@@ -1,7 +1,7 @@
 // ==========================================
 // 1. ESTADO GLOBAL Y UTILIDADES DE SEGURIDAD
 // ==========================================
-const currentUser = { id: 102, name: "Esther Howard", role: "Trabajador" }; 
+const currentUser = { id: 102, name: "Esther Howard", role: "admin" }; 
 
 // Estado para la gestión de archivos del formulario de cliente
 let archivosSeleccionados = [];
@@ -71,22 +71,26 @@ async function initializeDashboard(role) {
 
     try {
         switch(role) {
-            case 'Admin':
+            case 'admin':
+                hideLoader()
                 title.textContent = "Panel de Administración";
                 const [users, news] = await Promise.all([API_MOCK.getUsers(), API_MOCK.getNews()]);
                 safeRender("content-area", getAdminTemplate(users, news));
                 break;
-            case 'Jefe':
+            case 'jefe':
+                hideLoader()
                 title.textContent = "Asignación de Tickets";
                 const unassigned = await API_MOCK.getUnassignedTickets();
                 safeRender("content-area", getBossTemplate(unassigned));
                 break;
-            case 'Trabajador':
+            case 'trabajador':
+                hideLoader()
                 title.textContent = "Tickets Asignados";
                 const workerTickets = await API_MOCK.getWorkerTickets(currentUser.id);
                 safeRender("content-area", getWorkerTemplate(workerTickets));
                 break;
-            case 'Cliente':
+            case 'cliente':
+                hideLoader()
                 title.textContent = "Mis Tickets";
                 const clientTickets = await API_MOCK.getClientTickets(currentUser.id);
                 archivosSeleccionados = []; // Reset archivos al cargar
@@ -114,16 +118,87 @@ function renderSidebar(role) {
 function getAdminTemplate(users, news) {
     const usersRows = users.map(u => `
         <tr>
-            <td>${escapeHTML(u.id)}</td><td>${escapeHTML(u.name)}</td>
+            <td>${escapeHTML(u.id)}</td>
+            <td>${escapeHTML(u.name)}</td>
             <td>
                 <select class="form-control">
-                    <option value="Admin" ${u.role === 'Admin' ? 'selected' : ''}>Admin</option>
+                    <option ${u.role === 'admin' ? 'selected' : ''}>Admin</option>
+                    <option ${u.role === 'jefe' ? 'selected' : ''}>Jefe</option>
+                    <option ${u.role === 'trabajador' ? 'selected' : ''}>Trabajador</option>
                 </select>
             </td>
             <td><button class="btn btn--success">Actualizar</button></td>
-        </tr>`).join('');
-    
-    return `<div class="panel"><h3>Gestión de Usuarios</h3><table class="table">${usersRows}</table></div>`;
+        </tr>
+    `).join('');
+
+    const newsRows = news.map(n => `
+        <tr>
+            <td>${escapeHTML(n.title)}</td>
+            <td>${escapeHTML(n.date)}</td>
+            <td>${escapeHTML(n.author)}</td>
+            <td>
+                <button class="btn btn--danger" onclick="deleteNews(${n.id})">Eliminar</button>
+            </td>
+        </tr>
+    `).join('');
+
+    return `
+        <div class="panel">
+            <h3>Gestión de Usuarios</h3>
+            <table class="table">${usersRows}</table>
+        </div>
+
+        <div class="panel">
+            <div class="panel__header">
+                <h3>Gestión de Noticias</h3>
+                <button class="btn btn--primary" onclick="toggleAdminNewsModal(true)">
+                    Publicar Noticia
+                </button>
+            </div>
+
+            <table class="table">
+                <tr>
+                    <th>Título</th>
+                    <th>Fecha</th>
+                    <th>Autor</th>
+                    <th>Acción</th>
+                </tr>
+                ${newsRows}
+            </table>
+        </div>
+
+        <!-- MODAL -->
+        <div id="admin-news-modal" class="modal-overlay" style="display:none;">
+            <div class="modal">
+                <div class="modal__header">
+                    <h3 class="modal__title">Nueva Noticia</h3>
+                    <button class="modal__close" onclick="toggleAdminNewsModal(false)">×</button>
+                </div>
+
+                <form id="form-admin-news" onsubmit="handleAdminNewsSubmit(event)">
+                    <div class="form-group">
+                        <label class="form-label">Título</label>
+                        <input type="text" id="news-title" class="form-control" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Imagen</label>
+                        <input type="file" id="news-image" class="form-control">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Contenido</label>
+                        <textarea id="news-content" class="form-control" required></textarea>
+                    </div>
+
+                    <div class="modal__actions">
+                        <button type="button" class="btn btn--danger" onclick="toggleAdminNewsModal(false)">Cancelar</button>
+                        <button type="submit" class="btn btn--success">Publicar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    `;
 }
 
 function getBossTemplate(tickets) { 
@@ -141,7 +216,6 @@ function getBossTemplate(tickets) {
             <td><button class="btn btn--success" onclick="alert('Ticket ${escapeHTML(t.id)} asignado al trabajador seleccionado.')">Asignar</button></td>
         </tr>
     `).join('');
-
     return `<div class="panel"><div class="panel__header"><h3>Tickets Pendientes</h3></div><table class="table"><tr><th>ID</th><th>Asunto</th><th>Asignación</th><th>Acción</th></tr>${rows}</table></div>`;
 }
 function getWorkerTemplate(tickets) { 
@@ -170,7 +244,6 @@ function getWorkerTemplate(tickets) {
             </tr>
         `;
     }).join('');
-
     return `<div class="panel">
                 <div class="panel__header">
                     <h3>Mis Tareas Activas</h3>
@@ -232,7 +305,6 @@ function getClientTemplate(tickets) {
     const historyRows = tickets.length ? tickets.map(t => `
         <tr><td>#${escapeHTML(t.id)}</td><td>${escapeHTML(t.asunto)}</td><td><strong>${escapeHTML(t.estado)}</strong></td><td>${escapeHTML(t.respuesta)}</td></tr>
     `).join('') : `<tr><td colspan="4">No hay tickets.</td></tr>`;
-
     return `
         <div class="panel">
             <div class="panel__header"><h3>Historial de Tickets</h3></div>
@@ -380,4 +452,70 @@ async function handleResolveTicket(event, ticketId) {
 function toggleFiles(ticketId) {
     const el = document.getElementById(`files-${ticketId}`);
     if (el) el.style.display = el.style.display === 'none' ? 'block' : 'none';
+}
+// ===============================
+// MODAL NOTICIAS
+// ===============================
+function toggleAdminNewsModal(show) {
+    const modal = document.getElementById("admin-news-modal");
+    if (modal) modal.style.display = show ? "flex" : "none";
+}
+
+function showLoader() {
+    document.getElementById("loader").classList.add("loader--active");
+}
+
+function hideLoader() {
+    document.getElementById("loader").classList.remove("loader--active");
+}
+async function loadData() {
+    showLoader();
+
+    try {
+        // Simulación de carga
+        await new Promise(res => setTimeout(res, 1500));
+    } finally {
+        hideLoader();
+    }
+}
+
+async function handleAdminNewsSubmit(event) {
+    event.preventDefault();
+
+    const btn = event.target.querySelector("button[type='submit']");
+    btn.disabled = true;
+    btn.textContent = "Publicando...";
+
+    const titulo = document.getElementById("news-title").value.trim();
+    const contenido = document.getElementById("news-content").value.trim();
+    const imagen = document.getElementById("news-image").files[0];
+
+    const formData = new FormData();
+    formData.append("titulo", titulo);
+    formData.append("contenido", contenido);
+    if (imagen) formData.append("imagen", imagen);
+
+    console.log("BACKEND: enviar noticia", [...formData]);
+
+    // Simulación
+    setTimeout(() => {
+        alert("Noticia publicada");
+        toggleAdminNewsModal(false);
+        btn.disabled = false;
+        btn.textContent = "Publicar";
+        event.target.reset();
+
+        initializeDashboard('admin'); // recargar
+    }, 1000);
+}
+
+function deleteNews(id) {
+    if (!confirm("¿Eliminar esta noticia?")) return;
+
+    console.log("BACKEND: eliminar noticia", id);
+
+    setTimeout(() => {
+        alert("Noticia eliminada 🗑️");
+        initializeDashboard('admin');
+    }, 500);
 }

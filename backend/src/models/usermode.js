@@ -16,4 +16,19 @@ const createUser = async (nombre, email, hashedPassword, rol = 'cliente') => {
     return result.insertId;
 };
 
-module.exports = {findByEmail, createUser};
+const cambiarRol = async (id, rol) => {
+    const [result] = await pool.execute(
+        'UPDATE usuarios SET rol = ? WHERE id = ?',
+        [rol, id]
+    );
+    return result.affectedRows;
+};
+
+const obtenerTrabajadores = async () => {
+    const [rows] = await pool.execute(
+        "SELECT id,nombre,email FROM usuarios WHERE rol = 'trabajador'"
+    );
+    return rows;
+}
+
+module.exports = {findByEmail, createUser,cambiarRol,obtenerTrabajadores};

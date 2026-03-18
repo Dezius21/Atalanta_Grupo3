@@ -6,10 +6,17 @@ const db = require('./config/db');
 const rateLimit = require('express-rate-limit');
 const app = express();
 const path = require('path');
-
+const seedAdmin = require('./scripts/seed')
 
 //-Seguridad-//
-app.use(helmet());
+app.use(helmet({
+  contentSecurityPolicy: {
+      directives: {
+          defaultSrc: ["'self'"],
+          scriptSrc: ["'self'"],
+      }
+  }
+}));
 
 app.use(cors({
     origin: function (origin, callback) {
@@ -18,7 +25,8 @@ app.use(cors({
         'http://localhost:5500',
         'http://127.0.0.1:5500',   ////cambiar en post-produccion
         'http://localhost:5173',
-        'http://192.168.56.1:5500'
+        'http://192.168.56.1:5500',
+        'http://172.26.96.1:5500'
       ];
       if (!origin || allowed.includes(origin)) {
         callback(null, true);
@@ -40,8 +48,8 @@ app.use(limiter);
 
 //-Rate limit(login)-//
 const loginLimiter = rateLimit({
-    windowMs: 1 * 60 *1000, //cambiar para mas seguridad
-    max: 15,
+    windowMs: 15 * 60 *1000,
+    max: 5,
     message: {error: 'Demasiadas peticiones intenta mas tarde'}
 })
 
@@ -66,6 +74,8 @@ app.use('/subida', express.static(path.join(__dirname, 'subida')));
 app.get('/', (req , res) => {
     res. json({mensaje: 'API Atalanta funciona'})
 });
+
+seedAdmin();
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () =>{

@@ -1,3 +1,5 @@
+const fs = require('fs');
+const path = require('path');
 const {crearTickets, obtenerTodosLosTickets,
     obtenerTicketPorCliente,
     obtenerTicketPorTrabajador,
@@ -9,6 +11,7 @@ const {crearTickets, obtenerTodosLosTickets,
     agregarAdjunto,
     eliminarAdjunto,
     obtenerAdjuntosPorTicket,
+    contarTicketsActivos
 } = require ('../models/ticketModel');
 
 const crearTicket = async (req,res) => {
@@ -18,6 +21,12 @@ const crearTicket = async (req,res) => {
 
         if(!titulo || !contenido){
             return res.status(400).json({error: 'TItulo y contenido son obligatorios'});
+        }
+
+        const tickesActivos = await contarTicketsActivos(autor_id);
+
+        if(tickesActivos >= 5){
+            return res.status(400).json({error: 'Tienes ya 5 tickets activos espera a que alguno finalice'})
         }
         const ticketId = await crearTickets(autor_id,titulo,contenido);
 
@@ -192,7 +201,20 @@ const subirAdjunto = async (req, res) => {
             return res.status(400).json({ error: 'No se recibió ningún archivo' });
         }
 
-        const url    = `/subida/tickets/${req.file.filename}`;
+        const filename = Date.now() + path.extname(req.file.originalname);
+        const carpeta = path.join(__dirname, '../subida/tickets');
+        const filepath = path.join(carpeta, filename);
+
+        if(!fs.existsSync(carpeta)){
+            fs.mkdirSync(carpeta, {recursive: true});
+        }
+
+        fs.writeFileSync(filepath, req.file.buffer);
+
+
+
+
+        const url    = `/subida/tickets/${filename}`;
         const nombre = req.file.originalname;
 
         const ticket = await obtenerTicketPorId(ticket_id);
@@ -213,7 +235,7 @@ const subirAdjunto = async (req, res) => {
 
     } catch (error) {
         // El error de límite 5 viene del model
-        if (error.message.includes('máximo de 5')) {
+        if (error.message.includes('5 archivos')) {
             return res.status(400).json({ error: error.message });
         }
         console.error('Error al subir adjunto:', error.message);

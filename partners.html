@@ -56,6 +56,10 @@
             <li class="navbar__item">
               <a href="oportunidades-de-empleo.html" class="navbar__link">Empleo</a>
             </li>
+
+            <li class="navbar__item">
+              <a href="partners.html" class="navbar__link">Partners</a>
+            </li>
     
             <li class="navbar__item">
               <a href="noticias.html" class="navbar__link">Noticias</a>
@@ -110,7 +114,7 @@
               </div>
             </div>
     
-            <a href="#" id="btn-apertura-formulario" class="hero__button">
+            <a href="#" class="hero__button btn-apertura-formulario">
               <span class="hero__button-text"
                 >Agendar una sesión estratégica</span
               >
@@ -120,9 +124,164 @@
         </header>
 
 
-
-
+        <section class="partners">
+          <div class="partners__container">
         
+            <header class="partners__header">
+              <p class="partners__label">Ecosistema de confianza</p>
+              <h2 class="partners__title">Nuestros Partners</h2>
+              <p class="partners__subtitle">
+                Colaboramos con los referentes globales en ciberseguridad ofensiva, defensiva y cloud
+                para ofrecerte las mejores soluciones del mercado.
+              </p>
+            </header>
+        
+            <!-- Partner destacado -->
+            <div class="partners__featured">
+              <div class="partners__featured-badge">Partner Oficial</div>
+              <img src="images/index_images/Logo_5.png" alt="OffSec" class="partners__featured-logo" />
+              <p class="partners__featured-text">
+                Somos el <strong>único Authorized Learning Partner de OffSec en España</strong>. 
+                Gestionamos tu acceso directo a los cursos y exámenes oficiales — PEN-200, WEB-300, EXP-301 y más — 
+                con facturación española en euros, IVA desglosado y gestión administrativa directa.
+              </p>
+              <a href="formacion-ciberseguridad.html" class="partners__featured-btn">Ver certificaciones OffSec</a>
+            </div>
+        
+            <!-- Grid de partners -->
+            <div class="partners__grid">
+        
+              <div class="partners__card">
+                <img src="images/index_images/Logo_1.png" alt="Microsoft" class="partners__logo" />
+                <div class="partners__tags"><span class="partners__tag">Cloud</span><span class="partners__tag">Identidad</span></div>
+                <p class="partners__card-desc">Soluciones Azure y Microsoft 365 integradas con seguridad desde el diseño en entornos híbridos y multi-cloud.</p>
+              </div>
+        
+              <div class="partners__card">
+                <img src="images/index_images/Logo_2.png" alt="AWS" class="partners__logo" />
+                <div class="partners__tags"><span class="partners__tag">Cloud</span><span class="partners__tag">Infraestructura</span></div>
+                <p class="partners__card-desc">Arquitecturas cloud seguras sobre Amazon Web Services con implementación de controles de seguridad nativos.</p>
+              </div>
+        
+              <div class="partners__card">
+                <img src="images/index_images/Logo_0.png" alt="CrowdStrike" class="partners__logo" />
+                <div class="partners__tags"><span class="partners__tag">EDR</span><span class="partners__tag">Threat Intel</span></div>
+                <p class="partners__card-desc">Protección de endpoints de nueva generación con inteligencia de amenazas en tiempo real.</p>
+              </div>
+        
+              <div class="partners__card">
+                <img src="images/index_images/Logo_11.png" alt="SentinelOne" class="partners__logo" />
+                <div class="partners__tags"><span class="partners__tag">XDR</span><span class="partners__tag">Automatización</span></div>
+                <p class="partners__card-desc">Plataforma XDR autónoma con respuesta automatizada ante incidentes para entornos empresariales exigentes.</p>
+              </div>
+        
+              <div class="partners__card">
+                <img src="images/index_images/Logo_9.png" alt="Fortinet" class="partners__logo" />
+                <div class="partners__tags"><span class="partners__tag">Firewall</span><span class="partners__tag">OT/IoT</span></div>
+                <p class="partners__card-desc">Soluciones de red y seguridad perimetral para entornos IT y OT industriales.</p>
+              </div>
+        
+              <div class="partners__card">
+                <img src="images/index_images/Logo_7.png" alt="Cloudflare" class="partners__logo" />
+                <div class="partners__tags"><span class="partners__tag">Zero Trust</span><span class="partners__tag">DDoS</span></div>
+                <p class="partners__card-desc">Protección perimetral y arquitecturas Zero Trust para proteger accesos y aplicaciones expuestas.</p>
+              </div>
+        
+              <div class="partners__card">
+                <img src="images/index_images/Logo_6.png" alt="Checkmarx" class="partners__logo" />
+                <div class="partners__tags"><span class="partners__tag">DevSecOps</span><span class="partners__tag">SAST</span></div>
+                <p class="partners__card-desc">Análisis de seguridad en el ciclo de desarrollo para detectar vulnerabilidades en el código fuente.</p>
+              </div>
+        
+              <div class="partners__card">
+                <img src="images/index_images/Logo_3.png" alt="Acronis" class="partners__logo" />
+                <div class="partners__tags"><span class="partners__tag">Backup</span><span class="partners__tag">Recuperación</span></div>
+                <p class="partners__card-desc">Soluciones de backup, recuperación ante desastres y ciberprotección para entornos empresariales.</p>
+              </div>
+        
+              <div class="partners__card">
+                <img src="images/index_images/Logo_13.png" alt="Zscaler" class="partners__logo" />
+                <div class="partners__tags"><span class="partners__tag">SASE</span><span class="partners__tag">Zero Trust</span></div>
+                <p class="partners__card-desc">Acceso seguro a aplicaciones y datos desde cualquier lugar con arquitectura SASE nativa en la nube.</p>
+              </div>
+        
+            </div>
+          </div>
+        </section>
+
+
+        <div id="form" class="modal-overlay" style="display: none;">
+          <div class="modal-wrapper">
+              <span id="btnCerrar" class="modal-cerrar">&times;</span>
+              <div class="form__container">
+                  <div class="form__centrar">
+                      <div class="todojunto">
+      
+                          <div class="form__left">
+                              <h2 class="form__container-title">Inicia tu Diagnóstico de Seguridad con Atalanta</h2>
+                              <div class="form__subcontainer">
+                                  <p class="form__container-text">Protege tu negocio e impulsa tu transformación digital con soluciones diseñadas por expertos certificados con experiencia internacional. Completa los datos para iniciar vuestro reconocimiento de superficie pública y estrategia adaptada.</p>
+                                  <div class="form__item">
+                                      <img src="./images/contacto_images/Header_3.png" alt="" class="form__img">
+                                      <p class="form__container-text"> Soluciones avanzadas para blindar tu negocio frente a ciberamenazas.</p>
+                                  </div>
+                                  <div class="form__item">
+                                      <img src="./images/contacto_images/Header_1.png" alt="" class="form__img">
+                                      <p class="form__container-text">Diseño y ejecución de estrategias digitales sin comprometer la seguridad.</p>
+                                  </div>
+                                  <div class="form__item">
+                                      <img src="./images/main_images/Form_1.png" alt="" class="form__img">
+                                      <p class="form__container-text">Certificaciones reconocidas</p>
+                                  </div>
+                                  <div class="form__item">
+                                      <img src="./images/contacto_images/Icon_2.png" alt="" class="form__img">
+                                      <p class="form__container-text">Expertos en ciberseguridad, IA y transformación digital con experiencia internacional.</p>
+                                  </div>
+                              </div>
+                          </div>
+      
+                          <form action="contact-user" method="post" class="form-contact">
+                              <legend>Iniciar Diagnostico de Seguridad</legend>
+                              <label for="first-name" class="form__label">Nombre</label>
+                              <input type="text" id="first-name" required placeholder="Introduzca su nombre" class="form__input">
+                              
+                              <label for="last-name" class="form__label">Apellidos</label>
+                              <input type="text" id="last-name" required placeholder="Introduzca su apellido" class="form__input">
+                              
+                              <label for="email" class="form__label">Email</label>
+                              <input type="email" id="email" required placeholder="Email" class="form__input">
+                              
+                              <label for="company" class="form__label">Empresa</label>
+                              <input type="text" id="company" required placeholder="Empresa" class="form__input">
+                              
+                              <label for="select" class="form__label">Cargo</label>
+                              <select name="Cargo" id="select" class="form__select" required>
+                                  <option value="" selected disabled hidden>Cargo</option>
+                                  <option value="ciso">CISO</option>
+                                  <option value="cto">CTO</option>
+                                  <option value="responsable it">Responsable IT</option>
+                                  <option value="ceo">CEO</option>
+                                  <option value="otro">Otro</option>
+                              </select>
+                              
+                              <label for="optional" class="form__label">¿Busca una solución inmediata o está en fase de planificación?</label>
+                              <input type="text" id="optional" required placeholder="" class="form__input">
+                              
+                              <div class="form__checkbox-row">
+                                  <input type="checkbox" name="checkbox" class="form__checkbox" required>
+                                  <label class="form__checkbox-label">
+                                      Acepto la <a href="">politica de privacidad</a> de Atalanta Evlution
+                                  </label>
+                              </div>
+                              <button type="submit" class="form_button">Solicitar diagnostico tecnico</button>
+                          </form>
+                      </div>
+                  </div>
+              </div> 
+          </div> 
+        </div> 
+
+
         <footer class="footer">
       
             <div class="footer__top">
@@ -144,11 +303,17 @@
                                     <span>Ciberseguridad</span>
                                 </a>
                             </li>
-                            <li>
+                            <li style="padding-bottom: 0.7rem;">
                                 <a class="footer__link" href="digital.html">
                                     <span>Digital</span>
                                 </a>
                             </li>
+                            <li>
+                                <a class="footer__link" href="cumplimiento.html">
+                                    <span>Cumplimiento</span>
+                                </a>
+                            </li>
+                            
                         </ul>
     
                         <ul class="footer__list">
@@ -160,6 +325,12 @@
                             <li style="padding-bottom: 0.7rem;">
                                 <a class="footer__link" href="oportunidades-de-empleo.html">
                                     <span>Empleo</span>
+                                </a>
+                            </li>
+
+                            <li style="padding-bottom: 0.7rem;">
+                                <a class="footer__link" href="partners.html">
+                                    <span>Partners</span>
                                 </a>
                             </li>
                             <li>

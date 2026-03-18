@@ -157,6 +157,15 @@ const eliminarAdjunto = async (adjunto_id, ticket_id) =>{
     return result.affectedRows;
 };
 
+
+const contarTicketsActivos = async (autor_id) => {
+
+    const [rows] = await pool.execute(
+        "SELECT COUNT(*) AS total FROM tickets WHERE autor_id = ? and estatus != 'Cerrado'",
+        [autor_id]
+    );
+    return rows [0].total;
+};
 module.exports = {
     crearTickets,
     obtenerTodosLosTickets,
@@ -169,5 +178,6 @@ module.exports = {
     obtenerComentariosPorTicket,
     agregarAdjunto,
     obtenerAdjuntosPorTicket,
-    eliminarAdjunto
+    eliminarAdjunto,
+    contarTicketsActivos
 };

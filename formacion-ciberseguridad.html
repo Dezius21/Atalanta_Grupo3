@@ -55,6 +55,10 @@
                 </li>
 
                 <li class="navbar__item">
+                    <a href="partners.html" class="navbar__link">Partners</a>
+                  </li>
+
+                <li class="navbar__item">
                 <a href="noticias.html" class="navbar__link">Noticias</a>
                 </li>
 
@@ -514,17 +518,18 @@
                         </div>
         
                         <form action="contact-user" method="post" class="form-contact">
+                            <input type="hidden" name="tipoForm" value="formacion">
                             <legend>Iniciar Diagnostico de Seguridad</legend>
                             <label for="first-name" class="form__label">Nombre</label>
-                            <input type="text" id="first-name" required placeholder="Introduzca su nombre" class="form__input">
+                            <input type="text" id="first-name" name="nombre" required placeholder="Introduzca su nombre" class="form__input">
                             <label for="last-name"  class="form__label">Apellidos</label>
-                            <input type="text" id="last-name" required placeholder="Introduzca su apellido" class="form__input">
+                            <input type="text" id="last-name" name="apellidos" required placeholder="Introduzca su apellido" class="form__input">
                             <label for="email" class="form__label">Email</label>
-                            <input type="email" id="email"  required placeholder="Email" class="form__input">
+                            <input type="email" id="email" name="email" required placeholder="Email" class="form__input">
                             <label for="company" class="form__label">Empresa</label>
-                            <input type="text" id="company" required placeholder="Empresa" class="form__input">
+                            <input type="text" id="company" name ="empresa" required placeholder="Empresa" class="form__input">
                             <label for="select" class="form__label">Cargo</label>
-                            <select name="Cargo" id="select" class="form__select" required>
+                            <select name="cargo" id="select" class="form__select" required>
                                 <option value="" selected disabled hidden>Cargo</option>
                                 <option value="ciso">CISO</option>
                                 <option value="cto">CTO</option>
@@ -532,8 +537,16 @@
                                 <option value="Pentester">Pentester Senior</option>
                                 <option value="otro">Otro</option>
                             </select>
+                            <label for="selectAlum" class="form__label">Número de personas a formar</label>
+                            <select name="tamaño" id="selectAlum" class="form__select" required>
+                                <option value="" selected disabled hidden>¿Cuántos sois en el equipo?</option>
+                                <option value="1">Individual (1 persona)</option>
+                                <option value="2-5">Equipo pequeño (2-5 personas)</option>
+                                <option value="6-15">Equipo mediano (6-15 personas)</option>
+                                <option value="16+">Corporativo (+16 personas)</option>
+                            </select>
                             <label for="selectCert" class="form__label">Nivel de Certificación de Interés</label>
-                            <select name="Certificaciones" id="selectCert" class="form__select">
+                            <select name="interes" id="selectCert" class="form__select">
                                 <option value="" selected disabled hidden>¿Cual es el desafio que mas te urge resolver?</option>
                                 <option value="certificación">Certificaciones OffSec (OSCP, OSEP, OSWE...).</option>
                                 <option value="itinerarios">Itinerarios Personalizados para Equipos (SOC/Red Team).</option>
@@ -541,7 +554,7 @@
                                 <option value="gap">Gap Analysis: Evaluación de habilidades del equipo.</option>
                             </select>                        
                             <div class="form__checkbox-row">
-                                <input type="checkbox" name="checkbox" class="form__checkbox" required>
+                                <input type="checkbox" name="leido" class="form__checkbox" required>
                                 <label class="form__checkbox-label">
                                     Acepto la <a href="">politica de privacidad</a> de Atalanta Evlution
                                 </label>
@@ -565,7 +578,7 @@
                 <div class="footer__list-columns">
                     <ul class="footer__list">
                         <li style="padding-bottom: 0.7rem;">
-                            <a class="footer__link" href="quienes-somos.html">
+                            <a class="footer__link" href="quienes-somos.html"> <!-- METER LINKS A LAS PAGINAS ================================================================================== -->
                                 <span>Quiénes somos</span>
                             </a>
                         </li>
@@ -574,11 +587,17 @@
                                 <span>Ciberseguridad</span>
                             </a>
                         </li>
-                        <li>
+                        <li style="padding-bottom: 0.7rem;">
                             <a class="footer__link" href="digital.html">
                                 <span>Digital</span>
                             </a>
                         </li>
+                        <li>
+                            <a class="footer__link" href="cumplimiento.html">
+                                <span>Cumplimiento</span>
+                            </a>
+                        </li>
+                        
                     </ul>
 
                     <ul class="footer__list">
@@ -590,6 +609,12 @@
                         <li style="padding-bottom: 0.7rem;">
                             <a class="footer__link" href="oportunidades-de-empleo.html">
                                 <span>Empleo</span>
+                            </a>
+                        </li>
+
+                        <li style="padding-bottom: 0.7rem;">
+                            <a class="footer__link" href="partners.html">
+                                <span>Partners</span>
                             </a>
                         </li>
                         <li>
@@ -630,17 +655,17 @@
             <p class="footer__copyright">Copyright © 2026. Todos los derechos reservados por Atalanta Evolution</p>
             <ul class="footer__legal-list">
                 <li class="footer__list-item">
-                    <a class="footer__legal-link" href="legal-politicas.html#legal">
+                    <a class="footer__legal-link" href="legal-politicas.html">
                         <span>AVISO LEGAL</span>
                     </a>
                 </li>
                 <li class="footer__list-item">
-                    <a class="footer__legal-link" href="legal-politicas.html#privacidad">
+                    <a class="footer__legal-link" href="legal-politicas.html">
                         <span>POLÍTICA DE PRIVACIDAD</span>
                     </a>
                 </li>
                 <li class="footer__list-item">
-                    <a class="footer__legal-link" href="legal-politicas.html#cookies">
+                    <a class="footer__legal-link" href="legal-politicas.html">
                         <span>POLITICA DE COOKIES</span>
                     </a>
                 </li>

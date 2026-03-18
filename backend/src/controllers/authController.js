@@ -1,23 +1,53 @@
 const argon2 = require('argon2');
 const jwt = require('jsonwebtoken');
-const {findByEmail, createUser} = require('../models/usermode');
+const {findByEmail, createUser, cambiarRol,obtenerTrabajadores} = require('../models/usermode');
+
+//Cambiar Roles (solo admin)
+const cambiarRolUsuario = async (req,res) =>{
+    try{
+        const {id} = req.params;
+        const {rol} = req.body;
+
+        const rolesValidos = ['admin', 'jefe', 'trabajador','cliente'];
+        if(!rolesValidos.includes(rol)){
+            return res.status(400).json({error: `Rol invalido usa: ${rolesValidos.join(', ')}`})
+        };
+        
+        //el admin no se puede quitar el rol
+        if(parseInt(id) === req.usuario.id && rol !== "admin"){
+            return res.status(400).json({error: "No puedes cambiar tu propio rol"})
+        }
+
+        const filasAfectadas = await cambiarRol(id,rol);
+        if(filasAfectadas === 0){
+            return res.status(404).json({error: 'Usuario no encontrado'});
+        }
+        res.json({mensaje: `Rol actualizado a  ${rol}`});
+    }catch(error){
+        console.error('Error al cambiar el rol', error.message);
+        res.status(500).json({error: 'Error interno del servidor'})
+    }
+
+};
+
+
 
 //-Registro-//
 
 const register = async (req , res) =>{
     try{
-        const{nombre, email, password, rol} = req.body;
+        const{nombre, email, password} = req.body; //poner rol para asignar un admin
         //comprobacion de el email en la DB
         const existingUser = await findByEmail(email);
         if(existingUser){
-            return res.status(400).json({error: 'El mail ya esta registrado'})
+            return res.status(400).json({error: 'Error al procesar el registro'})
         }
 
         //hasheo de contraseña
         const hashedPassword = await argon2.hash(password);
 
         //creacion de user en DB
-        const userId = await createUser(nombre,email, hashedPassword, rol);
+        const userId = await createUser(nombre,email, hashedPassword); //rol para asignar admin
 
         res.status(201).json({mensaje: 'Usuario creado correctamente'});
 
@@ -65,4 +95,14 @@ try{
 }
 };
 
-module.exports = {register, login};
+
+const listarTrabajadores = async (req,res) =>{
+    try{
+        const trabajadores = await obtenerTrabajadores();
+        res.json({trabajadores});
+    }catch(error){
+        console.error('Error al listar trabajadores', error.message)
+        res.status(500).json({error: 'Error interno del servidor'});
+    }
+};
+module.exports = {register, login,cambiarRolUsuario, listarTrabajadores};

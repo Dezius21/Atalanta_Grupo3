@@ -24,4 +24,11 @@ const cambiarRol = async (id, rol) => {
     return result.affectedRows;
 };
 
-module.exports = {findByEmail, createUser,cambiarRol};
+const obtenerTrabajadores = async () => {
+    const [rows] = await pool.execute(
+        "SELECT id,nombre,email FROM usuarios WHERE rol = 'trabajador'"
+    );
+    return rows;
+}
+
+module.exports = {findByEmail, createUser,cambiarRol,obtenerTrabajadores};

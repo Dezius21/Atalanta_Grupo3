@@ -9,7 +9,14 @@ const path = require('path');
 const seedAdmin = require('./scripts/seed')
 
 //-Seguridad-//
-app.use(helmet());
+app.use(helmet({
+  contentSecurityPolicy: {
+      directives: {
+          defaultSrc: ["'self'"],
+          scriptSrc: ["'self'"],
+      }
+  }
+}));
 
 app.use(cors({
     origin: function (origin, callback) {
@@ -41,8 +48,8 @@ app.use(limiter);
 
 //-Rate limit(login)-//
 const loginLimiter = rateLimit({
-    windowMs: 1 * 60 *1000, //cambiar para mas seguridad
-    max: 15,
+    windowMs: 15 * 60 *1000,
+    max: 5,
     message: {error: 'Demasiadas peticiones intenta mas tarde'}
 })
 

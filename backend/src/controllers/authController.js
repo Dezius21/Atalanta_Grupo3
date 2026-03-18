@@ -1,6 +1,6 @@
 const argon2 = require('argon2');
 const jwt = require('jsonwebtoken');
-const {findByEmail, createUser, cambiarRol} = require('../models/usermode');
+const {findByEmail, createUser, cambiarRol,obtenerTrabajadores} = require('../models/usermode');
 
 //Cambiar Roles (solo admin)
 const cambiarRolUsuario = async (req,res) =>{
@@ -40,7 +40,7 @@ const register = async (req , res) =>{
         //comprobacion de el email en la DB
         const existingUser = await findByEmail(email);
         if(existingUser){
-            return res.status(400).json({error: 'El mail ya esta registrado'})
+            return res.status(400).json({error: 'Error al procesar el registro'})
         }
 
         //hasheo de contraseña
@@ -95,4 +95,14 @@ try{
 }
 };
 
-module.exports = {register, login,cambiarRolUsuario};
+
+const listarTrabajadores = async (req,res) =>{
+    try{
+        const trabajadores = await obtenerTrabajadores();
+        res.json({trabajadores});
+    }catch(error){
+        console.error('Error al listar trabajadores', error.message)
+        res.status(500).json({error: 'Error interno del servidor'});
+    }
+};
+module.exports = {register, login,cambiarRolUsuario, listarTrabajadores};

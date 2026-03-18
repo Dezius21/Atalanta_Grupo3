@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const multer = require('multer');
 const path = require('path');
-
+const {fileTypeFromBuffer} = require('file-type');
 const{
     crearTicket,
     obtenerTickets,
@@ -15,12 +15,7 @@ const{
 } = require('../controllers/ticketController');
 
 
-const storage = multer.diskStorage({
-    destination: path.join(__dirname, '../subida/tickets'),
-    filename: (req, file, cb) => {
-        cb(null, Date.now() + path.extname(file.originalname));
-    }
-});
+const storage = multer.memoryStorage();
 
 const fileFilter = (req, file, cb) => {
     const extAllowed = /jpeg|jpg|png|gif|webp|pdf|doc|docx|xls|xlsx/;
@@ -30,6 +25,24 @@ const fileFilter = (req, file, cb) => {
     } else {
         cb(new Error('Formato no permitido. Usa: jpeg, jpg, png, gif, webp, pdf, doc, docx, xls, xlsx'));
     }
+};
+
+const validarArchivo = async (req,res,next) =>{
+    if(!req.file) return next();
+
+    const tipo = await fileTypeFromBuffer(req.file.buffer);
+
+    const tipospermitidos = [
+        'image/jpeg', 'image/jpg','image/png', 'image/gif', 'image/webp',
+        'application/pdf',
+        'application/msword',
+        'application/vnd.openxmlformats-officedocument.wordprocessingml.document'
+    ];
+
+    if (!tipo || !tipospermitidos.includes(tipo.mime)){
+        return res.status(400).json({error: 'Tipo de archivo no permitido'});
+    }
+    next();
 };
 
 const upload = multer({
@@ -62,7 +75,7 @@ router.post('/:id/comentarios', protegerRuta, crearComentario);
 // ─── ADJUNTOS ─────────────────────────────────────────────────────────────────
 
 // Subir adjunto a un ticket
-router.post('/:id/adjuntos', protegerRuta, upload.single('archivo'), subirAdjunto);
+router.post('/:id/adjuntos', protegerRuta, upload.single('archivo'),validarArchivo, subirAdjunto);
 
 // Borrar adjunto específico de un ticket
 router.delete('/:ticket_id/adjuntos/:adjunto_id', protegerRuta, borrarAdjunto);

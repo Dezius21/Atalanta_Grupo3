@@ -1,3 +1,5 @@
+const fs = require('fs');
+const path = require('path');
 const {crearTickets, obtenerTodosLosTickets,
     obtenerTicketPorCliente,
     obtenerTicketPorTrabajador,
@@ -199,7 +201,20 @@ const subirAdjunto = async (req, res) => {
             return res.status(400).json({ error: 'No se recibió ningún archivo' });
         }
 
-        const url    = `/subida/tickets/${req.file.filename}`;
+        const filename = Date.now() + path.extname(req.file.originalname);
+        const carpeta = path.join(__dirname, '../subida/tickets');
+        const filepath = path.join(carpeta, filename);
+
+        if(!fs.existsSync(carpeta)){
+            fs.mkdirSync(carpeta, {recursive: true});
+        }
+
+        fs.writeFileSync(filepath, req.file.buffer);
+
+
+
+
+        const url    = `/subida/tickets/${filename}`;
         const nombre = req.file.originalname;
 
         const ticket = await obtenerTicketPorId(ticket_id);

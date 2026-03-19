@@ -3,6 +3,7 @@
 // ==========================================
 
 
+
 const usuarioGuardado = localStorage.getItem('usuario');
 if(!localStorage.getItem('token') || !usuarioGuardado){
     window.location.href = 'register-login.html';
@@ -75,6 +76,9 @@ const API_MOCK ={
         const res = await apiFetch('/api/tickets');
         const data = await res.json();
         let tickets = data.tickets || [];
+
+        tickets = tickets.filter(t => t.estatus === 'Creado');
+
         if (filterId) tickets = tickets.filter(t=> t.id.toString().includes(filterId));
         const limit = 10;
         const totalPages = Math.ceil(tickets.length / limit) || 1;
@@ -94,9 +98,9 @@ const API_MOCK ={
     },
     
     getUsers: async () => {
-        const res = await apiFetch('/api/auth/trabajadores');
+        const res = await apiFetch('/api/auth/usuarios');
         const data = await res.json();
-        return {data: data.trabajadores || [], totalPages: 1, currentPage:1};
+        return {data: data.usuarios || [], totalPages: 1, currentPage: 1};
     },
 
     getNews: async (page = 1) => {
@@ -172,8 +176,12 @@ async function loadAdminView() {
 }
 
 async function loadBossView() {
-    const ticketsRes = await API_MOCK.getUnassignedTickets(appState.bossPage, appState.bossFilterId);
-    safeRender("content-area", getBossTemplate(ticketsRes));
+    const [ticketsRes, trabajadorRes] = await Promise.all([
+        API_MOCK.getUnassignedTickets(appState.bossPage, appState.bossFilterId),
+        API_MOCK.getUsers ()
+    ]);
+
+    safeRender("content-area", getBossTemplate(ticketsRes,trabajadorRes.data))
 }
 
 async function loadWorkerView() {
@@ -207,7 +215,7 @@ function getAdminTemplate(usersRes, newsRes) {
                     <option ${u.rol === 'trabajador' ? 'selected' : ''}>Trabajador</option>
                 </select>
             </td>
-            <td><button class="btn btn--success btn--sm">Actualizar</button></td>
+            <td><button class="btn btn--success btn--sm"  onclick="actualizarRolUsuario(${u.id}, this)">Actualizar</button></td>
         </tr>
     `).join('');
 
@@ -280,21 +288,28 @@ function getAdminTemplate(usersRes, newsRes) {
     `;
 }
 
-function getBossTemplate(ticketsRes) {
+function getBossTemplate(ticketsRes, trabajadores = []) {
     hideLoader();
+    const opcionesTrabajadores = trabajadores
+        .filter(t => t.rol === 'trabajador')
+        .map(t => `<option value="${escapeHTML(t.id)}">${escapeHTML(t.nombre)}</option>`)
+        .join('');
+    
+    
     const rows = ticketsRes.data.length ? ticketsRes.data.map(t => `
+        
         <tr>
             <td>#${escapeHTML(t.id)}</td>
             <td>${escapeHTML(t.titulo)}</td>
             <td>
                 <select class="form-control form-control--sm" id="boss-assign-${escapeHTML(t.id)}">
                     <option value="" disabled selected>-- Asignar a --</option>
-                    <option value="101">Cody Fisher</option>
+                    ${opcionesTrabajadores}
                 </select>
             </td>
             <td>
                 <div class="table__actions">
-                    <button class="btn btn--success btn--sm" onclick="alert('Ticket Asignado')">Asignar</button>
+                    <button class="btn btn--success btn--sm" onclick="asignarTicket(${escapeHTML(t.id)}, this)">Asignar</button>
                     <button class="btn btn--primary btn--sm" onclick='viewTicketDetailBoss(${JSON.stringify(t)})'>Detalles</button>
                 </div>
             </td>
@@ -312,7 +327,7 @@ function getBossTemplate(ticketsRes) {
                 </div>
             </div>
             <table class="table">
-                <tr><th>ID</th><th>titulo</th><th>Trabajador</th><th>Acciones</th></tr>
+                <tr><th>ID</th><th>Título</th><th>Trabajador</th><th>Acciones</th></tr>
                 ${rows}
             </table>
             ${renderPagination(ticketsRes.currentPage, ticketsRes.totalPages, 'changeBossPage')}
@@ -330,13 +345,13 @@ function getWorkerTemplate(ticketsRes) {
                 <td>
                     <select class="form-control form-control--sm">
                         <option value="Asignado" ${t.estatus === 'Asignado' ? 'selected' : ''}>Asignado</option>
-                        <option value="En progreso" ${t.estatus === 'En progreso' ? 'selected' : ''}>En progreso</option>
-                        <option value="Resuelto" ${t.estatus === 'Resuelto' ? 'selected' : ''}>Resuelto</option>
+                        <option value="En_progreso" ${t.estatus === 'En progreso' ? 'selected' : ''}>En progreso</option>
+                        <option value="Cerrado" ${t.estatus === 'Cerrado' ? 'selected' : ''}>Cerrado</option>
                     </select>
                 </td>
                 <td>
                     <div class="table__actions">
-                        <button class="btn btn--success btn--sm">Guardar</button> 
+                        <button class="btn btn--success btn--sm" onclick="guardarEstatus(${escapeHTML(t.id)}, this)">Guardar</button> 
                         <button class="btn btn--primary btn--sm" onclick='openTicketDetail(${JSON.stringify(t)})'>Ver Detalles</button>
                     </div>
                 </td>
@@ -428,7 +443,7 @@ function getGenericTicketDetailTemplate(ticket, returnRole) {
     ` : '';
 
     // Condicionamos que el nombre del cliente se muestre a todo el mundo menos al propio cliente
-    const infoClienteHTML = returnRole !== 'cliente' ? `<p><strong>Cliente:</strong> ${escapeHTML(ticket.cliente || 'Desconocido')}</p>` : '';
+    const infoClienteHTML = returnRole !== 'cliente' ? `<p><strong>Cliente:</strong> ${escapeHTML(ticket.autor_nombre || 'Desconocido')}</p>` : '';
 
     return `
         <div class="panel layout-center-md">
@@ -468,7 +483,7 @@ function getWorkerTicketDetailTemplate(ticket) {
             
             <div class="panel" style="background: #fdfdfd; margin-bottom: 20px;">
                 <p><strong>titulo:</strong> ${escapeHTML(ticket.titulo)}</p>
-                <p><strong>Cliente:</strong> ${escapeHTML(ticket.cliente || 'Desconocido')}</p>
+                <p><strong>Cliente:</strong> ${escapeHTML(ticket.autor_nombre || 'Desconocido')}</p>
                 <h4 style="margin-top: 15px;">Descripción del Problema:</h4>
                 <p class="form-control" style="white-space: pre-wrap; background: var(--color-white);">
                     ${escapeHTML(ticket.contenido || "El cliente no proporcionó una descripción adicional.")}
@@ -727,3 +742,95 @@ function cerrarSesion() {
     localStorage.clear();
     window.location.href = 'register-login.html';
 }
+
+async function actualizarRolUsuario(userId,btn) {
+    const select = btn.closest('tr').querySelector('select');
+    const nuevoRol = select.value.toLowerCase();
+
+    btn.disabled=true;
+    btn.textContent= 'Guardando';
+
+    try{
+        const res = await apiFetch(`/api/auth/usuarios/${userId}/rol`,{
+            method: 'PATCH',
+            body: JSON.stringify({rol: nuevoRol})
+        });
+
+        const data = await res.json();
+
+        if (!res.ok){
+            alert(`Error: ${data.error}`);
+        }else{
+            alert(data.mensaje);
+        }
+    }catch(err){
+        alert('No se pudo conectar con el servidor')
+    }
+    
+    btn.disabled = false;
+    btn.textContent= 'Actualizar';
+}
+
+async function asignarTicket(ticketId, btn) {
+    const select = document.getElementById(`boss-assign-${ticketId}`);
+    const trabajadorId = select.value;
+
+    if (!trabajadorId) {
+        alert('Selecciona un trabajador primero.');
+        return;
+    }
+
+    btn.disabled = true;
+    btn.textContent = 'Asignando...';
+
+    try {
+        const res = await apiFetch(`/api/tickets/${ticketId}/asignar`, {
+            method: 'PATCH',
+            body: JSON.stringify({ trabajador_id: parseInt(trabajadorId) })
+        });
+
+        const data = await res.json();
+
+        if (!res.ok) {
+            alert(`Error: ${data.error}`);
+        } else {
+            alert(data.mensaje);
+            loadBossView();
+        }
+    } catch (err) {
+        alert('No se pudo conectar con el servidor.');
+    }
+
+    btn.disabled = false;
+    btn.textContent = 'Asignar';
+}
+
+async function guardarEstatus(ticketId,btn) {
+    const select = btn.closest('tr').querySelector('select');
+    const nuevoEstatus = select.value;
+
+    btn.disabled=true;
+    btn.textContent= 'Guardando...';
+
+    try{
+        const res = await apiFetch(`/api/tickets/${ticketId}/estatus`,{
+            method: 'PATCH',
+            body: JSON.stringify({estatus: nuevoEstatus})
+        });
+
+        const data = await res.json();
+
+        if(!res.ok){
+            alert(`Error: ${data.error}`);
+        }else{
+            alert(data.mensaje);
+            loadWorkerView();
+        }
+    }catch(err){
+        alert('No se pudo conectar al servidor')
+    }
+
+    btn.disabled = false
+    btn.textContent = 'Guardar'
+}
+

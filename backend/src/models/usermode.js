@@ -31,4 +31,10 @@ const obtenerTrabajadores = async () => {
     return rows;
 }
 
-module.exports = {findByEmail, createUser,cambiarRol,obtenerTrabajadores};
+const obtenerTrabajadoresYJefes = async () => {
+    const [rows] = await pool.execute(
+        "SELECT id, nombre, email, rol FROM usuarios WHERE rol IN ('trabajador', 'jefe')"
+    );
+    return rows;
+};
+module.exports = {findByEmail, createUser,cambiarRol,obtenerTrabajadores,obtenerTrabajadoresYJefes};

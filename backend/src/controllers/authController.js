@@ -1,6 +1,6 @@
 const argon2 = require('argon2');
 const jwt = require('jsonwebtoken');
-const {findByEmail, createUser, cambiarRol,obtenerTrabajadores} = require('../models/usermode');
+const {findByEmail, createUser, cambiarRol,obtenerTrabajadores, obtenerTrabajadoresYJefes} = require('../models/usermode');
 
 //Cambiar Roles (solo admin)
 const cambiarRolUsuario = async (req,res) =>{
@@ -105,4 +105,15 @@ const listarTrabajadores = async (req,res) =>{
         res.status(500).json({error: 'Error interno del servidor'});
     }
 };
-module.exports = {register, login,cambiarRolUsuario, listarTrabajadores};
+
+const listarTrabajadoresYJefes = async (req, res) => {
+    try {
+        const usuarios = await obtenerTrabajadoresYJefes();
+        res.json({ usuarios });
+    } catch (error) {
+        console.error('Error al listar usuarios:', error.message);
+        res.status(500).json({ error: 'Error interno del servidor' });
+    }
+};
+
+module.exports = {register, login,cambiarRolUsuario, listarTrabajadores,listarTrabajadoresYJefes};

@@ -69,8 +69,8 @@ app.use('/api/auth', authRoutes);
 const noticeRoutes = require('./routes/noticeRoutes');
 app.use('/api/noticias', noticeRoutes);
 
-//const contactRoutes= require('./routes/contactRoutes');
-//app.use('/api/contacto',contactRoutes);
+const contactRoutes= require('./routes/contactRoutes');
+app.use('/api/contacto',contactRoutes);
 
 const ticketRoutes = require('./routes/ticketRoutes');
 app.use('/api/tickets', ticketRoutes);

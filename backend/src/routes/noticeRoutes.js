@@ -6,12 +6,6 @@ const multer = require('multer');
 const path= require('path');
 const {validarNoticia} = require('../middlewares/validaciones')
 
-router.get('/', getNoticias);
-router.get('/:slug', getNoticiasPorSlug)
-
-router.delete('/:id',protegerRuta,verificarRol('admin'), eliminarNoticia);
-
-
 const storage = multer.diskStorage({
     destination: path.join(__dirname, '../subida'),
     filename: (req,file,cb) =>{
@@ -37,5 +31,12 @@ const upload = multer({
     limits: {fileSize: 5 *1024 * 1024}
 });
 
-router.post('/', protegerRuta,verificarRol('admin','jefe'),validarNoticia,upload.single('imagen'),crearNoticia);
+router.get('/', getNoticias);
+router.get('/:slug', getNoticiasPorSlug)
+router.post('/', protegerRuta, verificarRol('admin','jefe'), upload.single('imagen'), validarNoticia, crearNoticia);
+
+router.delete('/:id',protegerRuta,verificarRol('admin'), eliminarNoticia);
+
+
+
 module.exports= router;

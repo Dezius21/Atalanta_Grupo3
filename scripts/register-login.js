@@ -35,8 +35,12 @@ formRegister.addEventListener('submit', async (e) => {
 
     const data = await res.json();
 
+    
     if (!res.ok) {
-      alert(`Error: ${data.error}`);
+    const mensaje = Array.isArray(data.error) 
+    ? data.error.map(e => e.msg).join('\n') 
+    : data.error;
+    alert(`Error: ${mensaje}`);
       return;
     }
 

@@ -26,7 +26,8 @@ app.use(cors({
         'http://127.0.0.1:5500',   ////cambiar en post-produccion
         'http://localhost:5173',
         'http://192.168.56.1:5500',
-        'http://172.26.96.1:5500'
+        'http://172.26.96.1:5500',
+        'http://172.24.224.1:5500'
       ];
       if (!origin || allowed.includes(origin)) {
         callback(null, true);

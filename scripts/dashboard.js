@@ -1,11 +1,26 @@
 // ==========================================
 // 1. ESTADO GLOBAL Y UTILIDADES DE SEGURIDAD
 // ==========================================
-const currentUser = { id: 102, name: "Esther Howard", role: "cliente" }; 
 
-// Estado para la gestión de archivos y vistas paginadas
+
+const usuarioGuardado = localStorage.getItem('usuario');
+if(!localStorage.getItem('token') || !usuarioGuardado){
+    window.location.href = 'register-login.html';
+}
+
+//lectura del usuario y el token
+const usuarioDB = JSON.parse(usuarioGuardado);
+
+const currentUser =  {
+    id: usuarioDB.id,
+    name: usuarioDB.nombre,
+    role: usuarioDB.rol
+};
+
+//Estado para la gestion de archivos y paginas visitadas
+
 let archivosSeleccionados = [];
-let appState = {
+let appState ={
     adminUsersPage: 1,
     adminNewsPage: 1,
     bossPage: 1,
@@ -14,8 +29,8 @@ let appState = {
     workerFilterId: ""
 };
 
-function escapeHTML(str) {
-    if (str === null || str === undefined) return '';
+function escapeHTML(str){
+    if(str === null || str === undefined)return '';
     return str.toString()
         .replace(/&/g, "&amp;")
         .replace(/</g, "&lt;")
@@ -24,61 +39,76 @@ function escapeHTML(str) {
         .replace(/'/g, "&#039;");
 }
 
-function safeRender(containerId, htmlString) {
+function safeRender(containerId, htmlString){
     const container = document.getElementById(containerId);
-    if (!container) return;
-    container.replaceChildren(); 
-    
+
+    if(!container) return;
+
+    container.replaceChildren();
     const parser = new DOMParser();
     const doc = parser.parseFromString(htmlString, 'text/html');
-    
-    while (doc.body.firstChild) {
+    while(doc.body.firstChild){
         container.appendChild(doc.body.firstChild);
     }
 }
-
-function showLoader() {
+function showLoader(){
     const loader = document.getElementById("loader");
-    if (loader) loader.classList.add("loader--active");
+    if (loader) loader.classList.add("loader--active")
 }
-
-function hideLoader() {
-    const loader = document.getElementById("loader");
-    if (loader) loader.classList.remove("loader--active");
+function hideLoader(){
+    const loader = document.getElementById("loader")
+    if (loader) loader.classList.remove("loader--active")
 }
-
 // ==========================================
 // 2. CONTRATO DE API (Mock DB Paginada)
 // ==========================================
 
-const DB_MOCK = {
-    users: Array.from({length: 25}, (_, i) => ({ id: 100+i, name: `Usuario ${i+1}`, role: i%3===0?'jefe':'trabajador' })),
-    news: Array.from({length: 22}, (_, i) => ({ id: i+1, title: `Noticia ${i+1}`, date: "18 Mar 2026", author: "Admin" })),
+const API_MOCK ={
+    getClientTickets: async () =>{
+        const res =  await apiFetch('/api/tickets');
+        const data = await res.json();
+        return data.tickets || [];
+    } ,
+
+
+    getUnassignedTickets: async (page = 1, filterId = "") => {
+        const res = await apiFetch('/api/tickets');
+        const data = await res.json();
+        let tickets = data.tickets || [];
+        if (filterId) tickets = tickets.filter(t=> t.id.toString().includes(filterId));
+        const limit = 10;
+        const totalPages = Math.ceil(tickets.length / limit) || 1;
+        const startIndex = (page -1) * limit;
+        return {data: tickets.slice(startIndex,startIndex+limit), totalPages, currentPage: page};
+    },
+
+    getWorkerTickets: async (workerId, page=1, filterId = "") =>{
+        const res = await apiFetch('/api/tickets');
+        const data = await res.json()
+        let tickets = data.tickets || [];
+        if (filterId) tickets = tickets.filter(t => t.id.toString().includes(filterId));
+        const limit = 10;
+        const totalPages = Math.ceil(tickets.length / limit) || 1;
+        const startIndex = (page - 1) * limit;
+        return { data: tickets.slice(startIndex, startIndex + limit), totalPages, currentPage: page };
+    },
     
-    // Se ha añadido la propiedad "cliente" a todos los arrays de tickets
-    unassignedTickets: Array.from({length: 35}, (_, i) => ({ id: 300+i, asunto: `Error en módulo ${i+1}`, cliente: "Cliente Anónimo", contenido: "La pantalla se queda en negro.", estado: "Creado", notasInternas: i%2===0 ? "El cliente intentó hacer login 5 veces." : "", respuestaPublica: i%3===0 ? "Estamos revisando su caso." : "" })),
-    workerTickets: Array.from({length: 28}, (_, i) => ({ id: 400+i, asunto: `Tarea de soporte ${i+1}`, cliente: `Empresa ${i+1}`, estado: i%2===0?"Asignado":"En progreso", contenido: "Revisar logs del sistema.", archivos: [] })),
-    clientTickets: Array.from({length: 5}, (_, i) => ({ id: 500+i, asunto: `Mi Ticket ${i+1}`, cliente: currentUser.name, estado: "Resuelto", contenido: "Fallo al iniciar sesión", respuestaPublica: "Caché limpiada." }))
+    getUsers: async () => {
+        const res = await apiFetch('/api/auth/trabajadores');
+        const data = await res.json();
+        return {data: data.trabajadores || [], totalPages: 1, currentPage:1};
+    },
+
+    getNews: async (page = 1) => {
+        const res = await apiFetch('/api/noticias');
+        const data = await res.json();
+        let news = data.noticias || data || [];
+        const limit = 10;
+        const totalPages = Math.ceil(news.length / limit) || 1;
+        const startIndex = (page - 1) * limit;
+        return { data: news.slice(startIndex, startIndex + limit), totalPages, currentPage: page };
+    }
 };
-
-function paginateData(array, page, limit = 10, filterId = "") {
-    let filtered = filterId ? array.filter(item => item.id.toString().includes(filterId)) : array;
-    const startIndex = (page - 1) * limit;
-    return {
-        data: filtered.slice(startIndex, startIndex + limit),
-        totalPages: Math.ceil(filtered.length / limit) || 1,
-        currentPage: page
-    };
-}
-
-const API_MOCK = {
-    getUsers: async (page = 1) => new Promise(res => setTimeout(() => res(paginateData(DB_MOCK.users, page)), 300)),
-    getNews: async (page = 1) => new Promise(res => setTimeout(() => res(paginateData(DB_MOCK.news, page)), 300)),
-    getUnassignedTickets: async (page = 1, filterId = "") => new Promise(res => setTimeout(() => res(paginateData(DB_MOCK.unassignedTickets, page, 10, filterId)), 400)),
-    getWorkerTickets: async (workerId, page = 1, filterId = "") => new Promise(res => setTimeout(() => res(paginateData(DB_MOCK.workerTickets, page, 10, filterId)), 400)),
-    getClientTickets: async (clientId) => new Promise(res => setTimeout(() => res(DB_MOCK.clientTickets), 300))
-};
-
 // ==========================================
 // 3. CICLO DE VIDA Y ENRUTADOR ASÍNCRONO
 // ==========================================
@@ -125,7 +155,7 @@ async function initializeDashboard(role) {
 function renderSidebar(role) {
     safeRender("sidebar-nav", `
         <li class="sidebar__item sidebar__item--active" onclick="initializeDashboard(currentUser.role)">Dashboard</li>
-        <li class="sidebar__item">Cerrar Sesión</li>
+        <li class="sidebar__item" onclick="cerrarSesion()">Cerrar Sesión</li>
     `);
 }
 
@@ -170,11 +200,11 @@ function getAdminTemplate(usersRes, newsRes) {
     const usersRows = usersRes.data.map(u => `
         <tr>
             <td>${escapeHTML(u.id)}</td>
-            <td>${escapeHTML(u.name)}</td>
+            <td>${escapeHTML(u.nombre)}</td>
             <td>
                 <select class="form-control form-control--sm">
-                    <option ${u.role === 'jefe' ? 'selected' : ''}>Jefe</option>
-                    <option ${u.role === 'trabajador' ? 'selected' : ''}>Trabajador</option>
+                    <option ${u.rol === 'jefe' ? 'selected' : ''}>Jefe</option>
+                    <option ${u.rol === 'trabajador' ? 'selected' : ''}>Trabajador</option>
                 </select>
             </td>
             <td><button class="btn btn--success btn--sm">Actualizar</button></td>
@@ -244,7 +274,7 @@ function getBossTemplate(ticketsRes) {
     const rows = ticketsRes.data.length ? ticketsRes.data.map(t => `
         <tr>
             <td>#${escapeHTML(t.id)}</td>
-            <td>${escapeHTML(t.asunto)}</td>
+            <td>${escapeHTML(t.titulo)}</td>
             <td>
                 <select class="form-control form-control--sm" id="boss-assign-${escapeHTML(t.id)}">
                     <option value="" disabled selected>-- Asignar a --</option>
@@ -271,7 +301,7 @@ function getBossTemplate(ticketsRes) {
                 </div>
             </div>
             <table class="table">
-                <tr><th>ID</th><th>Asunto</th><th>Trabajador</th><th>Acciones</th></tr>
+                <tr><th>ID</th><th>titulo</th><th>Trabajador</th><th>Acciones</th></tr>
                 ${rows}
             </table>
             ${renderPagination(ticketsRes.currentPage, ticketsRes.totalPages, 'changeBossPage')}
@@ -285,12 +315,12 @@ function getWorkerTemplate(ticketsRes) {
         return `
             <tr>
                 <td>#${escapeHTML(t.id)}</td>
-                <td>${escapeHTML(t.asunto)}</td>
+                <td>${escapeHTML(t.titulo)}</td>
                 <td>
                     <select class="form-control form-control--sm">
-                        <option value="Asignado" ${t.estado === 'Asignado' ? 'selected' : ''}>Asignado</option>
-                        <option value="En progreso" ${t.estado === 'En progreso' ? 'selected' : ''}>En progreso</option>
-                        <option value="Resuelto" ${t.estado === 'Resuelto' ? 'selected' : ''}>Resuelto</option>
+                        <option value="Asignado" ${t.estatus === 'Asignado' ? 'selected' : ''}>Asignado</option>
+                        <option value="En progreso" ${t.estatus === 'En progreso' ? 'selected' : ''}>En progreso</option>
+                        <option value="Resuelto" ${t.estatus === 'Resuelto' ? 'selected' : ''}>Resuelto</option>
                     </select>
                 </td>
                 <td>
@@ -314,7 +344,7 @@ function getWorkerTemplate(ticketsRes) {
                 </div>
             </div>
             <table class="table">
-                <tr><th>ID</th><th>Asunto</th><th>Estado</th><th>Acciones</th></tr>
+                <tr><th>ID</th><th>titulo</th><th>estatus</th><th>Acciones</th></tr>
                 ${rows}
             </table>
             ${renderPagination(ticketsRes.currentPage, ticketsRes.totalPages, 'changeWorkerPage')}
@@ -327,8 +357,8 @@ function getClientTemplate(tickets) {
     const historyRows = tickets.length ? tickets.map(t => `
         <tr>
             <td>#${escapeHTML(t.id)}</td>
-            <td>${escapeHTML(t.asunto)}</td>
-            <td><strong>${escapeHTML(t.estado)}</strong></td>
+            <td>${escapeHTML(t.titulo)}</td>
+            <td><strong>${escapeHTML(t.estatus)}</strong></td>
             <td>
                 <button class="btn btn--primary btn--sm" onclick='viewTicketDetailClient(${JSON.stringify(t)})'>Ver Detalles</button>
             </td>
@@ -340,7 +370,7 @@ function getClientTemplate(tickets) {
             <div class="panel">
                 <div class="panel__header"><h3>Historial de Tickets</h3></div>
                 <table class="table">
-                    <tr><th>ID</th><th>Asunto</th><th>Estado</th><th>Acción</th></tr>
+                    <tr><th>ID</th><th>titulo</th><th>estatus</th><th>Acción</th></tr>
                     ${historyRows}
                 </table>
             </div>
@@ -392,12 +422,12 @@ function getGenericTicketDetailTemplate(ticket, returnRole) {
     return `
         <div class="panel layout-center-md">
             <div class="panel__header">
-                <h3>Ticket #${escapeHTML(ticket.id)}: ${escapeHTML(ticket.asunto)}</h3>
+                <h3>Ticket #${escapeHTML(ticket.id)}: ${escapeHTML(ticket.titulo)}</h3>
                 <button class="btn btn--danger" onclick="initializeDashboard('${returnRole}')">Volver</button>
             </div>
             
             <div class="panel" style="background: #fdfdfd;">
-                <p><strong>Estado:</strong> <span class="badge">${escapeHTML(ticket.estado)}</span></p>
+                <p><strong>estatus:</strong> <span class="badge">${escapeHTML(ticket.estatus)}</span></p>
                 ${infoClienteHTML}
                 <h4 style="margin-top: 15px;">Mensaje Original:</h4>
                 <p class="form-control" style="white-space: pre-wrap; background: var(--color-white);">
@@ -426,7 +456,7 @@ function getWorkerTicketDetailTemplate(ticket) {
             </div>
             
             <div class="panel" style="background: #fdfdfd; margin-bottom: 20px;">
-                <p><strong>Asunto:</strong> ${escapeHTML(ticket.asunto)}</p>
+                <p><strong>titulo:</strong> ${escapeHTML(ticket.titulo)}</p>
                 <p><strong>Cliente:</strong> ${escapeHTML(ticket.cliente || 'Desconocido')}</p>
                 <h4 style="margin-top: 15px;">Descripción del Problema:</h4>
                 <p class="form-control" style="white-space: pre-wrap; background: var(--color-white);">
@@ -536,10 +566,7 @@ function handlePreSubmitTicket(event) {
         return; 
     }
 
-    if (DB_MOCK.clientTickets.length >= 5) {
-        alert("Has alcanzado el límite máximo de 5 tickets activos. Por favor, espera a que se resuelva alguno antes de abrir uno nuevo.");
-        return; 
-    }
+  
 
     document.getElementById('modal-overlay').style.display = 'flex';
 }
@@ -550,22 +577,44 @@ async function processClientTicketSubmit() {
     const btn = document.querySelector('#form-cliente-ticket button[type="submit"]');
     btn.disabled = true; 
     btn.textContent = "Enviando...";
-    
+    try{
+    const titulo = document.getElementById('titulo').value.trim();
+    const contenido = document.getElementById('contenido').value.trim();
+
+   const res = await apiFetch('/api/tickets',{
+    method: 'POST',
+    body: JSON.stringify({titulo, contenido})
+   });
+
+   const data = await res.json();
+
+   if(!res.ok){
+    alert(`Error ${data.error}`);
+    btn.disabled = false;
+    btn.textContent = "Enviar Ticket";
+    return;
+   }
+
+   for(const file of archivosSeleccionados){
+
     const formData = new FormData();
-    formData.append('titulo', document.getElementById('titulo').value.trim());
-    formData.append('contenido', document.getElementById('contenido').value.trim());
-    formData.append('id_cliente', currentUser.id);
-    archivosSeleccionados.forEach(file => {
-        formData.append('archivos_adjuntos[]', file);
+    formData.append('archivo', file);
+    await fetch(`${API_URL}/api/tickets/${data.ticketId}/adjuntos`,{
+        method: 'POST',
+        headers: {'Authorization': `Bearer ${localStorage.getItem('token')}`},
+        body: formData
     });
-    console.log("BACKEND: Enviando Ticket...", [...formData]);
+   }
 
-    setTimeout(() => {
-        alert("Ticket creado con éxito.");
-        initializeDashboard('cliente'); 
-    }, 1000);
+   alert('Ticket creado');
+   initializeDashboard('cliente'); 
+}catch(err){
+    console.error('Error:', err);
+    alert('No se pudo conectar con el servidor.');
+    btn.disabled = false;
+    btn.textContent = "Enviar ticket";
 }
-
+}
 // ----- CONTROLADORES DE RESOLUCIÓN INDEPENDIENTES ----- //
 
 async function handlePublicResponseSubmit(event, ticketId) {
@@ -659,4 +708,9 @@ async function handleAdminNewsSubmit(event) {
 function deleteNews(id) {
     if (!confirm("¿Eliminar esta noticia?")) return;
     setTimeout(() => { alert("Noticia eliminada"); loadAdminView(); }, 500);
+}
+
+function cerrarSesion() {
+    localStorage.clear();
+    window.location.href = 'register-login.html';
 }

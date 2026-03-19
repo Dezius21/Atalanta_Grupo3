@@ -254,6 +254,17 @@ function getAdminTemplate(usersRes, newsRes) {
                     <div class="form-group"><label class="form-label">Título</label><input type="text" id="news-title" class="form-control" required></div>
                     
                     <div class="form-group">
+                        <label class="form-label">Categoría</label>
+                        <select id="news-category" class="form-control" required>
+                            <option value="" disabled selected>Seleccione una categoría</option>
+                            <option value="Ciberseguridad">Ciberseguridad</option>
+                            <option value="Herramientas">Herramientas</option>
+                            <option value="DesarrolloWeb">Desarrollo Web</option>
+                            <option value="IngenieriaSocial">Ingeniería Social</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
                         <label class="form-label">Imagen</label>
                         <input type="file" id="news-image" class="form-control" accept="image/*">
                     </div>
@@ -685,11 +696,13 @@ async function handleAdminNewsSubmit(event) {
     btn.textContent = "Publicando...";
 
     const titulo = document.getElementById("news-title").value.trim();
+    const categoria = document.getElementById("news-category").value; // NUEVO: Extraemos la categoría
     const contenido = document.getElementById("news-content").value.trim();
     const imagen = newsImageInput.files[0];
 
     const formData = new FormData();
     formData.append("titulo", titulo);
+    formData.append("categoria", categoria); // NUEVO: Lo metemos en el paquete de datos
     formData.append("contenido", contenido);
     if (imagen) formData.append("imagen", imagen);
     

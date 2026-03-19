@@ -12,6 +12,19 @@
     />
 </head>
 <body>
+    <template id="card-blog-template">
+        <article class="card-blog">
+            <img class="card-blog__image" src="" alt="" loading="lazy"/>
+            <div class="card-blog__body">
+                <span class="card-blog__tag"></span>
+                <h2 class="card-blog__title"></h2>
+                <p class="card-blog__excerpt"></p>
+                <a class="card-blog__btn" href="#">Leer más →</a>
+            </div>
+        </article>
+    </template>
+
+
     <header class="header">
         <nav class="navbar">
       <a href="./index.html" class="navbar__logo-container">
@@ -85,12 +98,8 @@
     
     <main class="main" id="noticias-recientes">
         <div class="main_notice-container">
-            <div class="pagination">
-                <button class="pagination__btn">1</button>
-                <button class="pagination__btn">2</button>
-                <button class="pagination__btn">3</button>
-                <button class="pagination__btn pagination__btn--next">Siguiente ></button>
-            </div>
+            <div class="noticias-grid" id="noticias-grid"></div>
+            <div class="pagination" id="pagination"></div>
         </div>
     </main>
     
@@ -200,6 +209,93 @@
             </ul>
         </div>
     </footer>
+    
     <script src="./scripts/header_temporal.js"></script>
+
+    <script>
+        const NOTICIAS_POR_PAGINA = 6;
+
+        const noticias = [
+            { id: 1,  categoria: "Ciberseguridad",        titulo: "Que no te estafen durante la declaración de la Renta",                         extracto: "Como cada año por estas fechas, a los contribuyentes les toca rendir cuentas a la Agencia Estatal de Administración Tributaria (AEAT). En este caso, a …",                         imagen: "images/noticias/noticia-1.jpg",  url: "noticia-1.html" },
+            { id: 2,  categoria: "Herramientas",           titulo: "Ciberseguridad: pinceladas de realidad",                                       extracto: "¡Buenas! Mi nombre es Javier Sánchez y soy arquitecto de seguridad en Atalanta. El pasado 23 de marzo ofrecí una charla a los alumnos del …",                                   imagen: "images/noticias/noticia-2.jpg",  url: "noticia-2.html" },
+            { id: 3,  categoria: "Desarrollo Web",         titulo: "Cómo mantener los recursos del estado de Terraform controlados por Terraform", extracto: "¡Hola! Hoy vuelvo a escribir en este blog para contaros una forma que conozco para mantener los recursos del estado de Terraform, controlados por este …",                    imagen: "images/noticias/noticia-3.jpg",  url: "noticia-3.html" },
+            { id: 4,  categoria: "Desarrollo Web",         titulo: "Cazando bots",                                                                extracto: "¡Hola! Mi nombre es Pablo Nevado y trabajo como desarrollador en Atalanta. Hoy os vengo a hablar sobre cómo detectar y gestionar bots automatizados …",                        imagen: "images/noticias/noticia-4.jpg",  url: "noticia-4.html" },
+            { id: 5,  categoria: "Desarrollo Web",         titulo: "Cómo usar localstack para interactuar con AWS en tus scripts",                extracto: "LocalStack es una herramienta que nos permite emular servicios de AWS en local, ideal para desarrollo y pruebas sin coste ni acceso a la nube …",                           imagen: "images/noticias/noticia-5.jpg",  url: "noticia-5.html" },
+            { id: 6,  categoria: "0-days",                 titulo: "Virtualización de la infraestructura OT",                                     extracto: "En el sector industrial existen dos mundos que conviven: el IT y el OT. La virtualización de la infraestructura OT plantea nuevos retos de seguridad …",                    imagen: "images/noticias/noticia-6.jpg",  url: "noticia-6.html" },
+            { id: 7,  categoria: "Inteligencia Artificial",titulo: "IA generativa aplicada a la ciberseguridad ofensiva",                         extracto: "Los modelos de lenguaje están cambiando el panorama del hacking. Analizamos cómo los atacantes los utilizan y cómo podemos defendernos ante estas nuevas amenazas …",      imagen: "images/noticias/noticia-7.jpg",  url: "noticia-7.html" },
+            { id: 8,  categoria: "Ciberseguridad",         titulo: "Phishing avanzado: técnicas que burlan los filtros tradicionales",            extracto: "Las campañas de phishing modernas son cada vez más sofisticadas. Te explicamos las técnicas más usadas y cómo identificarlas antes de que sea tarde …",                    imagen: "images/noticias/noticia-8.jpg",  url: "noticia-8.html" },
+            { id: 9,  categoria: "Formación",              titulo: "Por qué la formación continua es clave en ciberseguridad",                    extracto: "El panorama de amenazas evoluciona a diario. La formación especializada se ha convertido en la mejor inversión para cualquier equipo de seguridad …",                      imagen: "images/noticias/noticia-9.jpg",  url: "noticia-9.html" },
+            { id: 10, categoria: "Cumplimiento",           titulo: "ENS 2022: novedades y cómo adaptarse al nuevo esquema",                       extracto: "El Esquema Nacional de Seguridad ha sido actualizado. Repasamos los cambios más importantes y los pasos que debe dar tu organización para cumplirlo …",                  imagen: "images/noticias/noticia-10.jpg", url: "noticia-10.html" },
+            { id: 11, categoria: "Herramientas",           titulo: "Wazuh: el SIEM open source que necesitas conocer",                            extracto: "Wazuh se ha consolidado como una de las herramientas de monitorización y detección de amenazas más potentes del ecosistema open source. Te contamos por qué …",           imagen: "images/noticias/noticia-11.jpg", url: "noticia-11.html" },
+            { id: 12, categoria: "Desarrollo Web",         titulo: "Securizando APIs REST: errores comunes y cómo evitarlos",                     extracto: "Las APIs mal configuradas son uno de los vectores de ataque más explotados. Analizamos los fallos más frecuentes y las buenas prácticas para prevenirlos …",           imagen: "images/noticias/noticia-12.jpg", url: "noticia-12.html" },
+        ];
+
+        const grid     = document.getElementById('noticias-grid');
+        const template = document.getElementById('card-blog-template');
+        let paginaActual = 1;
+
+        function renderizarPagina(pagina) {
+            grid.replaceChildren();
+            const slice = noticias.slice((pagina - 1) * NOTICIAS_POR_PAGINA, pagina * NOTICIAS_POR_PAGINA);
+
+            slice.forEach(n => {
+                const clone = template.content.cloneNode(true);
+                const img   = clone.querySelector('.card-blog__image');
+
+                img.src    = n.imagen;
+                img.alt    = n.titulo;
+                img.onerror = function() { this.style.display = 'none'; };
+
+                clone.querySelector('.card-blog__tag').textContent     = n.categoria;
+                clone.querySelector('.card-blog__title').textContent   = n.titulo;
+                clone.querySelector('.card-blog__excerpt').textContent = n.extracto;
+                clone.querySelector('.card-blog__btn').href            = n.url;
+                grid.appendChild(clone);
+            });
+        }
+
+        function renderizarPaginacion(total, activa) {
+            const totalPaginas = Math.ceil(total / NOTICIAS_POR_PAGINA);
+            const paginacion   = document.getElementById('pagination');
+            paginacion.replaceChildren();
+
+            if (activa > 1) {
+                paginacion.appendChild(crearBtn('< Anterior', () => cambiar(activa - 1)));
+            }
+
+            for (let i = 1; i <= totalPaginas; i++) {
+                const btn = crearBtn(i, () => cambiar(i));
+                if (i === activa) btn.classList.add('pagination__btn--active');
+                paginacion.appendChild(btn);
+            }
+
+            if (activa < totalPaginas) {
+                const btn = crearBtn('Siguiente >', () => cambiar(activa + 1));
+                btn.classList.add('pagination__btn--next');
+                paginacion.appendChild(btn);
+            }
+        }
+
+        function crearBtn(label, onClick) {
+            const btn       = document.createElement('button');
+            btn.className   = 'pagination__btn';
+            btn.textContent = label;
+            btn.addEventListener('click', onClick);
+            return btn;
+        }
+
+        function cambiar(pagina) {
+            paginaActual = pagina;
+            renderizarPagina(paginaActual);
+            renderizarPaginacion(noticias.length, paginaActual);
+            document.getElementById('noticias-recientes').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Arranque
+        renderizarPagina(paginaActual);
+        renderizarPaginacion(noticias.length, paginaActual);
+    </script>
+
+    <script src="./scripts/noticias.js"></script>
 </body>
 </html>

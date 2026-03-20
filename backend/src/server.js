@@ -22,17 +22,18 @@ app.use(cors({
     origin: function (origin, callback) {
       // Permite null (archivo local), localhost:5500 y localhost:5173 etc.
       const allowed = [
-        'http://localhost:5500',
-        'http://127.0.0.1:5500',   ////cambiar en post-produccion
-        'http://localhost:5173',
-        'http://192.168.56.1:5500',
-        'http://172.26.96.1:5500',
-        'http://172.24.224.1:5500',
-        'http://172.23.144.1:5500',
-        'http://192.168.128.108:5500',
-        'http://192.168.128.65:5500',
-        'http://192.168.128.187:5500',
-        'http://172.22.48.1:5500'
+        'http://localhost:8921',
+        'http://127.0.0.1:8921',   ////cambiar en post-produccion
+        'http://localhost:8921',
+        'http://192.168.56.1:8921',
+        'http://172.26.96.1:8921',
+        'http://172.24.224.1:8921',
+        'http://172.23.144.1:8921',
+        'http://192.168.128.108:8921',
+        'http://192.168.128.65:8921',
+        'http://192.168.128.187:8921',
+        'http://172.22.48.1:8921',
+        'http://192.168.128.229:5500',
 
       ];
       if (!origin || allowed.includes(origin)) {
@@ -84,7 +85,7 @@ app.get('/', (req , res) => {
 
 seedAdmin();
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 8921;
 app.listen(PORT, () =>{
     console.log(`Servidor corriendo localmente en http://localhost:${PORT}`);
 })

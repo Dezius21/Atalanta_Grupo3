@@ -95,12 +95,6 @@ CREATE TABLE comentarios (
   FOREIGN KEY (ticket_id) REFERENCES tickets(id)  ON DELETE CASCADE
 );
 
-INSERT INTO usuarios (nombre, email, password, rol) VALUES
-('Carlos Martínez', 'carlos.martinez@atalanta.com', '$2b$10$hashedpassword1', 'admin'),
-('Laura Sánchez', 'laura.sanchez@atalanta.com', '$2b$10$hashedpassword2', 'jefe'),
-('Marcos Ruiz', 'marcos.ruiz@atalanta.com', '$2b$10$hashedpassword3', 'trabajador'),
-('Ana Gómez', 'ana.gomez@atalanta.com', '$2b$10$hashedpassword4', 'trabajador'),
-('Pedro Fernández', 'pedro.fernandez@gmail.com', '$2b$10$hashedpassword5', 'cliente');
 
 INSERT INTO noticias (titulo, slug, contenido, imagen_url, categoria, publicado, autor_id) VALUES
 ('Atalanta lanza nueva plataforma', 'atalanta-lanza-nueva-plataforma', 'Contenido detallado sobre el lanzamiento.', 'https://cdn.atalanta.com/img1.jpg', 'Tecnología', TRUE, 1),

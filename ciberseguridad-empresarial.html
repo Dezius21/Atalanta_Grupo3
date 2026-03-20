@@ -269,7 +269,7 @@
                             <input type="text" id="company" name="empresa" required placeholder="Empresa" class="form__input">
                             
                             <label for="select" class="form__label">Cargo</label>
-                            <select name="Cargo" id="select" class="form__select" required>
+                            <select name="cargo" id="select" class="form__select" required>
                                 <option value="" selected disabled hidden>Cargo</option>
                                 <option value="ciso">CISO</option>
                                 <option value="cto">CTO</option>
@@ -277,13 +277,14 @@
                                 <option value="ceo">CEO</option>
                                 <option value="otro">Otro</option>
                             </select>
-                            <label for="selectCert" class="form__label">Nivel de Certificación de Interés</label>
+                            <label for="selectCert" class="form__label">¿Cual es el desafio que mas te urge resolver?</label>
                             <select name="interes" id="selectCert" class="form__select">
-                                <option value="" selected disabled hidden>¿Cual es el desafio que mas te urge resolver?</option>
-                                <option value="certificación">Certificaciones OffSec (OSCP, OSEP, OSWE...).</option>
-                                <option value="itinerarios">Itinerarios Personalizados para Equipos (SOC/Red Team).</option>
-                                <option value="bootcamps">Bootcamps y Formación Presencial/In-Company.</option>
-                                <option value="gap">Gap Analysis: Evaluación de habilidades del equipo.</option>
+                                <option value="" selected disabled hidden>Servicios Ciberseguridad</option>
+                                <option value="hacking">Hacking Profesional y Red Team (Black Vipers).</option>
+                                <option value="arquitectura">Arquitecturas Cloud Seguras y vCISO.</option>
+                                <option value="seguridad">Seguridad Industrial OT & IoT(Tecnologia Operacional e Internet de las Cosas).</option>
+                                <option value="ciberdefensa">Ciberdefensa y Deteccion Gestionada(MDR).</option>
+                                <option value="devsec">DevSecOps:Seguridad en el Desarrollo.</option>
                             </select>    
                             <label for="optional" class="form__label">¿Busca una solución inmediata o está en fase de planificación?</label>
                             <input type="text" id="optional" name="mensaje" required placeholder="" class="form__input">

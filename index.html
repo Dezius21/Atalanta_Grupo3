@@ -534,17 +534,18 @@
                       </div>
       
                       <form action="contact-user" method="post" class="form-contact">
+                          <input type="hidden" name="tipoForm" value="general">
                           <legend>Iniciar Diagnostico de Seguridad</legend>
                           <label for="first-name" class="form__label">Nombre</label>
-                          <input type="text" id="first-name" required placeholder="Introduzca su nombre" class="form__input">
+                          <input type="text" id="first-name" name="nombre" required placeholder="Introduzca su nombre" class="form__input">
                           <label for="last-name"  class="form__label">Apellidos</label>
-                          <input type="text" id="last-name" required placeholder="Introduzca su apellido" class="form__input">
+                          <input type="text" id="last-name" name="apellidos" required placeholder="Introduzca su apellido" class="form__input">
                           <label for="email" class="form__label">Email</label>
-                          <input type="email" id="email"  required placeholder="Email" class="form__input">
+                          <input type="email" id="email" name="email"  required placeholder="Email" class="form__input">
                           <label for="company" class="form__label">Empresa</label>
-                          <input type="text" id="company" required placeholder="Empresa" class="form__input">
+                          <input type="text" id="company" name="empresa" required placeholder="Empresa" class="form__input">
                           <label for="select" class="form__label">Cargo</label>
-                          <select name="Cargo" id="select" class="form__select" required>
+                          <select name="cargo" id="select" class="form__select" required>
                               <option value="" selected disabled hidden>Cargo</option>
                               <option value="ciso">CISO</option>
                               <option value="cto">CTO</option>
@@ -552,12 +553,12 @@
                               <option value="ceo">CEO</option>
                               <option value="otro">Otro</option>
                           </select>
-                          <label for="optional" class="form__label">¿Busca una solución inmediata o está en fase de planificación?</label>
-                          <input type="text" id="optional" required placeholder="" class="form__input">
+                          <label for="optional" class="form__label">Cuentanos un poco sobre tus necesidades y areas de interes.</label>
+                          <input type="text" id="optional" name="mensaje" required placeholder="" class="form__input">
                           <div class="form__checkbox-row">
-                              <input type="checkbox" name="checkbox" class="form__checkbox" required>
+                              <input type="checkbox" name="leido" class="form__checkbox" required>
                               <label class="form__checkbox-label">
-                                  Acepto la <a href="">politica de privacidad</a> de Atalanta Evlution
+                                  Acepto la <a href="">politica de privacidad</a> de Atalanta Evolution
                               </label>
                           </div>
                           <button type="submit" class="form_button">Solicitar diagnostico tecnico</button>
@@ -675,6 +676,7 @@
         </div>
     </footer>
     <script src="./scripts/in.js"></script>
+    <script src="./scripts/config.js"></script>
     <script src="./scripts/forms.js"></script>
     <script src="./scripts/header_temporal.js"></script>
 </body>

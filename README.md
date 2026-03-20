@@ -1,67 +1,98 @@
-# 🛡️ Atalanta Cybersecurity - Proyecto FFE DAM (Grupo 3)
+# Atalanta Cybersecurity - Proyecto FFE DAM (Grupo 3)
 
-Este es el repositorio oficial del proyecto **Atalanta Cybersecurity**, desarrollado por el **Grupo 3**. Este proyecto formativo consiste en el desarrollo de la web corporativa y el sistema de gestión interna de una empresa ficticia de ciberseguridad, recreando los desafíos auténticos del ámbito profesional.
-
-El proyecto abarca el diseño Frontend y la preparación de un Backend robusto y seguro.
+Este es el repositorio oficial del proyecto Atalanta Cybersecurity, desarrollado por el Grupo 3. Este proyecto formativo consiste en el desarrollo de la web corporativa y el sistema de gestión interna de una empresa de ciberseguridad, recreando los desafíos del ámbito profesional.
 
 ---
 
 ## Estado del Proyecto: Primera Semana (Fase 1)
 
-Durante esta primera semana, nos hemos centrado en el diseño de la página, maquetación Frontend y la investigación/desarrollo inicial de la arquitectura Backend.
+Durante la primera semana, el trabajo se centró en el diseño de la página, maquetación Frontend y la investigación inicial de la arquitectura Backend.
 
 **Hitos alcanzados:**
-- [x] Análisis de competidores y diseño de estructura/plan de negocio.
-- [x] Desarrollo del Frontend (HTML, CSS, JS) con enfoque 100% responsivo.
-- [x] Implementación de interacciones dinámicas (Menú responsive tipo hamburguesa, carruseles infinitos, animaciones al hacer scroll).
-- [x] Investigación y sentada de bases para el servidor Backend y seguridad.
+* Análisis de competidores y diseño de estructura/plan de negocio.
+* Desarrollo del Frontend (HTML, CSS, JS) con enfoque responsivo.
+* Implementación de interacciones dinámicas como menús tipo hamburguesa, carruseles y animaciones de scroll.
+* Creación del repositorio y definición de la estructura base del proyecto.
+
+---
+
+## Estado del Proyecto: Segunda Semana (Fase 2)
+
+En esta fase, el sistema ha evolucionado para incluir una base de datos real, lógica de servidor y un sistema completo de gestión de incidencias.
+
+**Hitos alcanzados:**
+* Implementación de Base de Datos: Diseño y creación del modelo relacional en MySQL para gestionar usuarios, roles y tickets.
+* Sistema de Autenticación: Registro y acceso funcional con validación de datos y almacenamiento de contraseñas hasheadas.
+* Control de Acceso por Roles: Configuración de permisos específicos para los niveles de Cliente, Trabajador, Jefe y Administrador.
+* Módulo de Incidencias: Desarrollo de la funcionalidad para crear, asignar y gestionar el ciclo de vida de los tickets.
+* Integración Full-Stack: Conexión dinámica entre el cliente y el servidor mediante peticiones fetch para la gestión de datos en tiempo real.
+
+---
+
+## Sistema de Gestión de Incidencias (Tickets)
+
+Se ha implementado un flujo de trabajo que cubre las necesidades operativas de la organización:
+* Cliente: Puede crear tickets de incidencia incluyendo capturas de imagen o vídeo como evidencia.
+* Jefe de Área: Gestiona la asignación de tickets a los trabajadores y supervisa el estado general.
+* Trabajador: Tiene acceso a sus tickets asignados para cambiar su estado y añadir comentarios en el historial.
+* Administrador: Posee control total sobre la base de datos y la gestión de roles de los usuarios.
 
 ---
 
 ## Decisiones de Diseño y Metodología
 
-Para garantizar un código limpio, mantenible y escalable, el equipo ha adoptado las siguientes directrices:
-
-1. **Metodología BEM (Block, Element, Modifier):** Utilizada para estructurar las secciones de HTML, CSS y JavaScript.
-2. **Consolidación de Arquitectura de la Información:** Tras analizar a la competencia y el mercado, se determinó que es más eficiente y funcional combinar las áreas de ciberseguridad, digital y formación dentro de una estructura unificada para mejorar la presentación e indexación.
-3. **Limpieza Visual (UI/UX):** Se ha reemplazado el clásico formulario al final de cada página por un botón **Call to Action (CTA)** que despliega el formulario en una ventana modal, manteniendo así la armonía visual general.
+Para garantizar un código mantenible y escalable, el equipo adoptó las siguientes directrices:
+1. Metodología BEM (Block, Element, Modifier): Utilizada para estructurar HTML, CSS y JavaScript de forma reutilizable.
+2. Consolidación de Información: Se combinaron las áreas de ciberseguridad, digital y formación en una sección unificada de Servicios para mejorar la indexación.
+3. Interfaz de Usuario (UI/UX): Se sustituyó el formulario fijo por un botón de llamada a la acción (CTA) que despliega el formulario de forma modal.
 
 ---
 
 ## Estructura del Proyecto
 
-El código fuente Frontend se ha organizado modularmente de la siguiente manera:
-
-* `blocks/`: Archivos CSS individuales correspondientes a cada bloque o componente de la página.
-* `images/`: Recursos gráficos (imágenes, logos, iconos) de uso general y específico.
-* `pages/`: Archivo CSS principal que importa y coordina todos los módulos para su vinculación global.
-* `scripts/`: Archivos JavaScript que controlan la interactividad y los elementos comunes.
-* `vendor/`: Elementos CSS comunes o librerías de terceros.
-
-* `backend/`: Estructura que senta las bases para la segunda semana (Fase 2) con scripts iniciales enfocados al manejo de datos.
+El código fuente se organiza de forma modular para separar las responsabilidades:
+* blocks/: Archivos CSS individuales por cada componente.
+* images/: Recursos gráficos y archivos multimedia.
+* pages/: Archivo CSS principal que coordina la vinculación global.
+* scripts/: Archivos JavaScript para la interactividad del frontend.
+* vendor/: Librerías externas y estilos comunes.
+* backend/: Lógica de servidor, rutas de API y conexión a base de datos.
 
 ---
 
 ## Stack Tecnológico y Paquetes
 
-Aunque nos encontramos en la Fase 1, el equipo ya ha definido y configurado el ecosistema tecnológico completo para cubrir tanto el cliente como el servidor:
+### Frontend
+* HTML5 y CSS3: Desarrollo estructural y visual.
+* Vanilla JavaScript: Control del DOM y validaciones de cliente.
 
-### Frontend (UI/UX & Cliente)
-* **HTML5 & CSS3:** Desarrollo estructural y manejo de elementos visuales responsivos.
-* **Vanilla JavaScript:** Control del DOM, validaciones visuales e interacciones del cliente.
+### Backend y Base de Datos
+* Node.js y Express: Servidor y creación de la API.
+* MySQL y MySQL2: Motor de base de datos relacional y conector.
+* Jsonwebtoken (JWT): Autenticación basada en tokens.
+* Argon2: Hasheo seguro de credenciales.
+* Multer: Gestión de subida de archivos para evidencias.
 
-### Backend & Base de Datos (Core & Lógica)
-##### **_Sujeto a cambios_**
-* **Node.js & Express:** Control interno de la plataforma, creación del servidor.
-* **MySQL & MySQL2:** Creación, manejo de la base de datos relacional y facilitación de *queries*.
+### Seguridad y Utilidades
+* Helmet: Configuración de cabeceras de seguridad web.
+* Cors: Control de políticas de acceso cruzado.
+* Express-validator: Saneamiento y validación de datos en formularios.
+* Express-rate-limit: Prevención de ataques de fuerza bruta y spam.
+* Dotenv: Manejo de variables de entorno.
+* Nodemailer: Envío de notificaciones por correo electrónico.
 
-### Seguridad, Autenticación y Utilidades (AppSec)
-* **Jsonwebtoken (JWT) & Bcryptjs:** Autenticación por tokens y hasheo seguro de contraseñas.
-* **Helmet & Cors:** Configuración de cabeceras de seguridad web y verificación de políticas de acceso cruzado.
-* **Express-rate-limit:** Protección contra ataques de fuerza bruta y Spam.
-* **Express-validator:** Saneamiento y validación robusta de los datos recibidos en formularios.
 ---
 
-## 👥 Equipo (Grupo 3)
+## Seguridad y Auditoría
 
-El proyecto se desarrolla bajo un modelo de asunción de perfiles, asegurando que todos los miembros participen activamente en las diferentes áreas (Frontend, Backend, DBA, AppSec y Documentación).
+Se han realizado pruebas de seguridad activa para mitigar riesgos en la plataforma:
+* Verificación contra Inyección SQL en formularios de acceso y gestión de tickets.
+* Control de ataques XSS en campos de comentarios y áreas visibles.
+* Prevención de vulnerabilidades IDOR para asegurar que los usuarios solo accedan a sus propios datos.
+* Revisión de permisos para evitar el acceso a endpoints sin el rol adecuado.
+
+---
+
+## Grupo 3
+
+El proyecto se desarrolla bajo un modelo de asunción de perfiles profesionales, donde cada miembro participa en las áreas de Frontend, Backend, Base de Datos y Seguridad.

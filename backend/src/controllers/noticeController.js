@@ -4,7 +4,7 @@ const pool = require('../config/db');
 const getNoticias = async (req,res) => {
     try{
         const [noticias] = await pool.execute(
-            'SELECT id, titulo, slug, imagen_url, categoria, created_at FROM noticias WHERE publicado = true'
+            'SELECT id, titulo, slug, ,contenido, imagen_url, categoria, created_at FROM noticias WHERE publicado = true'
         );
         res.json(noticias);
     }catch (error){

@@ -2,8 +2,6 @@
 // 1. ESTADO GLOBAL Y UTILIDADES DE SEGURIDAD
 // ==========================================
 
-
-
 const usuarioGuardado = localStorage.getItem('usuario');
 if(!localStorage.getItem('token') || !usuarioGuardado){
     window.location.href = 'register-login.html';
@@ -65,6 +63,11 @@ async function apiFetch(url, options = {}) {
         'Authorization': `Bearer ${localStorage.getItem('token')}`,
         ...(options.headers || {})
     };
+
+    if (!(options.body instanceof FormData)) {
+        headers['Content-Type'] = 'application/json';
+    }
+
     if (options.body instanceof FormData) delete headers['Content-Type'];
     const res = await fetch(url, { ...options, headers });
     if (res.status === 401 || res.status === 403) {

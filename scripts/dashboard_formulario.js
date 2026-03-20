@@ -3,6 +3,8 @@
 // ==========================================
 
 // Verificación de seguridad y sesión
+
+
 const usuarioGuardado = localStorage.getItem('usuario');
 if(!localStorage.getItem('token') || !usuarioGuardado){
     window.location.href = 'register-login.html';
@@ -62,9 +64,11 @@ function hideLoader(){
 async function apiFetch(url, options = {}) {
     const headers = {
         'Authorization': `Bearer ${localStorage.getItem('token')}`,
-        'Content-Type': 'application/json',
         ...(options.headers || {})
-    };
+        };
+        if (!(options.body instanceof FormData)) {
+            headers['Content-Type'] = 'application/json';
+        };
     const res = await fetch(url, { ...options, headers });
     if (res.status === 401 || res.status === 403) {
         localStorage.clear();
@@ -232,7 +236,7 @@ async function eliminarFormulario(id) {
         
         try {
             // Elimina el comentario de la siguiente línea cuando tengas el endpoint activo en el backend
-            // await API_FORMULARIOS.marcarComoVisto(id); 
+             await API_FORMULARIOS.marcarComoVisto(id); 
             
             // Reflejamos el cambio visualmente
             formSubmissions = formSubmissions.filter(f => String(f.id) !== String(id));

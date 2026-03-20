@@ -22,18 +22,20 @@ app.use(cors({
     origin: function (origin, callback) {
       // Permite null (archivo local), localhost:5500 y localhost:5173 etc.
       const allowed = [
-        'http://localhost:8921',
-        'http://127.0.0.1:8921',   ////cambiar en post-produccion
-        'http://localhost:8921',
-        'http://192.168.56.1:8921',
-        'http://172.26.96.1:8921',
-        'http://172.24.224.1:8921',
-        'http://172.23.144.1:8921',
-        'http://192.168.128.108:8921',
-        'http://192.168.128.65:8921',
-        'http://192.168.128.187:8921',
-        'http://172.22.48.1:8921',
-        'http://192.168.128.229:5500',
+        'http://localhost',
+        'http://127.0.0.1',   ////cambiar en post-produccion
+        'http://localhost',
+        'http://192.168.56.1',
+        'http://172.26.96.11',
+        'http://172.24.224.1',
+        'http://172.23.144.1',
+        'http://192.168.128.108',
+        'http://192.168.128.65',
+        'http://192.168.128.187',
+        'http://172.22.48.1',
+        'http://192.168.128.229',
+        'http://172.20.96.1',
+        'http://localhost'
 
       ];
       if (!origin || allowed.includes(origin)) {
@@ -60,6 +62,11 @@ const loginLimiter = rateLimit({
     max: 5,
     message: {error: 'Demasiadas peticiones intenta mas tarde'}
 })
+
+app.use((req, res, next) => {
+  console.log(`${new Date().toLocaleTimeString()} | ${req.method} ${req.path} | IP: ${req.ip}`);
+  next();
+});
 
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));

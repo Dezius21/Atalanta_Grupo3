@@ -1,4 +1,4 @@
-const Contacto=require('../models/contact')
+const Contacto=require('../models/contactModel')
 
 exports.enviarFormulario = async (req,res) =>{
     try{
@@ -13,11 +13,12 @@ exports.enviarFormulario = async (req,res) =>{
                 insertId = await Contacto.crearServicio(req.body);
                 break;
             case 'formacion':
-                insertId = await Contacto.crearServicio(req.body);
+                // AQUÍ: Tenías 'crearServicio', cámbialo a 'crearFormacion'
+                insertId = await Contacto.crearFormacion(req.body); 
                 break;
             default:
                 return res.status(400).json({error: 'Tipo de formulario no valido'});
-    }
+        }
     res.status(201).json({
         mensaje: 'Formulario enviado con exito',
         id: insertId

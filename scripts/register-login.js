@@ -14,7 +14,6 @@ signInButton.addEventListener('click', () => {
 
 
 // ——————————————————————————————
-const API_URL = 'http://localhost:3000/api/auth';
 
 // ——— REGISTRO ———
 const formRegister = document.querySelector('.auth__form-area--signup .auth__form');
@@ -28,7 +27,7 @@ formRegister.addEventListener('submit', async (e) => {
   const password = inputs[2].value.trim();
 
   try {
-    const res = await fetch(`${API_URL}/register`, {
+    const res = await fetch(`${API_URL}/api/auth/register`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ nombre, email, password })
@@ -36,8 +35,12 @@ formRegister.addEventListener('submit', async (e) => {
 
     const data = await res.json();
 
+    
     if (!res.ok) {
-      alert(`Error: ${data.error}`);
+    const mensaje = Array.isArray(data.error) 
+    ? data.error.map(e => e.msg).join('\n') 
+    : data.error;
+    alert(`Error: ${mensaje}`);
       return;
     }
 
@@ -64,7 +67,7 @@ formLogin.addEventListener('submit', async (e) => {
   const password = inputs[1].value.trim();
 
   try {
-    const res = await fetch(`${API_URL}/login`, {
+    const res = await fetch(`${API_URL}/api/auth/login`, {
       method: 'post',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ email, password })

@@ -253,6 +253,7 @@
                             </div>
                         </div>
                         <form action="contact-user" method="post" class="form-contact">
+                            <input type="hidden" name="tipoForm" value="servicios">
                             <legend>Iniciar Diagnóstico de Seguridad</legend>
                             
                             <label for="first-name" class="form__label">Nombre</label>
@@ -276,12 +277,19 @@
                                 <option value="ceo">CEO</option>
                                 <option value="otro">Otro</option>
                             </select>
-
+                            <label for="selectCert" class="form__label">Nivel de Certificación de Interés</label>
+                            <select name="interes" id="selectCert" class="form__select">
+                                <option value="" selected disabled hidden>¿Cual es el desafio que mas te urge resolver?</option>
+                                <option value="certificación">Certificaciones OffSec (OSCP, OSEP, OSWE...).</option>
+                                <option value="itinerarios">Itinerarios Personalizados para Equipos (SOC/Red Team).</option>
+                                <option value="bootcamps">Bootcamps y Formación Presencial/In-Company.</option>
+                                <option value="gap">Gap Analysis: Evaluación de habilidades del equipo.</option>
+                            </select>    
                             <label for="optional" class="form__label">¿Busca una solución inmediata o está en fase de planificación?</label>
-                            <input type="text" id="optional" name="fase" required placeholder="" class="form__input">
-                            
+                            <input type="text" id="optional" name="mensaje" required placeholder="" class="form__input">
+                        
                             <div class="form__checkbox-row">
-                                <input type="checkbox" name="checkbox" class="form__checkbox" required>
+                                <input type="checkbox" name="leido" class="form__checkbox" required>
                                 <label class="form__checkbox-label">
                                     Acepto la <a href="#">política de privacidad</a> de Atalanta Evolution
                                 </label>
@@ -400,6 +408,7 @@
             </ul>
         </div>
     </footer>
+    <script src="./scripts/config.js"></script>
     <script src="./scripts/forms.js"></script>
     <script src="./scripts/header_temporal.js"></script>
 </body>

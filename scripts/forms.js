@@ -2,7 +2,6 @@ const modal = document.querySelector(".modal-overlay");
 const botonesAbrir = document.querySelectorAll(".btn-apertura-formulario");
 const botonesCerrar = document.querySelectorAll(".modal-cerrar");
 const formElement = document.querySelector(".form-contact");
-
 const cerrarModal = () => {
     modal.style.display = "none";
     document.body.style.overflow = "auto";
@@ -39,7 +38,7 @@ formElement.addEventListener("submit", async (e) => {
         btnSubmit.textContent = "Enviando...";
 
         try{
-            const response = await fetch('http://localhost:3000/api/contacto/enviar',{
+            const response = await fetch(`${API_URL}/api/contacto/enviar`,{
                 method:'POST',
                 headers:{'Content-Type':'application/json'},
                 body:JSON.stringify(data)
@@ -67,3 +66,4 @@ formElement.addEventListener("submit", async (e) => {
         }
     });
 }
+

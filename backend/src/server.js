@@ -26,7 +26,14 @@ app.use(cors({
         'http://127.0.0.1:5500',   ////cambiar en post-produccion
         'http://localhost:5173',
         'http://192.168.56.1:5500',
-        'http://172.26.96.1:5500'
+        'http://172.26.96.1:5500',
+        'http://172.24.224.1:5500',
+        'http://172.23.144.1:5500',
+        'http://192.168.128.108:5500',
+        'http://192.168.128.65:5500',
+        'http://192.168.128.187:5500',
+        'http://172.22.48.1:5500'
+
       ];
       if (!origin || allowed.includes(origin)) {
         callback(null, true);
@@ -62,8 +69,8 @@ app.use('/api/auth', authRoutes);
 const noticeRoutes = require('./routes/noticeRoutes');
 app.use('/api/noticias', noticeRoutes);
 
-//const contactRoutes= require('./routes/contactRoutes');
-//app.use('/api/contacto',contactRoutes);
+const contactRoutes= require('./routes/contactRoutes');
+app.use('/api/contacto',contactRoutes);
 
 const ticketRoutes = require('./routes/ticketRoutes');
 app.use('/api/tickets', ticketRoutes);

@@ -1,4 +1,5 @@
-const grid = document.getElementById("postGrid");
+const grid = document.getElementById("noticias-grid");
+const template = document.getElementById("card-blog-template");
 
 async function loadPosts() {
     try {
@@ -9,22 +10,26 @@ async function loadPosts() {
             grid.innerHTML = "<p>No hay noticias todavia.</p>";
             return;
         }
+        grid.replaceChildren();
+        
+        posts.forEach(post => {
+            const clone = template.content.cloneNode(true);
+            const img   = clone.querySelector('.card-blog__image');
 
-        grid.innerHTML = posts.map(post => `
-            <div class="card">
-                ${post.imagen_url
-                    ?`<img src="${post.imagen_url}" alt="${escapeHTML(post.titulo)}">`
-                    : ""}
-                <div class="card-body">
-                    <h2>${escapeHTML(post.titulo)}</h2>
-                    <p class="card-meta">
-                        ${post.categoria ? `<span>${escapeHTML(post.categoria)}</span> . ` : ""}
-                        ${new Date(post.created_at).toLocaleDateString("es-ES")}
-                    </p>
-                    <a herf="blog.html?slug=${encodeURIComponent(post.slug)}" class="btn btn-primary">Leer mas</a>
-                </div>
-            </div>
-            `).join("");
+            if (post.imagen_url) {
+                img.src = post.imagen_url;
+                img.alt = post.titulo;
+            } else {
+                img.style.display = 'none';
+            }
+
+            clone.querySelector('.card-blog__tag').textContent     = post.categoria || '';
+            clone.querySelector('.card-blog__title').textContent   = post.titulo;
+            clone.querySelector('.card-blog__excerpt').textContent = post.contenido.substring(0, 180) + '...';
+            clone.querySelector('.card-blog__btn').href            = `blog.html?slug=${encodeURIComponent(post.slug)}`;
+
+            grid.appendChild(clone);
+        });
             
     }catch(err){
         grid.innerHTML="<p>Error al cargar las noticias</p>";

@@ -200,10 +200,23 @@ async function initializeDashboard(role) {
 }
 
 function renderSidebar(role) {
-    safeRender("sidebar-nav", `
+    let sidebarHTML = `
         <li class="sidebar__item sidebar__item--active" onclick="initializeDashboard(currentUser.role)">Dashboard</li>
+    `;
+
+    // Si el rol es 'jefe', agregamos el botón de los formularios
+    if (role === 'jefe') {
+        sidebarHTML += `
+        <li class="sidebar__item" onclick="window.location.href='formularios-jefe.html'">Bandeja de Formularios</li>
+        `;
+    }
+
+    // Finalmente agregamos el botón de cerrar sesión
+    sidebarHTML += `
         <li class="sidebar__item" onclick="cerrarSesion()">Cerrar Sesión</li>
-    `);
+    `;
+
+    safeRender("sidebar-nav", sidebarHTML);
 }
 
 function cerrarSesion() {

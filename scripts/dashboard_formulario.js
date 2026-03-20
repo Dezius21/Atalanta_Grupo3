@@ -5,11 +5,11 @@ const currentUser = { id: 102, name: "Esther Howard", role: "jefe" };
 
 // Simulamos la base de datos de los envíos web
 let formSubmissions = [
-    { id: "FRM001", nombre: "Carlos Perez", empresa: "Tech Corp", email: "carlos@techcorp.com", cargo: "CEO", fase: "Fase de planificación" },
-    { id: "FRM002", nombre: "Laura Gomez", empresa: "Data Solutions", email: "laura@datasol.com", cargo: "CISO", fase: "Solución inmediata" },
-    { id: "FRM003", nombre: "Miguel Sanz", empresa: "Fintech SL", email: "miguel@fintech.es", cargo: "CTO", fase: "Fase de planificación" },
-    { id: "FRM004", nombre: "Ana Ruiz", empresa: "Retail Group", email: "ana@retail.com", cargo: "Responsable IT", fase: "Solución inmediata" },
-    { id: "FRM005", nombre: "David Torres", empresa: "Logistics SA", email: "david@logistics.com", cargo: "CEO", fase: "Solución inmediata" }
+    { id: "FRM001", nombre: "Carlos Perez", empresa: "Tech Corp", email: "carlos@techcorp.com", cargo: "CEO" },
+    { id: "FRM002", nombre: "Laura Gomez", empresa: "Data Solutions", email: "laura@datasol.com", cargo: "CISO"},
+    { id: "FRM003", nombre: "Miguel Sanz", empresa: "Fintech SL", email: "miguel@fintech.es", cargo: "CTO" },
+    { id: "FRM004", nombre: "Ana Ruiz", empresa: "Retail Group", email: "ana@retail.com", cargo: "Responsable IT"},
+    { id: "FRM005", nombre: "David Torres", empresa: "Logistics SA", email: "david@logistics.com", cargo: "CEO"}
 ];
 
 // ==========================================
@@ -99,7 +99,6 @@ function verDetalle(id) {
                 <p><strong>Email:</strong> <a href="mailto:${escapeHTML(form.email)}">${escapeHTML(form.email)}</a></p>
                 <p><strong>Empresa:</strong> ${escapeHTML(form.empresa)}</p>
                 <p><strong>Cargo:</strong> ${escapeHTML(form.cargo)}</p>
-                <p><strong>Fase o Estado:</strong> ${escapeHTML(form.fase)}</p>
             </div>
             
             <div style="margin-top: 20px;">

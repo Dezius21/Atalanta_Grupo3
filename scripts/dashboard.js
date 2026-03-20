@@ -1,7 +1,7 @@
 // ==========================================
 // 1. ESTADO GLOBAL Y UTILIDADES DE SEGURIDAD
 // ==========================================
-const currentUser = { id: 102, name: "Esther Howard", role: "admin" }; 
+const currentUser = { id: 102, name: "Esther Howard", role: "jefe" }; 
 
 // Estado para la gestión de archivos y vistas paginadas
 let archivosSeleccionados = [];
@@ -275,7 +275,10 @@ function getBossTemplate(ticketsRes) {
         <div class="panel">
             <div class="panel__header panel__header--wrap">
                 <h3>Tickets Pendientes de Asignación</h3>
-                <div>
+                <div style="display: flex; gap: 15px; align-items: center;">
+                    <button class="btn btn--success" onclick="window.location.href='formularios-jefe.html'">
+                        Bandeja de Formularios
+                    </button>
                     <input type="text" id="boss-filter" class="form-control form-control--search" placeholder="Filtrar por ID..." 
                            value="${appState.bossFilterId}" 
                            oninput="handleBossFilter(this.value)">

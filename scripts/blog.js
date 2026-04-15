@@ -28,7 +28,7 @@ async function loadPost() {
     const container = document.getElementById('post-container');
 
     try {
-        const res = await fetch(`/api/noticias/${encodeURIComponent(slug)}`);
+        const res = await fetch(`${API_URL}/api/noticias/${encodeURIComponent(slug)}`);
 
         if (!res.ok) {
             container.innerHTML = `
@@ -90,7 +90,7 @@ async function loadPost() {
 // ── Load related articles ─────────────────────────────────
 async function loadRelated(currentSlug, categoria) {
     try {
-        const res   = await fetch('/api/noticias');
+        const res   = await fetch(`${API_URL}/api/noticias`);
         if (!res.ok) return;
         const all   = await res.json();
 

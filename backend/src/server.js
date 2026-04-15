@@ -6,14 +6,14 @@ const db = require('./config/db');
 const rateLimit = require('express-rate-limit');
 const app = express();
 const path = require('path');
-const seedAdmin = require('./scripts/seed')
-
+const seedAdmin = require('./scripts/seed');
 //-Seguridad-//
 app.use(helmet({
   contentSecurityPolicy: {
       directives: {
           defaultSrc: ["'self'"],
-          scriptSrc: ["'self'"],
+          scriptSrc: ["'Self'", "'unsafe-inline'"],
+          imgSrc: ["'Self'", "data:", "blob:"]
       }
   }
 }));
@@ -23,7 +23,7 @@ app.use(cors({
       // Permite null (archivo local), localhost:5500 y localhost:5173 etc.
       const allowed = [
         'http://localhost',
-        'http://127.0.0.1',   ////cambiar en post-produccion
+        'http://127.0.0.1',
         'http://localhost',
         'http://192.168.56.1',
         'http://172.26.96.11',
@@ -35,7 +35,12 @@ app.use(cors({
         'http://172.22.48.1',
         'http://192.168.128.229',
         'http://172.20.96.1',
-        'http://localhost'
+        'http://localhost',
+        'http://172.24.224.1',
+        'http://10.0.0.20',
+        'http://192.168.128.122',
+        'http://192.168.128.238',
+        'http://192.168.128.245'
 
       ];
       if (!origin || allowed.includes(origin)) {
@@ -84,11 +89,19 @@ const ticketRoutes = require('./routes/ticketRoutes');
 app.use('/api/tickets', ticketRoutes);
 
 app.use('/subida', express.static(path.join(__dirname, 'subida')));
-
+router.get('/:slug', (req, res, next) => {
+    console.log('Slug recibido:', req.params.slug);
+    next();
+}, getNoticiasPorSlug);
 
 app.get('/', (req , res) => {
     res. json({mensaje: 'API Atalanta funciona'})
 });
+
+router.get('/:slug', (req, res, next) => {
+  console.log('Slug recibido:', req.params.slug);
+  next();
+}, getNoticiasPorSlug);
 
 seedAdmin();
 

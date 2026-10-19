@@ -4,23 +4,413 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ciberseguridad | Atalanta</title>
+    <link rel="stylesheet" href="./pages/index.css">
+    <link
+        rel="icon"
+        href="images/main_images/Favicon_32x32.png"
+        type="image/x-icon"
+    />
 </head>
 <body>
     <header class="header">
-        <nav class="navbar">
-            <li class="navbar__list">Quienes Somos <a href=""></a></li>
-            <li class="navbar__list"> Servicios
-                <ul class="dropdown-item">
-                    <li class="dropdown-item__item">Ciberseguridad <a href=""></a></li>
-                    <li class="dropdown-item__item">Digital <a href=""></a></li>
-                    <li class="dropdown-item__item">Formacion <a href=""></a></li>
-                </ul>
-            </li>
-            <li class="navbar__list"></li>
-            <li class="navbar__list"></li>
-            <li class="navbar__list"></li>
-        </nav>
+      <nav class="navbar">
+        <a href="./index.html" class="navbar__logo-container">
+          <img src="./images/main_images/Atalanta_Logo_1.png" alt="" class="navbar__logo" />
+        </a>
+        <button class="navbar__toggle" id="mobile-menu-btn" aria-label="Abrir menú">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <ul class="navbar__list" id="navbar-list">
+          <li class="navbar__item">
+            <a href="quienes-somos.html" class="navbar__link">Quiénes somos</a>
+          </li>
 
+          <li class="navbar__item navbar__item--dropdown">
+            <span class="navbar__link">Servicios</span>
+
+            <ul class="navbar__dropdown">
+              <li class="navbar__dropdown-item">
+                <a href="ciberseguridad-empresarial.html" class="navbar__dropdown-link">Ciberseguridad</a>
+              </li>
+
+              <li class="navbar__dropdown-item">
+                <a href="digital.html" class="navbar__dropdown-link">Digital</a>
+              </li>
+
+              <li class="navbar__dropdown-item">
+                <a href="formacion-ciberseguridad.html" class="navbar__dropdown-link">Formación</a>
+              </li>
+
+              <li class="navbar__dropdown-item">
+                <a href="cumplimiento.html" class="navbar__dropdown-link">Cumplimiento</a>
+              </li>
+            </ul>
+          </li>
+
+          <li class="navbar__item">
+            <a href="oportunidades-de-empleo.html" class="navbar__link">Empleo</a>
+          </li>
+
+          <li class="navbar__item">
+            <a href="partners.html" class="navbar__link">Partners</a>
+          </li>
+
+          <li class="navbar__item">
+            <a href="noticias.html" class="navbar__link">Noticias</a>
+          </li>
+
+          <li class="navbar__item">
+            <a href="contacto.html" class="navbar__link">Contacto</a>
+          </li>
+        </ul>
+      </nav>
     </header>
+    <header class="header">
+    
+        <section class="hero hero_ciberseguridad">
+            <div class="hero__content">
+                <p class="hero__heading">Ciberseguridad Empresarial</p>
+                <h1 class="hero__title">Ciberseguridad: de la Estrategia a la Defensa Activa</h1>
+                <p class="hero__paragraph">
+                    Protege tus activos críticos y garantiza la continuidad de tu negocio con soluciones de ciberseguridad diseñadas para anticipar, detectar y neutralizar amenazas.
+                </p>
+    
+                <div class="hero__tags">
+                    <div class="hero__tag">
+                        <img src="./images/cibersec_images/Header_1.png" alt="Shield" class="hero__icon">
+                        <p class="hero__text">Red Team y pruebas de penetración para evaluar tu seguridad.</p>
+                    </div>
+                    <div class="hero__tag">
+                        <img src="./images/cibersec_images/Header_2.png" alt="Cloud" class="hero__icon">
+                        <p class="hero__text">Auditorías para la seguridad en entornos Cloud y OT/IoT.</p>
+                    </div>
+                    <div class="hero__tag">
+                        <img src="./images/cibersec_images/Header_3.png" alt="Law" class="hero__icon">
+                        <p class="hero__text">Respuesta a incidentes y gestion de crisis por ciberataques.</p>
+                    </div>
+                </div>
+    
+                <a href="#" class="hero__button btn-apertura-formulario">
+                    <span class="hero__button-text">Solicitar Auditoría Técnica</span>
+                </a>
+            </div>
+        </section>
+    </header>
+
+    <main class="ciber__main">
+        <div class="ciber__hero">
+            <h2>No solo detectamos amenazas
+                entendemos la mente del atacante</h2>
+                <p>Nuestros equipos de <b>Red Team</b> y <b>Ciberdefensa</b> operan con un nivel de especialización técnica que garantizan resultados tangibles y un impacto positivo para tu negocio.</p>
+        </div>
+
+        <div class="ciber__main__cards-container">
+            <h2>Un ecosistema de defensa 360° para tu organización</h2>
+            <p>A través de nuestro framework propio y la experiencia técnica de nuestro equipo, cubrimos todas las capas de seguridad de tu organización, desde la gobernanza hasta la respuesta ante incidentes avanzados.</p>
+            
+            <div class="ciber__cards-grid">
+            <div class="ciber__main__card card" >
+                <img src="images/cibersec_images/Icon_1.png" alt="#">
+                    <h3 class="ciber__card-subtitle">Ciberestrategia</h3>
+                    <p class="ciber__card-text">No improvisamos. Utilizamos un framework propio para evaluar tu estado actual y diseñar una hoja de ruta que eleve tu postura de seguridad de forma medible.</p>
+            </div>
+            <div class="ciber__main__card card">
+                <img src="images/cibersec_images/Icon_2.png" alt="#">
+                    <h3 class="ciber__card-subtitle">Threat Intelligence y Threat Hunting</h3>
+                    <p class="ciber__card-text">Anticipamos los movimientos del adversario. Combinamos inteligencia de amenazas con búsqueda proactiva de indicadores de compromiso para detectar lo que los sistemas automatizados no ven.</p>
+            </div>
+            <div class="ciber__main__card card">
+                <img src="images/cibersec_images/Icon_3.png" alt="#">
+                    <h3 class="ciber__card-subtitle">Arquitecturas Cloud</h3>
+                    <p class="ciber__card-text">Diseñamos entornos en la nube seguros por definición. Con nuestro servicio de vCISO, dispones de dirección estratégica de seguridad sin los costes de una estructura fija.</p>
+            </div>
+            <div class="ciber__main__card card">
+                <img src="images/cibersec_images/Icon_4.png" alt="#">
+                    <h3 class="ciber__card-subtitle">Hacking & Red Team</h3>
+                    <p class="ciber__card-text">Más allá del pentesting básico. Nuestro equipo de hacking profesional, los Black Vipers, utilizan herramientas propias para simular ataques reales y detectar vulnerabilidades críticas.</p>
+            </div>
+            <div class="ciber__main__card card">
+                <img src="images/cibersec_images/Icon_5.png" alt="#">
+                    <h3 class="ciber__card-subtitle">Seguridad OT & IoT</h3>
+                    <p class="ciber__card-text">Protegemos el «corazón» de tu industria. Adecuamos tus redes industriales a normativas internacionales para evitar paradas de producción por ciberataques.</p>
+            </div>
+            <div class="ciber__main__card card">
+                <img src="images/cibersec_images/Icon_6.png" alt="#">
+                    <h3 class="ciber__card-subtitle">Ciberdefensa</h3>
+                    <p class="ciber__card-text">Detección y respuesta gestionada. No solo vigilamos; aplicamos inteligencia contextualizada a tu sector para neutralizar amenazas en tiempo real.</p>
+            </div>
+            <div class="ciber__main__card card">
+                <img src="images/cibersec_images/Icon_7.png" alt="#">
+                    <h3 class="ciber__card-subtitle">DevSecOps</h3>
+                    <p class="ciber__card-text">Seguridad sin fricción. Integramos controles automáticos en tu ciclo de desarrollo para que la innovación no se detenga, asegurando que cada despliegue sea robusto.</p>
+            </div>
+            <div class="ciber__main__card card ">
+                <img src="images/cibersec_images/Icon_8.png" alt="#">
+                    <h3 class="ciber__card-subtitle">Soluciones</h3>
+                    <p class="ciber__card-text">Trabajamos con las principales soluciones del mercado para proteger tu organización (CrowdStrike, Fortinet, zscaler, Cloudflare…). Hacemos la selección, la implementación y el mantenimiento y soporte posterior.</p>
+            </div>
+            </div>
+        </div>
+
+        <div class="ciber__main__container-areas">
+            <h3>NUESTRAS 4 ÁREAS DE LA CIBERSEGURIDAD</h3>
+            <p>Descubre nuestros servicios y programas diseñados para proteger organizaciones, impulsar la transformación digital y formar a los expertos del mañana.</p>
+            <div class="ciber__areas-grid">
+                <div class="ciber__main_card-areas card">
+                    <h3>Ciber Estrategia</h3>
+                    <p>Diseñamos y evaluamos la madurez de tu organización para establecer un camino claro hacia una estrategia de ciberseguridad sólida.
+                        Incluye:</p>
+                        <ul>
+                            <li>Planes directores de ciberseguridad</li>
+                            <li>Evaluación de nivel de madurez</li>
+                            <li>Diseño de estructuras organizativas</li>
+                            <li>Selección de soluciones adecuadas</li>
+                        </ul>
+                    </div>
+                <div class="ciber__main_card-areas">
+                    <h3>Ciber Resiliencia</h3>
+                    <p>Te acompañamos en la modernización de tu organización con una oficina de transformación especializada.
+                        Incluye:</p>
+                    <ul>
+                        <li>Oficinas de transformación</li>
+                        <li>Soporte en proyectos de transformación</li>
+                        <li>Implantación de soluciones</li>
+                        <li>Gobierno y gestión de identidades</li>
+                    </ul>
+                </div>
+                <div class="ciber__main_card-areas">
+                    <h3>Ciber Defensa</h3>
+                    <p>Refuerza tu capacidad de resistir, recuperarte y operar con seguridad ante cualquier incidente.
+                        Incluye:
+                        </p>
+                    <ul>
+                        <li>Gestión de riesgos</li>
+                        <li>Control y cumplimiento normativo</li>
+                        <li>Arquitectura de seguridad</li>
+                        <li>Continuidad (BCP / DRP)</li>
+                    </ul>
+                </div>
+                <div class="ciber__main_card-areas">
+                    <h3>Ciber Transformación</h3>
+                    <p>Protegemos tu organización mediante operaciones activas, detección y respuesta continua ante amenazas.
+                        Incluye:</p>
+                        <ul>
+                            <li>Red Team y DevSecOps</li>
+                            <li>MDR y Threat Intelligence</li>
+                            <li>Seguridad Cloud</li>
+                            <li>Seguridad OT / IoT</li>
+                        </ul>
+                </div>
+            </div>
+            <a href="#" class="ciber__main__button-form btn-apertura-formulario">
+                <span>Solicitar Asesoria</span>
+            </a>
+        </div>
+
+        <div class="main__container-certifications">
+            <h2>PRINCIPALES CERTIFICACIONES DEL EQUIPO</h2>
+            <p>Nuestro equipo cuenta con las principales certificaciones de la industria.</p>
+            <img src="images/cibersec_images/Certificaciones.png" alt="#" class="img-certifications">
+            <!-- link a formacion -->
+            <a href="formacion-ciberseguridad.html" class="ciber__main__button-form">Único Official Learning Partner de OffSec en España</a>
+        </div>
+    </main>
+
+
+    <div id="form" class="modal-overlay" style="display: none;">
+        <div class="modal-wrapper">
+            <span id="btnCerrar" class="modal-cerrar">&times;</span>
+            
+            <div class="form__container">
+                <div class="form__centrar">
+                    <div class="todojunto">
+                        
+                        <div class="form__left">
+                            <h2 class="form__container-title">¿Tienes un proyecto en mente?</h2>
+                            <div class="form__subcontainer">
+                                <p class="form__container-text">
+                                    Estamos listos para escucharte y ayudarte a llevar tu ciberseguridad al siguiente nivel. 
+                                    Cuéntanos qué necesitas y nuestro equipo de expertos se pondrá en contacto contigo a la brevedad.
+                                </p>
+                                <div class="form__item">
+                                    <img src="./images/contacto_images/Icon_2.png" alt="" class="form__img">
+                                    <p class="form__container-text">Asesoramiento personalizado según tus objetivos.</p>
+                                </div>
+                                <div class="form__item">
+                                    <img src="./images/contacto_images/Header_2.png" alt="" class="form__img">
+                                    <p class="form__container-text">Respuesta rápida y soluciones estratégicas.</p>
+                                </div>
+                                <div class="form__item">
+                                    <img src="./images/contacto_images/Header_1.png" alt="" class="form__img">
+                                    <p class="form__container-text">Compromiso total con la confidencialidad de tu información.</p>
+                                </div>
+                                <div class="form__item">
+                                    <img src="./images/contacto_images/Header_3.png" alt="" class="form__img">
+                                    <p class="form__container-text">Equipo certificado con experiencia internacional</p>
+                                </div>
+                            </div>
+                        </div>
+                        <form action="contact-user" method="post" class="form-contact">
+                            <input type="hidden" name="tipoForm" value="servicios">
+                            <legend>Iniciar Diagnóstico de Seguridad</legend>
+                            
+                            <label for="first-name" class="form__label">Nombre</label>
+                            <input type="text" id="first-name" name="nombre" required placeholder="Introduzca su nombre" class="form__input">
+                            
+                            <label for="last-name" class="form__label">Apellidos</label>
+                            <input type="text" id="last-name" name="apellidos" required placeholder="Introduzca su apellido" class="form__input">
+                            
+                            <label for="email" class="form__label">Email</label>
+                            <input type="email" id="email" name="email" required placeholder="Email" class="form__input">
+                            
+                            <label for="company" class="form__label">Empresa</label>
+                            <input type="text" id="company" name="empresa" required placeholder="Empresa" class="form__input">
+                            
+                            <label for="select" class="form__label">Cargo</label>
+                            <select name="cargo" id="select" class="form__select" required>
+                                <option value="" selected disabled hidden>Cargo</option>
+                                <option value="ciso">CISO</option>
+                                <option value="cto">CTO</option>
+                                <option value="responsable it">Responsable IT</option>
+                                <option value="ceo">CEO</option>
+                                <option value="otro">Otro</option>
+                            </select>
+                            <label for="selectCert" class="form__label">¿Cual es el desafio que mas te urge resolver?</label>
+                            <select name="interes" id="selectCert" class="form__select">
+                                <option value="" selected disabled hidden>Servicios Ciberseguridad</option>
+                                <option value="hacking">Hacking Profesional y Red Team (Black Vipers).</option>
+                                <option value="arquitectura">Arquitecturas Cloud Seguras y vCISO.</option>
+                                <option value="seguridad">Seguridad Industrial OT & IoT(Tecnologia Operacional e Internet de las Cosas).</option>
+                                <option value="ciberdefensa">Ciberdefensa y Deteccion Gestionada(MDR).</option>
+                                <option value="devsec">DevSecOps:Seguridad en el Desarrollo.</option>
+                            </select>    
+                            <label for="optional" class="form__label">¿Busca una solución inmediata o está en fase de planificación?</label>
+                            <input type="text" id="optional" name="mensaje" required placeholder="" class="form__input">
+                        
+                            <div class="form__checkbox-row">
+                                <input type="checkbox" name="leido" class="form__checkbox" required>
+                                <label class="form__checkbox-label">
+                                    Acepto la <a href="#">política de privacidad</a> de Atalanta Evolution
+                                </label>
+                            </div>
+                            <button type="submit" class="form_button">Solicitar diagnóstico técnico</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div> 
+    </div>
+
+    <footer class="footer">
+      
+        <div class="footer__top">
+            <div class="footer__top-img-container">
+                <img class="footer__top-img" src="images/main_images/Favicon_270x270.png">
+            </div>
+
+            <div class="footer__column"> <!-- pestañas de arriba -->
+                <h4 class="footer__column-title">Menú</h4>
+                <div class="footer__list-columns">
+                    <ul class="footer__list">
+                        <li style="padding-bottom: 0.7rem;">
+                            <a class="footer__link" href="quienes-somos.html"> <!-- METER LINKS A LAS PAGINAS ================================================================================== -->
+                                <span>Quiénes somos</span>
+                            </a>
+                        </li>
+                        <li style="padding-bottom: 0.7rem;">
+                            <a class="footer__link" href="ciberseguridad-empresarial.html">
+                                <span>Ciberseguridad</span>
+                            </a>
+                        </li>
+                        <li style="padding-bottom: 0.7rem;">
+                            <a class="footer__link" href="digital.html">
+                                <span>Digital</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="footer__link" href="cumplimiento.html">
+                                <span>Cumplimiento</span>
+                            </a>
+                        </li>
+                        
+                    </ul>
+
+                    <ul class="footer__list">
+                        <li style="padding-bottom: 0.7rem;">
+                            <a class="footer__link" href="formacion-ciberseguridad.html">
+                                <span>Formación</span>
+                            </a>
+                        </li>
+                        <li style="padding-bottom: 0.7rem;">
+                            <a class="footer__link" href="oportunidades-de-empleo.html">
+                                <span>Empleo</span>
+                            </a>
+                        </li>
+
+                        <li style="padding-bottom: 0.7rem;">
+                            <a class="footer__link" href="partners.html">
+                                <span>Partners</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="footer__link" href="contacto.html">
+                                <span>Contacto</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer__column"> <!-- contacto -->
+                <h4 class="footer__column-title">Contacta con nosotros</h4>
+                <ul class="footer__list">
+                    <li class="footer__list-item"> <!-- correo -->
+                        <a class="footer__link" href="mailto:info@atalantago.com" target="_blank">
+                            <span>info@atalantago.com</span>
+                        </a> 
+                    </li> 
+                    <li class="footer__list-item"> <!-- linkedin -->
+                        <a class="footer__link" href="https://www.linkedin.com/company/atalanta-ciberseguridad?trk=ppro_cprof" target="_blank">
+                            <span>Linkedin</span>
+                        </a> 
+                    </li> 
+                    <li class="footer__list-item"> 
+                        <a class="footer__link" href="https://www.instagram.com/atalanta.academy/" target="_blank">
+                            <span>Instagram</span>
+                        </a> 
+                    </li> <!-- instagram -->
+                    <li class="footer__list-item"> <!-- direccion -->
+                        <span class="footer__plain-text">C. de Carranza, 25, 3º – 3, Centro, 28004 Madrid</span>
+                    </li> 
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer__bottom">
+            <p class="footer__copyright">Copyright © 2026. Todos los derechos reservados por Atalanta Evolution</p>
+            <ul class="footer__legal-list">
+                <li class="footer__list-item">
+                    <a class="footer__legal-link" href="legal-politicas.html">
+                        <span>AVISO LEGAL</span>
+                    </a>
+                </li>
+                <li class="footer__list-item">
+                    <a class="footer__legal-link" href="legal-politicas.html">
+                        <span>POLÍTICA DE PRIVACIDAD</span>
+                    </a>
+                </li>
+                <li class="footer__list-item">
+                    <a class="footer__legal-link" href="legal-politicas.html">
+                        <span>POLITICA DE COOKIES</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </footer>
+    <script src="./scripts/config.js"></script>
+    <script src="./scripts/forms.js"></script>
+    <script src="./scripts/header_temporal.js"></script>
 </body>
 </html>

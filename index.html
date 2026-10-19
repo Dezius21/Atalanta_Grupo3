@@ -1,13 +1,683 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <meta
+      name="description"
+      content="Conoce al equipo de expertos en ciberseguridad, IA y transformación digital de Atalanta. Profesionales senior que protegen organizaciones en Europa y Latinoamérica."
+    />
+
+    <link
+      rel="icon"
+      href="images/main_images/Favicon_32x32.png"
+      type="image/x-icon"
+    />
+    <title>Equipo de expertos en ciberseguridad | Atalanta</title>
+
+    <link rel="stylesheet" href="./pages/index.css">
+    <link rel="stylesheet" href="./vendor/normalize.css">
 </head>
 <body>
-    <div>
-        hola
+  <header class="header">
+    <nav class="navbar">
+      <a href="./index.html" class="navbar__logo-container">
+        <img src="./images/main_images/Atalanta_Logo_1.png" alt="" class="navbar__logo" />
+      </a>
+      <button class="navbar__toggle" id="mobile-menu-btn" aria-label="Abrir menú">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <ul class="navbar__list" id="navbar-list">
+        <li class="navbar__item">
+          <a href="quienes-somos.html" class="navbar__link">Quiénes somos</a>
+        </li>
+
+        <li class="navbar__item navbar__item--dropdown">
+          <span class="navbar__link">Servicios</span>
+
+          <ul class="navbar__dropdown">
+            <li class="navbar__dropdown-item">
+              <a href="ciberseguridad-empresarial.html" class="navbar__dropdown-link">Ciberseguridad</a>
+            </li>
+
+            <li class="navbar__dropdown-item">
+              <a href="digital.html" class="navbar__dropdown-link">Digital</a>
+            </li>
+
+            <li class="navbar__dropdown-item">
+              <a href="formacion-ciberseguridad.html" class="navbar__dropdown-link">Formación</a>
+            </li>
+
+            <li class="navbar__dropdown-item">
+              <a href="cumplimiento.html" class="navbar__dropdown-link">Cumplimiento</a>
+            </li>
+          </ul>
+        </li>
+
+        <li class="navbar__item">
+          <a href="oportunidades-de-empleo.html" class="navbar__link">Empleo</a>
+        </li>
+
+        <li class="navbar__item">
+          <a href="partners.html" class="navbar__link">Partners</a>
+        </li>
+
+        <li class="navbar__item">
+          <a href="noticias.html" class="navbar__link">Noticias</a>
+        </li>
+
+        <li class="navbar__item">
+          <a href="contacto.html" class="navbar__link">Contacto</a>
+        </li>
+
+        
+      </ul>
+    </nav>
+
+    <section class="hero hero--carousel">
+ 
+      <!-- ── FONDOS (uno por slide) ─────────────────────────────────────── -->
+      <div class="hero__bg hero__bg--1 hero__bg--active"></div>
+      <div class="hero__bg hero__bg--2"></div>
+      <div class="hero__bg hero__bg--3"></div>
+    
+      <!-- ── SLIDE 1 (tu contenido original) ───────────────────────────── -->
+      <div class="hero__slide hero__slide--active">
+        <div class="hero__content">
+          <p class="hero__heading">Quiénes somos</p>
+    
+          <h1 class="hero__title">
+            Mejoramos el valor de tu compañía y experiencia cliente a través de la tecnología
+          </h1>
+    
+          <p class="hero__paragraph">
+            Ayudamos a nuestros clientes a establecer la estrategia digital y cómo llevarla a cabo,
+            a modernizar la tecnología core y adaptarla de forma segura.
+          </p>
+    
+          <div class="hero__tags">
+            <div class="hero__tag">
+              <img src="images/digital_images/Header_1.png" alt="" class="hero__icon" />
+              <p class="hero__text">Diseño y ejecución de estrategia digital.</p>
+            </div>
+            <div class="hero__tag">
+              <img src="images/digital_images/Header_2.png" alt="" class="hero__icon" />
+              <p class="hero__text">Modernización de la tecnología core de tu empresa.</p>
+            </div>
+            <div class="hero__tag">
+              <img src="images/digital_images/Header_3.png" alt="" class="hero__icon" />
+              <p class="hero__text">Aprovecha el 100% del poder de los datos.</p>
+            </div>
+          </div>
+    
+          <a href="#" class="hero__button btn-apertura-formulario">
+            <span class="hero__button-text">Agendar una sesión estratégica</span>
+          </a>
+        </div>
+      </div>
+    
+      <!-- ── SLIDE 2 ─────────────────────────────────────────────────────── -->
+      <div class="hero__slide">
+        <div class="hero__content">
+          <p class="hero__heading">Nuestros Servicios</p>
+    
+          <h1 class="hero__title">
+            Ciberseguridad avanzada para proteger lo que más importa
+          </h1>
+    
+          <p class="hero__paragraph">
+            Protegemos tu negocio frente a las amenazas más avanzadas con soluciones ofensivas,
+            defensivas y de cumplimiento normativo.
+          </p>
+    
+          <div class="hero__tags">
+            <div class="hero__tag">
+              <img src="images/index_images/icon_1.png" alt="" class="hero__icon" />
+              <p class="hero__text">Red Team y DevSecOps.</p>
+            </div>
+            <div class="hero__tag">
+              <img src="images/index_images/icon_2.png" alt="" class="hero__icon" />
+              <p class="hero__text">Seguridad Cloud y OT/IoT.</p>
+            </div>
+            <div class="hero__tag">
+              <img src="images/index_images/icon_3.png" alt="" class="hero__icon" />
+              <p class="hero__text">Cumplimiento normativo (ISO, ENS, DORA, NIS2…).</p>
+            </div>
+          </div>
+    
+          <a href="ciberseguridad-empresarial.html" class="hero__button">
+            <span class="hero__button-text">Conocer servicios de ciberseguridad</span>
+          </a>
+        </div>
+      </div>
+    
+      <!-- ── SLIDE 3 ─────────────────────────────────────────────────────── -->
+      <div class="hero__slide">
+        <div class="hero__content">
+          <p class="hero__heading">Atalanta Academy</p>
+    
+          <h1 class="hero__title">
+            Forma a los expertos en ciberseguridad del mañana
+          </h1>
+    
+          <p class="hero__paragraph">
+            Certificaciones oficiales, laboratorios propios y plataforma CTF para desarrollar
+            tu carrera en el mundo real.
+          </p>
+    
+          <div class="hero__tags">
+            <div class="hero__tag">
+              <img src="images/index_images/icon_4.png" alt="" class="hero__icon" />
+              <p class="hero__text">Certificados oficiales (OffSec Partner).</p>
+            </div>
+            <div class="hero__tag">
+              <img src="images/index_images/icon_5.png" alt="" class="hero__icon" />
+              <p class="hero__text">Laboratorios propios y plataforma CTF.</p>
+            </div>
+            <div class="hero__tag">
+              <img src="images/index_images/icon_6.png" alt="" class="hero__icon" />
+              <p class="hero__text">Itinerarios profesionales y acuerdos con universidades.</p>
+            </div>
+          </div>
+    
+          <a href="formacion-ciberseguridad.html" class="hero__button">
+            <span class="hero__button-text">Ver programas de formación</span>
+          </a>
+        </div>
+      </div>
+    
+      <!-- ── CONTROLES ───────────────────────────────────────────────────── -->
+      <button class="hero__arrow hero__arrow--prev" aria-label="Anterior">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+          <path d="M13 4L7 10L13 16" stroke="white" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+    
+      <button class="hero__arrow hero__arrow--next" aria-label="Siguiente">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+          <path d="M7 4L13 10L7 16" stroke="white" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+    
+      <div class="hero__dots">
+        <button class="hero__dot hero__dot--active" aria-label="Slide 1"></button>
+        <button class="hero__dot" aria-label="Slide 2"></button>
+        <button class="hero__dot" aria-label="Slide 3"></button>
+      </div>
+    
+      <div class="hero__progress"></div>
+    </section>
+  </header>
+  <div class="index__tarjetaslink"> <!-- La stres tarjetas que llevan a otras paginas -->
+    <div class="index__title-blanco"> <!-- titulo -->
+      <h2>Todo lo que necesitas para que tu negocio crezca con seguridad</h2>
     </div>
+    <div class="index__tarjetaslink-text"> <!-- subtitulo -->
+      <p>Descubre nuestros servicios y programas diseñados para proteger organizaciones, impulsar la transformación digital y formar a los expertos del mañana.</p>
+    </div>
+
+    <div class="cards"> <!-- tarjetas -->
+      <div class="card card_index-1"> <!-- tarjeta 1 -->
+        <a class="card__index-link" href="ciberseguridad-empresarial.html"> <!-- METER LINK A LA PAGINA CORRESPONDIENTE --------------------------------- -->
+          <div> <!-- imagen -->
+            <img class="card__image" src="images/index_images/icon_1.png">
+          </div> 
+          <div> <!-- titulo -->
+            <h2 class="card__title ">Ciberseguridad avanzada</h2>
+          </div> 
+          <div> <!-- subtitulo -->
+            <p class="card__subtitle">Protección integral para tu organizacion</p>
+          </div> 
+          <div> <!-- texto -->
+            <p class="card__text">Protegemos tu negocio frente a las amenazas más avanzadas</p>
+          </div> 
+          <div> <!-- lista -->
+            <ul class="card__list">
+              <li class="card__list-item">Red Team Y DevSecOps</li>
+              <li class="card__list-item">Seguridad Cloud y OT/IoT</li>
+              <li class="card__list-item">Cumplimiento normativo (ISO, ENS, DORA, NIS2...).</li>
+              <li class="card__list-item">Servicios de ciberdefensa (MDR, Thread Hunting, Incident Response...).</li>
+            </ul>
+          </div> 
+        </a>
+      </div>
+
+      <div class="card card_index-2"> <!-- tarjeta 2 -->
+        <a class="card__index-link" href="digital.html"> 
+          <div> <!-- imagen -->
+            <img class="card__image" src="images/index_images/icon_2.png">
+          </div> 
+          <div> <!-- titulo -->
+            <h2 class="card__title">Digital e IA</h2>
+          </div> 
+          <div> <!-- subtitulo -->
+            <p class="card__subtitle">Impulsa tu negocio de forma segura y eficiente</p>
+          </div> 
+          <div> <!-- texto -->
+            <p class="card__text">Integramos la ciberseguridad en cada paso de tu transformación digital</p>
+          </div> 
+          <div> <!-- lista -->
+            <ul class="card__list">
+              <li class="card__list-item">Planes Directores y Arquitecturas seguras</li>
+              <li class="card__list-item">Gobierno de Identidades y Gestión de riesgos</li>
+              <li class="card__list-item">Continuidad de negocio (BCP/DRP).</li>
+            </ul>
+          </div> 
+        </a>
+      </div>
+
+      <div class="card card_index-3"> <!-- tarjeta 3 -->
+        <a class="card__index-link" href="formacion-ciberseguridad.html"> 
+          <div> <!-- imagen -->
+            <img class="card__image" src="images/index_images/icon_3.png">
+          </div> 
+          <div> <!-- titulo -->
+            <h2 class="card__title">Atalanta Academy</h2>
+          </div> 
+          <div> <!-- subtitulo -->
+            <p class="card__subtitle">Crea expertos en ciberseguridad</p>
+          </div> 
+          <div> <!-- texto -->
+            <p class="card__text">Desarrolla tu carrera con Atalanta Academy y programas diseñados para el mundo real</p>
+          </div> 
+          <div> <!-- lista -->
+            <ul class="card__list">
+              <li class="card__list-item">Certificados oficiales (Offsec Partner).</li>
+              <li class="card__list-item">Laboratorios propios y plataforma CTF</li>
+              <li class="card__list-item">Itinerarios profesionales y acuerdos con universidades</li>
+            </ul>
+          </div> 
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================================================== -->
+
+    <div class="index__confian-container"> <!-- Parte de los numeros esos -->
+      <div class="index__title-blanco"> 
+        <h2>Confían en Atalanta para proteger lo que más importa</h2>
+      </div>
+      <div class="index__confian-stats">
+        <div class="index__confian-item"> <!-- recuadro 1 -->
+          <div class="index__confian-number"> <!-- numero -->
+            <p>+70</p>
+          </div>
+          <div class="index__confian-text"> <!-- texto -->
+            <p>Organizaciones protegidas en Europa y LATAM</p>
+          </div>
+        </div>
+
+        <div class="index__confian-item"> <!-- recuadro 2 -->
+          <div class="index__confian-number"> <!-- numero -->
+            <p>+50</p>
+          </div>
+          <div class="index__confian-text"> <!-- texto -->
+            <p>Expertos certificados en ciberseguridad ofensiva y defensiva</p>
+          </div>
+        </div>
+
+        <div class="index__confian-item"> <!-- recuadro 3 -->
+          <div class="index__confian-number"> <!-- numero -->
+            <p>+10</p>
+          </div>
+          <div class="index__confian-text"> <!-- texto -->
+            <p>Años ayudando a empresas a reducir su superficie de ataque</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ========================================================================================================== -->
+
+    <div class="index__trabajamos"> <!-- tarjetas como trabajamos en atalanta -->
+      <div class="index__title-blanco"> <!-- titulo -->
+        <h2>Cómo trabajamos en Atalanta</h2>
+      </div>
+      <div class="index__trabajamos-text"> <!-- subtitulo -->
+        <p>Te acompañamos de principio a fin: desde entender tus procesos y riesgos hasta operar la ciberseguridad en el día a día de tu organización.</p>
+      </div>
+      <div> <!-- tarjetas -->
+        <div class="index_trabajamos-card"> <!-- 1 -->
+          <div> <!-- img -->
+            <img  src="images/index_images/icon_4.png">
+          </div>
+          <div> <!-- texto -->
+            <h3>Priorizamos la calidad y los resultados</h3>
+          </div>
+        </div>
+
+        <div class="index_trabajamos-card"> <!-- 2 -->
+          <div> <!-- img -->
+            <img  src="images/index_images/icon_5.png">
+          </div>
+          <div> <!-- texto -->
+            <h3>Utilizamos metodologías y herramientas diseñadas y creadas por nosotros</h3>
+          </div>
+        </div>
+
+        <div class="index_trabajamos-card"> <!-- 3 -->
+          <div> <!-- img -->
+            <img  src="images/index_images/icon_6.png">
+          </div>
+          <div> <!-- texto -->
+            <h3>Ponemos a prueba tu seguridad</h3>
+          </div>
+        </div>
+
+        <div class="index_trabajamos-card"> <!-- 4 -->
+          <div> <!-- img -->
+            <img  src="images/index_images/icon_7.png">
+          </div>
+          <div> <!-- texto -->
+            <h3>Te ayudamos a salir de un incidente de seguridad</h3>
+          </div>
+        </div>
+
+        <div class="index_trabajamos-card"> <!-- 5 -->
+          <div> <!-- img -->
+            <img  src="images/index_images/iconos_8.png">
+          </div>
+          <div> <!-- texto -->
+            <h3>Somos proactivos y escuchamos las necesidades de nuestros clientes</h3>
+          </div>
+        </div>
+        
+        <div class="index_trabajamos-card"> <!-- 6 -->
+          <div> <!-- img -->
+            <img  src="images/index_images/icon_9.png">
+          </div>
+          <div> <!-- texto -->
+            <h3>Nos adaptamos al tamaño de tu organización</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ========================================================================================================== -->
+
+    <div class="index__offsec-wrapper"> <!-- Parte de Offsec -->
+      <div class="index__offsec">
+        <div class="index__offsec-izq"> <!-- texto izq -->
+          <div class="index__title-negro"> <!-- titulo -->
+            <h2>Único Official Learning Partner de OffSec en España</h2>
+          </div>
+          <div> <!-- texto 1 -->
+            <p>Somos <b>Authorized Learning Partner</b>. Gestionamos tu acceso directo a los cursos y exámenes oficiales (PEN-200, WEB-300…) con todas las garantías.</p>
+          </div>
+          <div> <!-- texto 2-->
+            <p>Obtén el <b>mismo material oficial y acceso a laboratorios</b> que comprando en EEUU, pero con las ventajas de comprar en casa:</p>
+          </div>
+          <div> <!-- lista -->
+            <ul>
+              <li>Facturación española con IVA desglosado.</li>
+              <li>Pago en Euros (sin comisiones de cambio).</li>
+              <li>Gestión administrativa directa.</li>
+            </ul>
+          </div>
+          <div> <!-- boton -->
+            <a href="formacion-ciberseguridad.html"  class="idex__offsec-izq-btn">
+              <span>Solicitar Licencia OffSec</span> 
+            </a>
+          </div>
+        </div>  
+
+        <div class="index__offsec-der"> <!-- imagenes der -->
+          <div> <!-- img 1 -->
+            <img src="images/main_images/Logo_offsec.png">
+          </div>
+          <div> <!-- img 2-->
+            <img src="images/main_images/productos.png">
+          </div>
+          <div> <!-- pie de foto -->
+            <p><strong>Top 10 mundial en Hack The Box / TryHackMe</strong></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ========================================================================================================== -->
+
+    <div class="index__carousel-container"> <!-- Empresas respaldos -->
+      <div class="index__title-negro">
+        <h2>Respaldados por los referentes en ciberseguridad</h2>
+      </div>
+      <div class="index__carousel-text">
+        <p>Colaboramos con los principales referentes en ciberseguridad ofensiva y defensiva</p>
+      </div>
+
+      <div class="index__galeria">
+        <div class="index__carousel-item">
+          <img src="images/index_images/Logo_0.png">
+        </div>
+        <div class="index__carousel-item">
+          <img src="images/index_images/Logo_1.png">
+        </div>
+        <div class="index__carousel-item">
+          <img src="images/index_images/Logo_2.png">
+        </div>
+        <div class="index__carousel-item">
+          <img src="images/index_images/Logo_3.png">
+        </div>
+        <div class="index__carousel-item">
+          <img src="images/index_images/Logo_4.png">
+        </div>
+        <div class="index__carousel-item">
+          <img src="images/index_images/Logo_5.png">
+        </div>
+        <div class="index__carousel-item">
+          <img src="images/index_images/Logo_6.png">
+        </div>
+        <div class="index__carousel-item">
+          <img src="images/index_images/Logo_7.png">
+        </div>
+        <div class="index__carousel-item">
+          <img src="images/index_images/Logo_8.png">
+        </div>
+        <div class="index__carousel-item">
+          <img src="images/index_images/Logo_9.png">
+        </div>
+        <div class="index__carousel-item">
+          <img src="images/index_images/Logo_10.png">
+        </div>
+        <div class="index__carousel-item">
+          <img src="images/index_images/Logo_11.png">
+        </div>
+        <div class="index__carousel-item">
+          <img src="images/index_images/Logo_12.png">
+        </div>
+        <div class="index__carousel-item">
+          <img src="images/index_images/Logo_13.png">
+        </div>
+      </div>
+
+      <script src="./scripts/index.js"></script>
+      
+    </div>
+    <div id=form class="modal-overlay" style="display: none;">
+      <div class="modal-wrapper">
+          <span id="btnCerrar" class="modal-cerrar">&times;</span>
+          <div class="form__container">
+          <div class="form__centrar"> 
+      
+                  <div class="todojunto"> 
+      
+                      <div class="form__left">
+                          <h2 class=form__container-title>Inicia tu Diagnóstico de Seguridad con Atalanta</h2>
+      
+                          <div class="form__subcontainer">
+                              <p class="form__container-text">Protege tu negocio e impulsa tu transformación digital con soluciones diseñadas por expertos <span></span>certificados con experiencia internacional. Completa los datos para iniciar vuestro reconocimiento de superficie pública y estrategia 
+                              adaptada.</p>
+                          
+                              <div class="form__item">
+                                  <img src="./images/contacto_images/Header_3.png" alt="" class="form__img">
+                                  <p class="form__container-text"> Soluciones avanzadas para blindar tu negocio frente a ciberamenazas.</p>
+                              </div>
+                              <div class="form__item">
+                                  <img src="./images/contacto_images/Header_1.png" alt="" class="form__img">
+                                  <p class="form__container-text">Diseño y ejecución de estrategias digitales sin comprometer la seguridad.</p>
+                              </div>
+                              <div class="form__item">
+                                  <img src="./images/main_images/Form_1.png" alt="" class="form__img">
+                                  <p class="form__container-text">Certificaciones reconocidas</p>
+                              </div>
+                              <div class="form__item">
+                                  <img src="./images/contacto_images/Icon_2.png" alt="" class="form__img">
+                                  <p class="form__container-text">Expertos en ciberseguridad, IA y transformación digital con experiencia internacional.</p>
+                              </div>
+                          </div>
+                      </div>
+      
+                      <form action="contact-user" method="post" class="form-contact">
+                          <input type="hidden" name="tipoForm" value="general">
+                          <legend>Iniciar Diagnostico de Seguridad</legend>
+                          <label for="first-name" class="form__label">Nombre</label>
+                          <input type="text" id="first-name" name="nombre" required placeholder="Introduzca su nombre" class="form__input">
+                          <label for="last-name"  class="form__label">Apellidos</label>
+                          <input type="text" id="last-name" name="apellidos" required placeholder="Introduzca su apellido" class="form__input">
+                          <label for="email" class="form__label">Email</label>
+                          <input type="email" id="email" name="email"  required placeholder="Email" class="form__input">
+                          <label for="company" class="form__label">Empresa</label>
+                          <input type="text" id="company" name="empresa" required placeholder="Empresa" class="form__input">
+                          <label for="select" class="form__label">Cargo</label>
+                          <select name="cargo" id="select" class="form__select" required>
+                              <option value="" selected disabled hidden>Cargo</option>
+                              <option value="ciso">CISO</option>
+                              <option value="cto">CTO</option>
+                              <option value="responsable it">Responsable IT</option>
+                              <option value="ceo">CEO</option>
+                              <option value="otro">Otro</option>
+                          </select>
+                          <label for="optional" class="form__label">Cuentanos un poco sobre tus necesidades y areas de interes.</label>
+                          <input type="text" id="optional" name="mensaje" required placeholder="" class="form__input">
+                          <div class="form__checkbox-row">
+                              <input type="checkbox" name="leido" class="form__checkbox" required>
+                              <label class="form__checkbox-label">
+                                  Acepto la <a href="">politica de privacidad</a> de Atalanta Evolution
+                              </label>
+                          </div>
+                          <button type="submit" class="form_button">Solicitar diagnostico tecnico</button>
+                      </form>
+                  </div>
+              </div>
+          </div>
+      </div>
+      </div>
+      
+      <footer class="footer">
+      
+        <div class="footer__top">
+            <div class="footer__top-img-container">
+                <img class="footer__top-img" src="images/main_images/Favicon_270x270.png">
+            </div>
+
+            <div class="footer__column"> <!-- pestañas de arriba -->
+                <h4 class="footer__column-title">Menú</h4>
+                <div class="footer__list-columns">
+                    <ul class="footer__list">
+                        <li style="padding-bottom: 0.7rem;">
+                            <a class="footer__link" href="quienes-somos.html"> <!-- METER LINKS A LAS PAGINAS ================================================================================== -->
+                                <span>Quiénes somos</span>
+                            </a>
+                        </li>
+                        <li style="padding-bottom: 0.7rem;">
+                            <a class="footer__link" href="ciberseguridad-empresarial.html">
+                                <span>Ciberseguridad</span>
+                            </a>
+                        </li>
+                        <li style="padding-bottom: 0.7rem;">
+                            <a class="footer__link" href="digital.html">
+                                <span>Digital</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="footer__link" href="cumplimiento.html">
+                                <span>Cumplimiento</span>
+                            </a>
+                        </li>
+                        
+                    </ul>
+
+                    <ul class="footer__list">
+                        <li style="padding-bottom: 0.7rem;">
+                            <a class="footer__link" href="formacion-ciberseguridad.html">
+                                <span>Formación</span>
+                            </a>
+                        </li>
+                        <li style="padding-bottom: 0.7rem;">
+                            <a class="footer__link" href="oportunidades-de-empleo.html">
+                                <span>Empleo</span>
+                            </a>
+                        </li>
+
+                        <li style="padding-bottom: 0.7rem;">
+                            <a class="footer__link" href="partners.html">
+                                <span>Partners</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="footer__link" href="contacto.html">
+                                <span>Contacto</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer__column"> <!-- contacto -->
+                <h4 class="footer__column-title">Contacta con nosotros</h4>
+                <ul class="footer__list">
+                    <li class="footer__list-item"> <!-- correo -->
+                        <a class="footer__link" href="mailto:info@atalantago.com" target="_blank">
+                            <span>info@atalantago.com</span>
+                        </a> 
+                    </li> 
+                    <li class="footer__list-item"> <!-- linkedin -->
+                        <a class="footer__link" href="https://www.linkedin.com/company/atalanta-ciberseguridad?trk=ppro_cprof" target="_blank">
+                            <span>Linkedin</span>
+                        </a> 
+                    </li> 
+                    <li class="footer__list-item"> 
+                        <a class="footer__link" href="https://www.instagram.com/atalanta.academy/" target="_blank">
+                            <span>Instagram</span>
+                        </a> 
+                    </li> <!-- instagram -->
+                    <li class="footer__list-item"> <!-- direccion -->
+                        <span class="footer__plain-text">C. de Carranza, 25, 3º – 3, Centro, 28004 Madrid</span>
+                    </li> 
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer__bottom">
+            <p class="footer__copyright">Copyright © 2026. Todos los derechos reservados por Atalanta Evolution</p>
+            <ul class="footer__legal-list">
+                <li class="footer__list-item">
+                    <a class="footer__legal-link" href="legal-politicas.html">
+                        <span>AVISO LEGAL</span>
+                    </a>
+                </li>
+                <li class="footer__list-item">
+                    <a class="footer__legal-link" href="legal-politicas.html">
+                        <span>POLÍTICA DE PRIVACIDAD</span>
+                    </a>
+                </li>
+                <li class="footer__list-item">
+                    <a class="footer__legal-link" href="legal-politicas.html">
+                        <span>POLITICA DE COOKIES</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </footer>
+    <script src="./scripts/in.js"></script>
+    <script src="./scripts/config.js"></script>
+    <script src="./scripts/forms.js"></script>
+    <script src="./scripts/header_temporal.js"></script>
 </body>
 </html>

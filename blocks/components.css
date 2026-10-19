@@ -1,0 +1,196 @@
+.sidebar {
+    background-color: var(--color-sidebar-bg);
+    color: var(--color-white);
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar__brand {
+    padding: 20px;
+    text-align: center;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.sidebar__title {
+    font-style: italic;
+}
+
+.sidebar__list {
+    list-style: none;
+    padding: 20px 0;
+}
+
+.sidebar__item {
+    padding: 15px 20px;
+    color: var(--color-sidebar-text);
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+}
+
+.sidebar__item:hover, 
+.sidebar__item--active { /* Modificador BEM */
+    background-color: var(--color-danger);
+    color: var(--color-white);
+}
+
+/* --- Block: Topbar --- */
+.topbar {
+    background: var(--color-white);
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.topbar__title {
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+/* --- Block: Data Container --- */
+.data-panel {
+    background: var(--color-white);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.data-panel__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.data-panel__title {
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+/* --- Block: Table --- */
+.table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table__th, 
+.table__td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.table__th {
+    color: var(--color-text-muted);
+    font-weight: normal;
+}
+
+/* --- Block: Button --- */
+.btn {
+    border: none;
+    padding: 8px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: opacity 0.2s;
+    width: max-content;
+}
+
+.btn:hover {
+    opacity: 0.8;
+}
+
+/* Modificadores BEM para botones */
+.btn--primary {
+    background: var(--color-primary);
+    color: var(--color-white);
+}
+
+.btn--danger {
+    background: var(--color-danger);
+    color: var(--color-white);
+    padding: 5px 12px;
+    border-radius: 12px;
+    font-size: 0.85rem;
+}
+
+/* =========================================
+   MODIFICADORES DE COMPONENTES (BEM)
+   ========================================= */
+
+/* Modificadores para el panel header */
+.panel__header--wrap {
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+/* Modificadores para controles de formulario */
+.form-control--sm {
+    margin: 0;
+    padding: 5px;
+}
+
+.form-control--search {
+    width: 250px;
+    display: inline-block;
+    margin-top: 0;
+}
+
+/* Modificadores para botones */
+.btn--sm {
+    padding: 4px 8px;
+}
+
+.btn--full {
+    width: 100%;
+    margin-top: 10px;
+}
+
+.btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Acciones dentro de la tabla */
+.table__actions {
+    display: flex;
+    gap: 5px;
+    justify-content: center;
+}
+
+/* Paginación */
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.pagination__info {
+    font-weight: 600;
+}
+
+/* Utilidades de texto y listas */
+.text-muted {
+    color: var(--color-text-muted);
+    font-size: 13px;
+}
+
+.text-danger {
+    color: var(--color-danger);
+}
+
+.file-list__item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+    font-size: 0.9em;
+}
+
+.btn-icon {
+    border: none;
+    background: none;
+    cursor: pointer;
+}

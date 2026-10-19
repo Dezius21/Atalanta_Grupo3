@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formularios | Atalanta Dashboard</title>
+    <link rel="stylesheet" href="./pages/dashboard.css">
+</head>
+<body class="app">
+    <div class="dashboard">
+        <aside class="sidebar">
+            <a href="index.html" class="sidebar__brand">
+                <img src="./images/main_images/Atalanta_Logo_1.png" class="dashboard__logo" alt="Atalanta">
+            </a>
+            <nav id="sidebar-nav" class="sidebar__nav">
+                <li class="sidebar__item" onclick="window.location.href='dashboard.html'">Dashboard Principal</li>
+                <li class="sidebar__item sidebar__item--active">Bandeja de Formularios</li>
+                <li class="sidebar__item">Cerrar Sesión</li>
+            </nav>
+        </aside>
+
+        <main class="dashboard__main">
+            <header class="topbar">
+                <h2 id="view-title" class="topbar__title">Formularios Recibidos</h2>
+                <div class="topbar__user" id="user-info">Cargando usuario...</div>
+            </header>
+            
+            <section id="content-area" class="content-area"></section>
+            
+            <div id="loader" class="loader">
+                <div class="loader__overlay">
+                    <div class="loader__box">
+                        <div class="loader__spinner"></div>
+                        <p class="loader__text">Cargando datos...</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <div id="modal-root"></div>
+
+    <script src="./scripts/dashboard_formulario.js"></script>
+</body>
+</html>
